@@ -50,3 +50,7 @@ secrets*
 Thumbs.db
 .idea/
 .vscode/
+
+# ---- 参考用上游克隆（只读，不入库）----
+third_party/Motus-src/
+

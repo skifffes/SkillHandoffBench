@@ -1,0 +1,6 @@
+task,seed,success,s1_completed,s2_completed,total_steps,s1_step,s2_step,switch_step,switch_count,cache_cleared,cue_step,steps_after_switch
+office_desk_2tasks,4300000,True,True,True,172,43,168,48,1,False,43,124
+office_desk_2tasks,4300001,True,True,True,285,79,246,80,1,False,79,205
+office_desk_2tasks,4300002,True,True,True,423,44,400,48,1,False,44,375
+office_desk_2tasks,4300003,False,True,False,1500,177,,192,1,False,177,1308
+office_desk_2tasks,4300004,True,True,True,206,49,201,64,1,False,49,142

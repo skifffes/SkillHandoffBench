@@ -1,0 +1,46 @@
+diff --git a/envs/camera/camera.py b/envs/camera/camera.py
+index 46d960d..a209fb6 100644
+--- a/envs/camera/camera.py
++++ b/envs/camera/camera.py
+@@ -2,7 +2,11 @@ import sapien.core as sapien
+ import numpy as np
+ import pdb
+ from PIL import Image, ImageColor
+-import open3d as o3d
++try:  # [SkillHandoffBench patch 001] open3d 需要 glibc>=2.27（本机 2.17），
++# 且本文件只 import 不使用它；改成可选导入，避免整个 envs 无法 import。
++    import open3d as o3d
++except ImportError:  # pragma: no cover
++    o3d = None
+ import json
+ import transforms3d as t3d
+ import cv2
+@@ -33,7 +37,12 @@ try:
+         return sampled_points, indices
+ 
+ except:
+-    print("missing pytorch3d")
++    # [SkillHandoffBench patch 003] pytorch3d 在本机不可用（需编译 CUDA 扩展）；
++    # 只在 fps() 里用到，本仓库的评测配置（pointcloud: false）不会调用它。
++    try:
++        print("missing pytorch3d")
++    except OSError:
++        pass
+ 
+     def fps(points, num_points=1024, use_cuda=True):
+         print("fps error: missing pytorch3d")
+diff --git a/policy/Motus/deploy_policy.py b/policy/Motus/deploy_policy.py
+index de8fe4d..c84dd90 100755
+--- a/policy/Motus/deploy_policy.py
++++ b/policy/Motus/deploy_policy.py
+@@ -4,6 +4,10 @@ import cv2
+ from pathlib import Path
+ import sys
+ import os
++# [SkillHandoffBench patch 002] 保留原 wrapper 的强引用，否则它被 GC 时会 close(fd 1/2)，
++# 之后所有 print 抛 OSError [Errno 22]（在 eval_policy 里表现为 task 直接崩溃）。
++_STDOUT_KEEPALIVE = sys.stdout
++_STDERR_KEEPALIVE = sys.stderr
+ sys.stdout = os.fdopen(sys.stdout.fileno(), 'w', buffering=1, encoding='utf-8')
+ sys.stderr = os.fdopen(sys.stderr.fileno(), 'w', buffering=1, encoding='utf-8')
+ import logging

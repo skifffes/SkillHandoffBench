@@ -118,7 +118,7 @@ df -h /scratch
 du -sh /scratch/lijh/* 2>/dev/null | sort -h | tail -20
 ```
 
-当前 **≈19 GB 可用**。先估算 RoboTwin 资产 + Motus 权重 + venv 的总和；放不下就**不要下载**，
+当前 **≈232 GB 可用**。先估算 RoboTwin 资产 + Motus 权重 + venv 的总和；放不下就**不要下载**，
 记录 `BLOCKED: disk` 并给出最小解决措施（向管理员扩容 / 清理已确认可再生成的旧合并参数，
 **但不得删除 Simulate 的 checkpoint 与数据**）。
 

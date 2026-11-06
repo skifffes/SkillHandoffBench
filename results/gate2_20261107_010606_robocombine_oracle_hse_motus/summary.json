@@ -1,0 +1,120 @@
+{
+  "run_id": "gate2_20261107_010606_robocombine_oracle_hse_motus",
+  "track": "oracle_hse",
+  "policy": "Motus",
+  "task_count": 1,
+  "episodes": 1,
+  "metrics": {
+    "1_ordered_success_rate": {
+      "numerator": 1,
+      "denominator": 1,
+      "rate": 1.0,
+      "wilson95": [
+        0.20654931437723745,
+        1.0
+      ]
+    },
+    "2_stage1_success_rate": {
+      "numerator": 1,
+      "denominator": 1,
+      "rate": 1.0,
+      "wilson95": [
+        0.20654931437723745,
+        1.0
+      ]
+    },
+    "3_transition_conversion": {
+      "numerator": 1,
+      "denominator": 1,
+      "rate": 1.0,
+      "wilson95": [
+        0.20654931437723745,
+        1.0
+      ]
+    },
+    "4_handoff_physical_feasibility": {
+      "numerator": null,
+      "denominator": null,
+      "rate": null,
+      "wilson95": null,
+      "note": "本轮未实现连接动作/规划器，B4-B7 才需要（见 docs/02 §9）"
+    },
+    "5_downstream_skill_success": {
+      "numerator": 1,
+      "denominator": 1,
+      "rate": 1.0,
+      "wilson95": [
+        0.20654931437723745,
+        1.0
+      ]
+    },
+    "6_handoff_extra_steps": {
+      "numerator": null,
+      "denominator": 1,
+      "rate": null,
+      "wilson95": null,
+      "mean_steps_after_switch": 109.0,
+      "min": 109,
+      "max": 109
+    }
+  },
+  "per_task": [
+    {
+      "task": "living_room_tidy_2tasks",
+      "episodes": 1,
+      "successes": 1,
+      "overall_success_rate": 1.0,
+      "stage1_count": 1,
+      "stage2_count": 1,
+      "all_subtasks_count": 1,
+      "episodes_with_switch": 1,
+      "timeout": 0,
+      "gripper_not_open": 0,
+      "subtask_incomplete": 0,
+      "avg_episode_time_s": 141.8228120803833,
+      "avg_steps": 173.0,
+      "max_steps": 173,
+      "stats_path": "D:\\python\\SkillHandoffBench\\results\\gate2_20261107_010606_robocombine_oracle_hse_motus\\official\\tasks\\living_room_tidy_2tasks\\evaluation_statistics.json"
+    }
+  ],
+  "official_summary": {
+    "spec": "robocombine",
+    "track": "oracle_hse",
+    "track_tag": "oracle_hse",
+    "ordered_hse_profile": null,
+    "policy": "Motus",
+    "checkpoint": "/scratch/lijh/SkillHandoffBench/assets/models/Motus_robotwin2",
+    "checkpoint_label": "motus_robotwin2_official",
+    "ordered_hse": null,
+    "run_dir": "/scratch/lijh/SkillHandoffBench/results/_official/robocombine/oracle_hse/Motus/20261107_010606_robocombine_oracle_hse_motus",
+    "aggregate": {
+      "task_count": 1,
+      "completed_task_count": 1,
+      "mean_episode_success_rate": 1.0,
+      "mean_sr_ordered": 1.0,
+      "mean_all_subtasks_rate": 1.0,
+      "mean_predictor_switch_episode_rate": null,
+      "mean_premature_switch_rate": null
+    },
+    "tasks": [
+      {
+        "task_name": "living_room_tidy_2tasks",
+        "stage_count": 2,
+        "status": "ok",
+        "result_dir": "/scratch/lijh/SkillHandoffBench/results/_official/robocombine/oracle_hse/Motus/20261107_010606_robocombine_oracle_hse_motus/tasks/living_room_tidy_2tasks",
+        "stats_path": "/scratch/lijh/SkillHandoffBench/results/_official/robocombine/oracle_hse/Motus/20261107_010606_robocombine_oracle_hse_motus/tasks/living_room_tidy_2tasks/evaluation_statistics.json",
+        "episode_success_rate": 1.0,
+        "sr_ordered": 1.0,
+        "all_subtasks_rate": 1.0,
+        "success_count": 1,
+        "total_episodes": 1,
+        "stage_conversions": {
+          "s1_to_s2": 1.0
+        },
+        "predictor_switch_episode_rate": null,
+        "premature_switch_rate": null,
+        "real_switch_analysis": null
+      }
+    ]
+  }
+}

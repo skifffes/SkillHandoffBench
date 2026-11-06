@@ -1,0 +1,29 @@
+{
+  "run_id": "gate3b_20261107_013845_robocombine_oracle_hse_motus",
+  "generated_at": "2026-11-07T02:03:39+08:00",
+  "official_run_dir": "/scratch/lijh/SkillHandoffBench/results/_official_g3b/robocombine/oracle_hse/Motus/20261107_013845_robocombine_oracle_hse_motus",
+  "spec": "robocombine",
+  "track": "oracle_hse",
+  "policy": "Motus",
+  "checkpoint": "/scratch/lijh/SkillHandoffBench/assets/models/Motus_robotwin2",
+  "checkpoint_label": "motus_robotwin2_official",
+  "checkpoint_sha256": "70bc1741b45db5e3eae86510ad3bb1bd1aef04f10b17d8c1ff4dbe099300eb65",
+  "max_steps_per_episode": 1500,
+  "task_count": 1,
+  "robocombine_commit": "df237b22bd5c39d705b103daf2b9a8a168c9d453",
+  "episodes_observed": 5,
+  "wall_seconds": null,
+  "command": null,
+  "seeds": [
+    4300000,
+    4300001,
+    4300002,
+    4300003,
+    4300004
+  ],
+  "python": "3.10.21",
+  "notes": [
+    "clear_cache 由官方 run_manifest / 每条 episode 的 switch_events 记录",
+    "指标口径见 docs/02 §4；每个 ratio 都带分子/分母"
+  ]
+}

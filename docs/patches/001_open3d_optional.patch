@@ -1,0 +1,17 @@
+diff --git a/envs/camera/camera.py b/envs/camera/camera.py
+index 46d960d..95b0430 100644
+--- a/envs/camera/camera.py
++++ b/envs/camera/camera.py
+@@ -2,7 +2,11 @@ import sapien.core as sapien
+ import numpy as np
+ import pdb
+ from PIL import Image, ImageColor
+-import open3d as o3d
++try:  # [SkillHandoffBench patch 001] open3d 需要 glibc>=2.27（本机 2.17），
++# 且本文件只 import 不使用它；改成可选导入，避免整个 envs 无法 import。
++    import open3d as o3d
++except ImportError:  # pragma: no cover
++    o3d = None
+ import json
+ import transforms3d as t3d
+ import cv2

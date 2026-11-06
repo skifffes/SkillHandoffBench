@@ -1,0 +1,12 @@
+{
+  "task_name": "office_desk_2tasks",
+  "successful_seeds": [
+    4300000,
+    4300001,
+    4300002,
+    4300004
+  ],
+  "total_tested": 4,
+  "success_rate": 1.0,
+  "last_updated": "2026-11-07 02:03:08"
+}

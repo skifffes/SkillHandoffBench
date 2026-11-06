@@ -1,0 +1,2 @@
+task,episodes,successes,overall_success_rate,stage1_count,stage2_count,all_subtasks_count,episodes_with_switch,timeout,gripper_not_open,subtask_incomplete,avg_episode_time_s,avg_steps,max_steps,stats_path
+office_desk_2tasks,5,4,0.8,5,4,4,5,1,0,0,251.33401885032654,517.2,1500,/scratch/lijh/SkillHandoffBench/results/_official_g3b/robocombine/oracle_hse/Motus/20261107_013845_robocombine_oracle_hse_motus/tasks/office_desk_2tasks/evaluation_statistics.json

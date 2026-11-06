@@ -1,0 +1,2 @@
+task,episodes,successes,overall_success_rate,stage1_count,stage2_count,all_subtasks_count,episodes_with_switch,timeout,gripper_not_open,subtask_incomplete,avg_episode_time_s,avg_steps,max_steps,stats_path
+living_room_tidy_2tasks,1,1,1.0,1,1,1,1,0,0,0,141.8228120803833,173.0,173,D:\python\SkillHandoffBench\results\gate2_20261107_010606_robocombine_oracle_hse_motus\official\tasks\living_room_tidy_2tasks\evaluation_statistics.json

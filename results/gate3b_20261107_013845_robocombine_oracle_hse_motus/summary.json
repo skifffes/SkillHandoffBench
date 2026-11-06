@@ -1,0 +1,120 @@
+{
+  "run_id": "gate3b_20261107_013845_robocombine_oracle_hse_motus",
+  "track": "oracle_hse",
+  "policy": "Motus",
+  "task_count": 1,
+  "episodes": 5,
+  "metrics": {
+    "1_ordered_success_rate": {
+      "numerator": 4,
+      "denominator": 5,
+      "rate": 0.8,
+      "wilson95": [
+        0.37553462976252533,
+        0.9637758913675698
+      ]
+    },
+    "2_stage1_success_rate": {
+      "numerator": 5,
+      "denominator": 5,
+      "rate": 1.0,
+      "wilson95": [
+        0.5655175352168251,
+        1.0
+      ]
+    },
+    "3_transition_conversion": {
+      "numerator": 5,
+      "denominator": 5,
+      "rate": 1.0,
+      "wilson95": [
+        0.5655175352168251,
+        1.0
+      ]
+    },
+    "4_handoff_physical_feasibility": {
+      "numerator": null,
+      "denominator": null,
+      "rate": null,
+      "wilson95": null,
+      "note": "本轮未实现连接动作/规划器，B4-B7 才需要（见 docs/02 §9）"
+    },
+    "5_downstream_skill_success": {
+      "numerator": 4,
+      "denominator": 5,
+      "rate": 0.8,
+      "wilson95": [
+        0.37553462976252533,
+        0.9637758913675698
+      ]
+    },
+    "6_handoff_extra_steps": {
+      "numerator": null,
+      "denominator": 5,
+      "rate": null,
+      "wilson95": null,
+      "mean_steps_after_switch": 430.8,
+      "min": 124,
+      "max": 1308
+    }
+  },
+  "per_task": [
+    {
+      "task": "office_desk_2tasks",
+      "episodes": 5,
+      "successes": 4,
+      "overall_success_rate": 0.8,
+      "stage1_count": 5,
+      "stage2_count": 4,
+      "all_subtasks_count": 4,
+      "episodes_with_switch": 5,
+      "timeout": 1,
+      "gripper_not_open": 0,
+      "subtask_incomplete": 0,
+      "avg_episode_time_s": 251.33401885032654,
+      "avg_steps": 517.2,
+      "max_steps": 1500,
+      "stats_path": "/scratch/lijh/SkillHandoffBench/results/_official_g3b/robocombine/oracle_hse/Motus/20261107_013845_robocombine_oracle_hse_motus/tasks/office_desk_2tasks/evaluation_statistics.json"
+    }
+  ],
+  "official_summary": {
+    "spec": "robocombine",
+    "track": "oracle_hse",
+    "track_tag": "oracle_hse",
+    "ordered_hse_profile": null,
+    "policy": "Motus",
+    "checkpoint": "/scratch/lijh/SkillHandoffBench/assets/models/Motus_robotwin2",
+    "checkpoint_label": "motus_robotwin2_official",
+    "ordered_hse": null,
+    "run_dir": "/scratch/lijh/SkillHandoffBench/results/_official_g3b/robocombine/oracle_hse/Motus/20261107_013845_robocombine_oracle_hse_motus",
+    "aggregate": {
+      "task_count": 1,
+      "completed_task_count": 1,
+      "mean_episode_success_rate": 0.8,
+      "mean_sr_ordered": 0.8,
+      "mean_all_subtasks_rate": 0.8,
+      "mean_predictor_switch_episode_rate": null,
+      "mean_premature_switch_rate": null
+    },
+    "tasks": [
+      {
+        "task_name": "office_desk_2tasks",
+        "stage_count": 2,
+        "status": "ok",
+        "result_dir": "/scratch/lijh/SkillHandoffBench/results/_official_g3b/robocombine/oracle_hse/Motus/20261107_013845_robocombine_oracle_hse_motus/tasks/office_desk_2tasks",
+        "stats_path": "/scratch/lijh/SkillHandoffBench/results/_official_g3b/robocombine/oracle_hse/Motus/20261107_013845_robocombine_oracle_hse_motus/tasks/office_desk_2tasks/evaluation_statistics.json",
+        "episode_success_rate": 0.8,
+        "sr_ordered": 0.8,
+        "all_subtasks_rate": 0.8,
+        "success_count": 4,
+        "total_episodes": 5,
+        "stage_conversions": {
+          "s1_to_s2": 0.8
+        },
+        "predictor_switch_episode_rate": null,
+        "premature_switch_rate": null,
+        "real_switch_analysis": null
+      }
+    ]
+  }
+}

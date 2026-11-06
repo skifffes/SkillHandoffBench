@@ -1,0 +1,2 @@
+task,seed,success,s1_completed,s2_completed,total_steps,s1_step,s2_step,switch_step,switch_count,cache_cleared,cue_step,steps_after_switch
+living_room_tidy_2tasks,4300000,True,True,True,173,51,125,64,1,False,51,109

@@ -1,0 +1,40 @@
+{
+  "spec": "robocombine",
+  "track": "oracle_hse",
+  "track_tag": "oracle_hse",
+  "ordered_hse_profile": null,
+  "policy": "Motus",
+  "checkpoint": "/scratch/lijh/SkillHandoffBench/assets/models/Motus_robotwin2",
+  "checkpoint_label": "motus_robotwin2_official",
+  "ordered_hse": null,
+  "run_dir": "/scratch/lijh/SkillHandoffBench/results/_official/robocombine/oracle_hse/Motus/20261107_010606_robocombine_oracle_hse_motus",
+  "aggregate": {
+    "task_count": 1,
+    "completed_task_count": 1,
+    "mean_episode_success_rate": 1.0,
+    "mean_sr_ordered": 1.0,
+    "mean_all_subtasks_rate": 1.0,
+    "mean_predictor_switch_episode_rate": null,
+    "mean_premature_switch_rate": null
+  },
+  "tasks": [
+    {
+      "task_name": "living_room_tidy_2tasks",
+      "stage_count": 2,
+      "status": "ok",
+      "result_dir": "/scratch/lijh/SkillHandoffBench/results/_official/robocombine/oracle_hse/Motus/20261107_010606_robocombine_oracle_hse_motus/tasks/living_room_tidy_2tasks",
+      "stats_path": "/scratch/lijh/SkillHandoffBench/results/_official/robocombine/oracle_hse/Motus/20261107_010606_robocombine_oracle_hse_motus/tasks/living_room_tidy_2tasks/evaluation_statistics.json",
+      "episode_success_rate": 1.0,
+      "sr_ordered": 1.0,
+      "all_subtasks_rate": 1.0,
+      "success_count": 1,
+      "total_episodes": 1,
+      "stage_conversions": {
+        "s1_to_s2": 1.0
+      },
+      "predictor_switch_episode_rate": null,
+      "premature_switch_rate": null,
+      "real_switch_analysis": null
+    }
+  ]
+}
