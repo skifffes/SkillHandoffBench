@@ -38,7 +38,7 @@ SkillHandoffBench/
 
 - 服务器：`/scratch/lijh/exp40/repo`（Simulate 代码镜像，OpenPI commit `215abfb`）
 - 数据：`/scratch/lijh/exp43/export_v3`（311 条训练集）
-- checkpoint：`/scratch/lijh/exp4{4,5,6,7}/...`（LoRA / Action-Expert / 合并模型）
+- checkpoint：`/scratch/lijh/exp44/B/ckpts/lora_step12000.npz`（4.4 Group B，最好的 LoRA；其余已清理）
 - 环境：`/scratch/lijh/simulate_vla/venv`（Python 3.10，PyBullet）、
   `/scratch/lijh/exp40/openpi/.venv`（Python 3.11，JAX/OpenPI）
 

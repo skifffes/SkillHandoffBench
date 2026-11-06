@@ -95,15 +95,24 @@
 
 ## 5. 可复用资产（只读）
 
+> **2026-11-06 22:45 更新：用户授权清理已失效 checkpoint**（理由：Action Expert-only 无意义，必须 LoRA VLM）。
+> 现只剩下表这些；`exp42` 旧训练 run、`exp45` 全部、`exp46/run`、`exp47/merged`、`exp44/A` 已删除，
+> `/scratch` 可用空间从 **19 GB → 232 GB**。
+
 | 资产 | 路径 | 说明 |
 | --- | --- | --- |
-| 训练数据 | `/scratch/lijh/exp43/export_v3` | 311 train，Anchor-16，88×88? 否：256² 两路 v3 相机 |
-| 合并模型（4.6 step3000） | `/scratch/lijh/exp47/merged/step3000` | 12.6 GB，可服务 |
-| 合并模型（4.4 B/12000） | `/scratch/lijh/exp47/merged/b12000` | 12.6 GB |
-| LoRA 权重 | `/scratch/lijh/exp4{4,5,6}/…/lora_step*.npz` | 1.59–1.73 GB/个 |
+| 训练数据 | `/scratch/lijh/exp43/export_v3` | 311 train（A90 170 / B90 141），256² 两路 v3 相机 |
+| **最好的 LoRA 权重（4.4 Group B step12000）** | `/scratch/lijh/exp44/B/ckpts/lora_step12000.npz` | 1.73 GB；需要服务时用 `scripts/exp42/export_params_from_lora.py` 现合并 |
+| 旧 LoRA（4.4 B step10000） | `/scratch/lijh/exp44/B/ckpts/lora_step10000.npz` | 1.73 GB，对照用 |
+| 旧 90 条导出数据 | `/scratch/lijh/exp42/data` | 5.9 GB（4.2 用） |
 | PyBullet 环境 | `/scratch/lijh/simulate_vla/venv` | Python 3.10.18，pybullet |
 | OpenPI 环境 | `/scratch/lijh/exp40/openpi/.venv` | Python 3.11.16，JAX |
 | 严格评价器 | `src/exp41/strict_eval.py` | `exp4.1-strict-v1.2`，阈值不可改 |
+
+**已删除（记录在案，可重生成）**：`exp42/{run,run2,ab,ab_repr,curve600,curve1200,curve1800,curve2400,overfit}`
+（约 153 GB 旧 LoRA 训练产物）、`exp45/*`（30 GB，Action Expert-only）、`exp46/run`（17 GB，4 条 episode 过拟合玩具）、
+`exp47/merged`（25 GB，合并模型）、`exp44/A` 与 opt state。所有对应**结果 JSON/日志/manifest 仍在
+`D:\python\simulate\results/` 与服务器 `exp4x/*.log`、`exp42/archive_meta/`** 中，指标不受影响。
 
 ## 6. 暂停 4.7 的代价
 

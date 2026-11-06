@@ -21,7 +21,7 @@ checkpoint-backed 的官方 baseline rollout**（Motus + Oracle HSE），产出�
 | 主机 | `222.29.51.96`，端口 `22` |
 | 用户 | `lijh` |
 | 密码 | **不写入仓库**；由用户单独提供，或本地 `configs/resources.local.env`（已被 `.gitignore` 排除） |
-| 工作根 | `/scratch/lijh`（ext4，**15T 已用 14T，当前仅 ≈19 GB 可用**） |
+| 工作根 | `/scratch/lijh`（ext4，15T；**2026-11-06 清理旧 checkpoint 后可用 ≈232 GB**） |
 | 系统 | CentOS 类，内核 4.x 代；`nvidia-smi` driver **550.120** |
 | GPU | **5 × NVIDIA A40 46,068 MiB**（index 0–4），审计时全部空闲（≈1 MiB / 0% util） |
 | 本地联机方式 | 旧项目自带 `D:\python\simulate\server\remote.py`（paramiko，`run/put/get`），可直接复用；密码经环境变量 `SIMULATE_SSH_PASSWORD` |
@@ -33,7 +33,7 @@ $env:SIMULATE_SSH_PASSWORD='<向用户索取>'
 python server\remote.py run "date; df -h /scratch | tail -1; nvidia-smi --query-gpu=index,memory.used --format=csv,noheader"
 ```
 
-**磁盘是硬约束**：只剩 ~19 GB。RoboCombine + RoboTwin 资产 + Motus 权重很可能放不下，
+**磁盘**：清理后 ≈232 GB 可用（曾只有 19 GB）。RoboCombine + RoboTwin + Motus 仍须先估体积，
 **先做体积审计再下载**（见 §4.4）。禁止在服务器上 `pip install` 覆盖现有环境。
 
 ---
@@ -48,7 +48,7 @@ python server\remote.py run "date; df -h /scratch | tail -1; nvidia-smi --query-
 | Simulate 代码镜像 | `/scratch/lijh/exp40/repo` | 非 git 仓库，由本地同步 |
 | 旧模型资产 | `/scratch/lijh/.cache/openpi/openpi-assets/checkpoints/pi05_droid` | **只有 pi05_droid**，没有 aloha/pi05 base |
 | 训练数据 | `/scratch/lijh/exp43/export_v3` | 311 train（A90 170 / B90 141） |
-| 合并模型 | `/scratch/lijh/exp47/merged/{step3000,b12000}` | 各 12.6 GB，可 `serve_finetuned` |
+| 最好的 LoRA 权重（4.4 Group B / 12000） | `/scratch/lijh/exp44/B/ckpts/lora_step12000.npz` | 1.73 GB；需要服务时现合并 |
 
 **注意**：官方 RoboCombine 的 Motus 与 pi05 adapter **使用不同的 Python 环境**。
 不要把 Motus 装进现有 `openpi/.venv`，也不要覆盖 `simulate_vla/venv`。优先**新建独立 venv**
