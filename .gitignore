@@ -1,0 +1,52 @@
+# ---- 模型权重 / 大型资产（绝不入库）----
+*.pt
+*.pth
+*.ckpt
+*.safetensors
+*.bin
+*.npz
+*.npy
+*.h5
+*.pkl
+*.mp4
+*.avi
+*.mov
+*.webm
+*.gif
+checkpoints/
+ckpt/
+params/
+merged/
+logs/
+outputs/
+runs/
+wandb/
+third_party/RoboCombine/
+third_party/*/assets/
+third_party/*/data/
+third_party/*/checkpoints/
+
+# ---- 运行环境 / 缓存 ----
+.venv/
+venv/
+env/
+__pycache__/
+*.pyc
+.pytest_cache/
+.mypy_cache/
+.ipynb_checkpoints/
+jax_cache/
+
+# ---- 本地配置与凭据（服务器密码等只放本地）----
+configs/resources.local.env
+*.local.env
+*.key
+*.pem
+secrets*
+.env
+
+# ---- 系统 ----
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
