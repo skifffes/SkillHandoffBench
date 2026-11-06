@@ -136,6 +136,23 @@ episode time  141.8 s (setup 37.5 s, inference 103.7 s), GPU peak ~38.8/46.8 GB
 
 ## 7. 最终判断
 
+### 7.0 红线自检（prompt §9）
+
+| 红线 | 自检结果 | 证据 |
+| --- | --- | --- |
+| 1. 不删除/覆盖 Simulate 的数据、日志、checkpoint、模型缓存 | ✅ 未改 | `find /scratch/lijh/exp40/repo /scratch/lijh/exp43/export_v3 /scratch/lijh/exp44 -newermt "2026-11-06 22:50"` → **空** |
+| 2. 不对 Simulate 做破坏性 Git 操作 | ✅ 未做 | 全程未进入 `/scratch/lijh/exp40/repo` 做 git 操作 |
+| 3. 不改 4.7 训练/推理/评测代码，不改严格判据 | ✅ 未改 | 只在 RoboCombine 打了 2 个运行性 patch（`docs/patches/`），未触碰 `check_success`/切换逻辑 |
+| 4. 不启动任何训练 | ✅ 未训练 | 只做推理；GPU 峰值 38.8 GB、`util≈48%`，无 optimizer/backward |
+| 5. 不在共享服务器 `pip install` 覆盖已有环境 | ✅ 未覆盖 | 新建 `envs/motus`；`find /scratch/lijh/simulate_vla/venv /scratch/lijh/exp40/openpi/.venv -newermt "2026-11-06 22:50"` → **空** |
+| 6. 不下载与现有资产重复的巨型 checkpoint | ✅ 无重复 | HF 缓存原本没有 Motus/Qwen3-VL/Wan；且跳过了 `Motus_Wan2_2_5B_pretrain`(10 GB) 与 Wan DiT 分片(20 GB) |
+| 7. 不用 `pi05_droid` 强行适配 aloha action space | ✅ 未做 | pi05 判为 INCOMPATIBLE，本轮不跑（`docs/01 §1` 第 5 项） |
+| 8. 不用测试桩/假数据冒充真实 rollout | ✅ 未做 | 所有结果来自真实 `Motus_robotwin2` 权重；`sim_smoke` 只验证仿真栈，且明确标注"不算评测成绩" |
+| 9. 不无人监管跑长任务；不并行多卡 | ✅ 遵守 | 单卡 `CUDA_VISIBLE_DEVICES=0`；每个 run 有 30/45 分钟上限并在后台留日志 |
+| 10. 不提交密码/密钥/大文件 | ✅ 遵守 | 凭据只在 `configs/resources.local.env`（gitignored）；`results/` 共 507 KB；无 >1 MB 文件进 git |
+
+资源占用：`envs` 7.0 GB + `assets` 47 GB + `third_party` 16 GB ≈ **70 GB**；`/scratch` 剩余 **158 GB**。
+
 ### `GO`
 
 **理由（逐条对应证据）**
