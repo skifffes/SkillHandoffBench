@@ -48,7 +48,7 @@ $ git --no-pager log origin/main --oneline -2
   本地领先 2 个提交。本轮遵守"未审查敏感配置前不自动推送"，因此**仍然没有 push**。
 - 敏感信息检查（push 前置条件）：
   - `git ls-files` 中无 `*.local.env` / `*.key` / `*.pem` / `secret*`；
-  - `git grep REDACTED-CREDENTIAL` → **无命中**；
+  - `git grep <服务器口令>` → **无命中**（口令本身不写进文档，只在被 gitignore 的 `configs/resources.local.env`）；
   - `git check-ignore -v configs/resources.local.env` → `.gitignore:42:*.local.env` 命中；
   - 受跟踪文件 83 个，无 >1 MB 文件。
 
