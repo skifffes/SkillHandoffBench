@@ -1,0 +1,45 @@
+{
+  "checks": [
+    {
+      "name": "stats_equal[off vs ab_actions_only]",
+      "ok": true,
+      "detail": "identical"
+    },
+    {
+      "name": "stats_equal[off vs ab_full]",
+      "ok": true,
+      "detail": "identical"
+    },
+    {
+      "name": "task_log_equal[off vs ab_actions_only]",
+      "ok": true,
+      "detail": "identical (388 lines)"
+    },
+    {
+      "name": "task_log_equal[off vs ab_full]",
+      "ok": true,
+      "detail": "identical (388 lines)"
+    },
+    {
+      "name": "action_count_equal",
+      "ok": true,
+      "detail": "173 vs 173"
+    },
+    {
+      "name": "action_sequence_equal(tol=1e-09)",
+      "ok": true,
+      "detail": "max_abs_diff=0.0"
+    },
+    {
+      "name": "no_rng_in_trace",
+      "ok": true,
+      "detail": "no RNG calls found"
+    }
+  ],
+  "ok": true,
+  "n_actions": {
+    "actions_only": 173,
+    "full": 173,
+    "max_abs_diff": 0.0
+  }
+}

@@ -1,0 +1,6 @@
+task,episodes,ordered_success,stage1_success,stage2_success,transition_conversion,switch_episodes,first_failure,steps_mean,steps_max,cue_to_switch_mean,seeds
+arrange_sign_2tasks,3,0/3,2/3,2/3,2/2,2,"{""stage1"": 1, ""post_success_check"": 2}",1500.0,1500,7.0,4300004 4300007 4300008
+bakery_close_2tasks,3,2/3,3/3,3/3,3/3,3,"{""post_success_check"": 1}",629.3,1500,9.3,4300001 4300004 4300006
+breakfast_prep_2tasks,3,3/3,3/3,3/3,3/3,3,{},160.3,196,13.0,4300000 4300001 4300002
+desk_arrange_2tasks,3,2/3,3/3,2/3,2/3,3,"{""stage2"": 1}",1006.3,1500,6.7,4300001 4300002 4300003
+office_organize_2tasks,3,2/3,3/3,2/3,2/3,3,"{""stage2"": 1}",808.3,1500,6.3,4300000 4300002 4300014

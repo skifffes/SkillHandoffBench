@@ -1,0 +1,168 @@
+=== pre-gateB_full_inst 2026-11-07T10:30:04+0800 ===
+--- nvidia-smi ---
+0, NVIDIA A40, 1 MiB, 46068 MiB, 0 %
+1, NVIDIA A40, 1 MiB, 46068 MiB, 0 %
+2, NVIDIA A40, 4 MiB, 46068 MiB, 0 %
+3, NVIDIA A40, 1 MiB, 46068 MiB, 0 %
+4, NVIDIA A40, 1 MiB, 46068 MiB, 0 %
+--- disk ---
+/dev/sda1        15T   14T  158G  99% /scratch
+--- processes ---
+142345 bash -c ROOT=/scratch/lijh/SkillHandoffBench cd $ROOT/third_party/RoboCombine echo "=== repo status (Phase1 patches 001-003 应在) ==="; git status --short echo "=== patch004 是否已打 ==="; grep -c "SkillHandoffBench patch 004" script/eval_policy.py echo "=== 启动 Gate B ===" cd $ROOT nohup bash scripts/run_phase2.sh b > $ROOT/logs/phase2_gateB_runner.log 2>&1 & sleep 25 tail -16 $ROOT/logs/phase2_gateB_runner.log | tr -cd '\11\12\15\40-\176'
+=== pre-gateB_office 2026-11-07T11:29:37+0800 ===
+--- nvidia-smi ---
+0, NVIDIA A40, 1 MiB, 46068 MiB, 0 %
+1, NVIDIA A40, 1 MiB, 46068 MiB, 0 %
+2, NVIDIA A40, 4 MiB, 46068 MiB, 0 %
+3, NVIDIA A40, 1 MiB, 46068 MiB, 0 %
+4, NVIDIA A40, 1 MiB, 46068 MiB, 0 %
+--- disk ---
+/dev/sda1        15T   14T  158G  99% /scratch
+--- processes ---
+147325 bash -c ROOT=/scratch/lijh/SkillHandoffBench kill -9 146999 142367 142366 2>/dev/null; sleep 6 echo "=== 残留 ==="; ps -eo pid,args | grep -E "run_split|eval_policy" | grep -v grep | cut -c1-80 echo "=== 清掉 office 的半成品目录（0 episode，无 stats） ===" latest=$(ls -1dt $ROOT/results/phase2/gateB_full_inst/robocombine/full_inst/Motus/* 2>/dev/null | head -1) ls $latest/tasks/office_desk_2tasks/ 2>/dev/null [ -f "$latest/tasks/office_desk_2tasks/evaluation_statistics.json" ] || rm -rf "$latest/tasks/office_desk_2tasks" echo "=== 启动干净的 office_desk 5 episodes ===" cd $ROOT nohup bash -c "EPISODES=5 MAX_MINUTES=60 bash scripts/run_phase2.sh b2" > $ROOT/logs/phase2_gateB_office_runner.log 2>&1 & sleep 20 tail -6 $ROOT/logs/phase2_gateB_office_runner.log | tr -cd '\11\12\15\40-\176' nvidia-smi --query-gpu=memory.used --format=csv,noheader | head -1
+=== post-gateB_office 2026-11-07T12:23:36+0800 ===
+--- nvidia-smi ---
+0, NVIDIA A40, 1 MiB, 46068 MiB, 73 %
+1, NVIDIA A40, 1 MiB, 46068 MiB, 0 %
+2, NVIDIA A40, 4 MiB, 46068 MiB, 0 %
+3, NVIDIA A40, 1 MiB, 46068 MiB, 0 %
+4, NVIDIA A40, 1 MiB, 46068 MiB, 0 %
+--- disk ---
+/dev/sda1        15T   14T  158G  99% /scratch
+--- processes ---
+151110 bash -c ROOT=/scratch/lijh/SkillHandoffBench chmod +x $ROOT/scripts/run_phase2.sh bash -n $ROOT/scripts/run_phase2.sh && echo "bash syntax OK" sleep 240 date latest=$(ls -1dt $ROOT/results/phase2/gateB_office/robocombine/full_inst/Motus/* 2>/dev/null | head -1) $ROOT/envs/motus/bin/python -c " import json,glob p=glob.glob('$latest/tasks/office_desk_2tasks/evaluation_statistics.json') if p:     d=json.load(open(p[0]));m=d['metadata'];print('eps',m['total_episodes'],'succ',m['total_successes'])     for e in d['episode_details']: print('  seed',e['seed'],'succ',e['success'],'steps',e['total_steps'],'s1_step',e['s1_step'],'s2_step',e['s2_step']) else: print('no stats') " echo "run_split alive: $(ps -eo pid,args | grep -c '[r]un_split')"
+=== pre-gateC_office_desk_2tasks 2026-11-07T12:23:37+0800 ===
+--- nvidia-smi ---
+0, NVIDIA A40, 1 MiB, 46068 MiB, 100 %
+1, NVIDIA A40, 1 MiB, 46068 MiB, 0 %
+2, NVIDIA A40, 4 MiB, 46068 MiB, 0 %
+3, NVIDIA A40, 1 MiB, 46068 MiB, 0 %
+4, NVIDIA A40, 1 MiB, 46068 MiB, 0 %
+--- disk ---
+/dev/sda1        15T   14T  158G  99% /scratch
+--- processes ---
+151110 bash -c ROOT=/scratch/lijh/SkillHandoffBench chmod +x $ROOT/scripts/run_phase2.sh bash -n $ROOT/scripts/run_phase2.sh && echo "bash syntax OK" sleep 240 date latest=$(ls -1dt $ROOT/results/phase2/gateB_office/robocombine/full_inst/Motus/* 2>/dev/null | head -1) $ROOT/envs/motus/bin/python -c " import json,glob p=glob.glob('$latest/tasks/office_desk_2tasks/evaluation_statistics.json') if p:     d=json.load(open(p[0]));m=d['metadata'];print('eps',m['total_episodes'],'succ',m['total_successes'])     for e in d['episode_details']: print('  seed',e['seed'],'succ',e['success'],'steps',e['total_steps'],'s1_step',e['s1_step'],'s2_step',e['s2_step']) else: print('no stats') " echo "run_split alive: $(ps -eo pid,args | grep -c '[r]un_split')"
+=== pre-gateC_arrange_sign_2tasks 2026-11-07T12:25:29+0800 ===
+--- nvidia-smi ---
+0, NVIDIA A40, 12591 MiB, 46068 MiB, 0 %
+1, NVIDIA A40, 1 MiB, 46068 MiB, 0 %
+2, NVIDIA A40, 4 MiB, 46068 MiB, 0 %
+3, NVIDIA A40, 1 MiB, 46068 MiB, 0 %
+4, NVIDIA A40, 1 MiB, 46068 MiB, 0 %
+--- disk ---
+/dev/sda1        15T   14T  158G  99% /scratch
+--- processes ---
+151262 timeout --signal=TERM 3600 /scratch/lijh/SkillHandoffBench/envs/motus/bin/python handoff_eval/runner/run_split.py --spec robocombine --track oracle_hse --policy Motus --checkpoint /scratch/lijh/SkillHandoffBench/assets/models/Motus_robotwin2 --checkpoint-label motus_robotwin2_official --motus-wan-dir /scratch/lijh/SkillHandoffBench/assets/models/Wan2.2-TI2V-5B --motus-vlm-dir /scratch/lijh/SkillHandoffBench/assets/models/Qwen3-VL-2B-Instruct --episodes 3 --task-filter office_desk_2tasks --base-seed 42 --clear-cache false --output-root /scratch/lijh/SkillHandoffBench/results/phase2/gateC_office_desk_2tasks
+151263 /scratch/lijh/SkillHandoffBench/envs/motus/bin/python handoff_eval/runner/run_split.py --spec robocombine --track oracle_hse --policy Motus --checkpoint /scratch/lijh/SkillHandoffBench/assets/models/Motus_robotwin2 --checkpoint-label motus_robotwin2_official --motus-wan-dir /scratch/lijh/SkillHandoffBench/assets/models/Wan2.2-TI2V-5B --motus-vlm-dir /scratch/lijh/SkillHandoffBench/assets/models/Qwen3-VL-2B-Instruct --episodes 3 --task-filter office_desk_2tasks --base-seed 42 --clear-cache false --output-root /scratch/lijh/SkillHandoffBench/results/phase2/gateC_office_desk_2tasks
+151264 /scratch/lijh/SkillHandoffBench/envs/motus/bin/python script/eval_policy.py --config /scratch/lijh/SkillHandoffBench/third_party/RoboCombine/policy/Motus/deploy_policy.yml --overrides --task_name office_desk_2tasks --task_config robocombine_eval --policy_name Motus --seed 42 --episode_num 3 --ckpt_setting /scratch/lijh/SkillHandoffBench/assets/models/Motus_robotwin2 --ckpt_setting_label motus_robotwin2_official --save_dir /scratch/lijh/SkillHandoffBench/results/phase2/gateC_office_desk_2tasks/robocombine/oracle_hse/Motus/20261107_122337_robocombine_oracle_hse_motus/tasks/office_desk_2tasks --log_dir /scratch/lijh/SkillHandoffBench/results/phase2/gateC_office_desk_2tasks/robocombine/oracle_hse/Motus/20261107_122337_robocombine_oracle_hse_motus/tasks/office_desk_2tasks --hse_variant oracle_hse --clear_cache false --max_steps_per_episode 1500 --wan_path /scratch/lijh/SkillHandoffBench/assets/models/Wan2.2-TI2V-5B --vlm_path /scratch/lijh/SkillHandoffBench/assets/models/Qwen3-VL-2B-Instruct
+151559 bash -c ROOT=/scratch/lijh/SkillHandoffBench PY=$ROOT/envs/motus/bin/python echo "=== 进程 ==="; ps -eo pid,args | grep -E "run_split|eval_policy|run_phase2" | grep -v grep | cut -c1-90 echo "=== Gate B 汇总（两个 root 合并）===" cd $ROOT $PY scripts/collect_phase2.py --run-root $ROOT/results/phase2/gateB_full_inst --run-root $ROOT/results/phase2/gateB_office --out $ROOT/results/phase2/_summary/gateB --label gateB_full_inst echo "=== episodes.csv ==="; cat $ROOT/results/phase2/_summary/gateB/episodes.csv echo "=== 启动 Gate C ===" nohup bash -c "MAX_MINUTES=45 bash scripts/run_phase2.sh c" > $ROOT/logs/phase2_gateC_runner.log 2>&1 & sleep 15 tail -5 $ROOT/logs/phase2_gateC_runner.log | tr -cd '\11\12\15\40-\176'
+=== pre-gateC_arrange_sign_2tasks 2026-11-07T12:28:13+0800 ===
+--- nvidia-smi ---
+0, NVIDIA A40, 1 MiB, 46068 MiB, 0 %
+1, NVIDIA A40, 1 MiB, 46068 MiB, 0 %
+2, NVIDIA A40, 4 MiB, 46068 MiB, 0 %
+3, NVIDIA A40, 1 MiB, 46068 MiB, 0 %
+4, NVIDIA A40, 1 MiB, 46068 MiB, 0 %
+--- disk ---
+/dev/sda1        15T   14T  158G  99% /scratch
+--- processes ---
+(none)
+=== post-gateC_arrange_sign_2tasks 2026-11-07T13:07:36+0800 ===
+--- nvidia-smi ---
+0, NVIDIA A40, 1 MiB, 46068 MiB, 99 %
+1, NVIDIA A40, 1 MiB, 46068 MiB, 0 %
+2, NVIDIA A40, 4 MiB, 46068 MiB, 0 %
+3, NVIDIA A40, 1 MiB, 46068 MiB, 0 %
+4, NVIDIA A40, 1 MiB, 46068 MiB, 0 %
+--- disk ---
+/dev/sda1        15T   14T  158G  99% /scratch
+--- processes ---
+(none)
+=== pre-gateC_breakfast_prep_2tasks 2026-11-07T13:07:37+0800 ===
+--- nvidia-smi ---
+0, NVIDIA A40, 1 MiB, 46068 MiB, 100 %
+1, NVIDIA A40, 1 MiB, 46068 MiB, 0 %
+2, NVIDIA A40, 4 MiB, 46068 MiB, 0 %
+3, NVIDIA A40, 1 MiB, 46068 MiB, 0 %
+4, NVIDIA A40, 1 MiB, 46068 MiB, 0 %
+--- disk ---
+/dev/sda1        15T   14T  158G  99% /scratch
+--- processes ---
+(none)
+=== post-gateC_breakfast_prep_2tasks 2026-11-07T13:16:29+0800 ===
+--- nvidia-smi ---
+0, NVIDIA A40, 1 MiB, 46068 MiB, 100 %
+1, NVIDIA A40, 1 MiB, 46068 MiB, 0 %
+2, NVIDIA A40, 4 MiB, 46068 MiB, 0 %
+3, NVIDIA A40, 1 MiB, 46068 MiB, 0 %
+4, NVIDIA A40, 1 MiB, 46068 MiB, 0 %
+--- disk ---
+/dev/sda1        15T   14T  158G  99% /scratch
+--- processes ---
+(none)
+=== pre-gateC_desk_arrange_2tasks 2026-11-07T13:16:29+0800 ===
+--- nvidia-smi ---
+0, NVIDIA A40, 1 MiB, 46068 MiB, 100 %
+1, NVIDIA A40, 1 MiB, 46068 MiB, 0 %
+2, NVIDIA A40, 4 MiB, 46068 MiB, 0 %
+3, NVIDIA A40, 1 MiB, 46068 MiB, 0 %
+4, NVIDIA A40, 1 MiB, 46068 MiB, 0 %
+--- disk ---
+/dev/sda1        15T   14T  158G  99% /scratch
+--- processes ---
+(none)
+=== post-gateC_desk_arrange_2tasks 2026-11-07T13:44:25+0800 ===
+--- nvidia-smi ---
+0, NVIDIA A40, 1 MiB, 46068 MiB, 39 %
+1, NVIDIA A40, 1 MiB, 46068 MiB, 0 %
+2, NVIDIA A40, 4 MiB, 46068 MiB, 0 %
+3, NVIDIA A40, 1 MiB, 46068 MiB, 0 %
+4, NVIDIA A40, 1 MiB, 46068 MiB, 0 %
+--- disk ---
+/dev/sda1        15T   14T  158G  99% /scratch
+--- processes ---
+(none)
+=== pre-gateC_office_organize_2tasks 2026-11-07T13:44:26+0800 ===
+--- nvidia-smi ---
+0, NVIDIA A40, 1 MiB, 46068 MiB, 100 %
+1, NVIDIA A40, 1 MiB, 46068 MiB, 0 %
+2, NVIDIA A40, 4 MiB, 46068 MiB, 0 %
+3, NVIDIA A40, 1 MiB, 46068 MiB, 0 %
+4, NVIDIA A40, 1 MiB, 46068 MiB, 0 %
+--- disk ---
+/dev/sda1        15T   14T  158G  99% /scratch
+--- processes ---
+(none)
+=== post-gateC_office_organize_2tasks 2026-11-07T14:07:30+0800 ===
+--- nvidia-smi ---
+0, NVIDIA A40, 1 MiB, 46068 MiB, 71 %
+1, NVIDIA A40, 1 MiB, 46068 MiB, 0 %
+2, NVIDIA A40, 4 MiB, 46068 MiB, 0 %
+3, NVIDIA A40, 1 MiB, 46068 MiB, 0 %
+4, NVIDIA A40, 1 MiB, 46068 MiB, 0 %
+--- disk ---
+/dev/sda1        15T   14T  158G  99% /scratch
+--- processes ---
+(none)
+=== pre-gateC_bakery_close_2tasks 2026-11-07T14:07:30+0800 ===
+--- nvidia-smi ---
+0, NVIDIA A40, 1 MiB, 46068 MiB, 100 %
+1, NVIDIA A40, 1 MiB, 46068 MiB, 0 %
+2, NVIDIA A40, 4 MiB, 46068 MiB, 0 %
+3, NVIDIA A40, 1 MiB, 46068 MiB, 0 %
+4, NVIDIA A40, 1 MiB, 46068 MiB, 0 %
+--- disk ---
+/dev/sda1        15T   14T  158G  99% /scratch
+--- processes ---
+(none)
+=== post-gateC_bakery_close_2tasks 2026-11-07T14:27:15+0800 ===
+--- nvidia-smi ---
+0, NVIDIA A40, 1 MiB, 46068 MiB, 37 %
+1, NVIDIA A40, 1 MiB, 46068 MiB, 0 %
+2, NVIDIA A40, 4 MiB, 46068 MiB, 0 %
+3, NVIDIA A40, 1 MiB, 46068 MiB, 0 %
+4, NVIDIA A40, 1 MiB, 46068 MiB, 0 %
+--- disk ---
+/dev/sda1        15T   14T  158G  99% /scratch
+--- processes ---
+(none)

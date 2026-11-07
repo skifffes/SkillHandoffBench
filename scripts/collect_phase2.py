@@ -40,6 +40,10 @@ def main() -> int:
     ap.add_argument("--run-root", required=True, action="append", help="可重复：多个 run 根目录合并统计")
     ap.add_argument("--out", required=True)
     ap.add_argument("--label", default=None)
+    ap.add_argument("--markdown-out", default=None,
+                    help="额外输出最终 markdown 表（Task/Stage1/Ordered/Transition Conversion/Failure/Candidate）")
+    ap.add_argument("--oracle-ref", default=None,
+                    help="可选：Phase 1 oracle_hse 的 summary.json，用于并排对照")
     args = ap.parse_args()
 
     patterns = []
@@ -102,6 +106,11 @@ def main() -> int:
             # 另一个更容易暴露"交接失败"的口径：已发生切换的 episode 里第二阶段成功的比例
             "downstream_success_among_switched": rate(n_down, n_sw),
             "switch_episodes": n_sw,
+            # 两个子任务都完成、但终局"夹爪张开"没满足 → 不是交接问题，是判据边界
+            "all_subtasks_but_not_success": sum(
+                1 for e in eps
+                if e.get("s1_completed") and e.get("s2_completed") and not e.get("success")
+            ),
             "first_failure_position": fail_counts,
             "steps": {"mean": (sum(steps) / len(steps) if steps else None),
                       "min": min(steps) if steps else None, "max": max(steps) if steps else None},
@@ -179,6 +188,37 @@ def main() -> int:
               f"down(among switched)={v['downstream_success_among_switched']['numerator']}/{v['downstream_success_among_switched']['denominator']} "
               f"fail={v['first_failure_position']}")
     print(f"-> {args.out}")
+
+    if args.markdown_out:
+        ref = {}
+        if args.oracle_ref and os.path.exists(args.oracle_ref):
+            ref = json.load(open(args.oracle_ref, encoding="utf-8")).get("per_task", {})
+        lines = []
+        lines.append("| Task | Stage 1 | Ordered Success | Transition Conversion | Failure Type | Candidate for Handoff Study |")
+        lines.append("| --- | --- | --- | --- | --- | --- |")
+        for t, v in per_task_metrics.items():
+            s1 = v["stage1_success"]; od = v["ordered_success"]; tc = v["transition_conversion"]
+            fails = v["first_failure_position"] or {}
+            fail_txt = ", ".join(f"{k}×{n}" for k, n in sorted(fails.items())) if fails else "—"
+            # 候选判定（写死规则，见 docs/07 §4）
+            if s1["numerator"] == 0:
+                cand = "否（原子能力瓶颈）"
+            elif fails.get("stage2", 0) > 0 and od["numerator"] < od["denominator"]:
+                cand = "**是**（阶段1成功、下游失败）"
+            elif v.get("all_subtasks_but_not_success", 0) > 0:
+                cand = "边界（子任务全成但终局夹爪未达标，非交接）"
+            elif od["numerator"] == od["denominator"] and s1["numerator"] == s1["denominator"]:
+                cand = "观察项（全成功，无失败样本）"
+            else:
+                cand = "待定"
+            lines.append(f"| `{t}` | {s1['numerator']}/{s1['denominator']} | {od['numerator']}/{od['denominator']} | "
+                         f"{tc['numerator']}/{tc['denominator']} | {fail_txt} | {cand} |")
+        out_md = args.markdown_out
+        os.makedirs(os.path.dirname(os.path.abspath(out_md)), exist_ok=True)
+        with open(out_md, "w", encoding="utf-8") as fh:
+            fh.write("\n".join(lines) + "\n")
+        print(f"-> {out_md}")
+        print("\n".join(lines))
     return 0
 
 

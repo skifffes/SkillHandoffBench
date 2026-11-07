@@ -1,0 +1,135 @@
+[
+  {
+    "created_at": "2026-11-07T10:30:04",
+    "tag": "gateB_full_inst",
+    "track": "full_inst",
+    "episodes_per_task": 5,
+    "base_seed": 42,
+    "rule": "official: st_seed = 100000*(1+base_seed); seeds consumed in ascending order, each seed first runs the official expert demo (play_once) and is skipped if the expert fails",
+    "planned_seeds_per_task": [
+      4300000,
+      4300001,
+      4300002,
+      4300003,
+      4300004
+    ],
+    "tasks": [
+      "living_room_tidy_2tasks",
+      "office_desk_2tasks"
+    ]
+  },
+  {
+    "created_at": "2026-11-07T11:29:37",
+    "tag": "gateB_office",
+    "track": "full_inst",
+    "episodes_per_task": 5,
+    "base_seed": 42,
+    "rule": "official: st_seed = 100000*(1+base_seed); seeds consumed in ascending order, each seed first runs the official expert demo (play_once) and is skipped if the expert fails",
+    "planned_seeds_per_task": [
+      4300000,
+      4300001,
+      4300002,
+      4300003,
+      4300004
+    ],
+    "tasks": [
+      "office_desk_2tasks"
+    ]
+  },
+  {
+    "created_at": "2026-11-07T12:25:29",
+    "tag": "gateC_arrange_sign_2tasks",
+    "track": "oracle_hse",
+    "episodes_per_task": 3,
+    "base_seed": 42,
+    "rule": "official: st_seed = 100000*(1+base_seed); seeds consumed in ascending order, each seed first runs the official expert demo (play_once) and is skipped if the expert fails",
+    "planned_seeds_per_task": [
+      4300000,
+      4300001,
+      4300002
+    ],
+    "tasks": [
+      "arrange_sign_2tasks"
+    ]
+  },
+  {
+    "created_at": "2026-11-07T12:28:13",
+    "tag": "gateC_arrange_sign_2tasks",
+    "track": "oracle_hse",
+    "episodes_per_task": 3,
+    "base_seed": 42,
+    "rule": "official: st_seed = 100000*(1+base_seed); seeds consumed in ascending order, each seed first runs the official expert demo (play_once) and is skipped if the expert fails",
+    "planned_seeds_per_task": [
+      4300000,
+      4300001,
+      4300002
+    ],
+    "tasks": [
+      "arrange_sign_2tasks"
+    ]
+  },
+  {
+    "created_at": "2026-11-07T13:07:37",
+    "tag": "gateC_breakfast_prep_2tasks",
+    "track": "oracle_hse",
+    "episodes_per_task": 3,
+    "base_seed": 42,
+    "rule": "official: st_seed = 100000*(1+base_seed); seeds consumed in ascending order, each seed first runs the official expert demo (play_once) and is skipped if the expert fails",
+    "planned_seeds_per_task": [
+      4300000,
+      4300001,
+      4300002
+    ],
+    "tasks": [
+      "breakfast_prep_2tasks"
+    ]
+  },
+  {
+    "created_at": "2026-11-07T13:16:29",
+    "tag": "gateC_desk_arrange_2tasks",
+    "track": "oracle_hse",
+    "episodes_per_task": 3,
+    "base_seed": 42,
+    "rule": "official: st_seed = 100000*(1+base_seed); seeds consumed in ascending order, each seed first runs the official expert demo (play_once) and is skipped if the expert fails",
+    "planned_seeds_per_task": [
+      4300000,
+      4300001,
+      4300002
+    ],
+    "tasks": [
+      "desk_arrange_2tasks"
+    ]
+  },
+  {
+    "created_at": "2026-11-07T13:44:25",
+    "tag": "gateC_office_organize_2tasks",
+    "track": "oracle_hse",
+    "episodes_per_task": 3,
+    "base_seed": 42,
+    "rule": "official: st_seed = 100000*(1+base_seed); seeds consumed in ascending order, each seed first runs the official expert demo (play_once) and is skipped if the expert fails",
+    "planned_seeds_per_task": [
+      4300000,
+      4300001,
+      4300002
+    ],
+    "tasks": [
+      "office_organize_2tasks"
+    ]
+  },
+  {
+    "created_at": "2026-11-07T14:07:30",
+    "tag": "gateC_bakery_close_2tasks",
+    "track": "oracle_hse",
+    "episodes_per_task": 3,
+    "base_seed": 42,
+    "rule": "official: st_seed = 100000*(1+base_seed); seeds consumed in ascending order, each seed first runs the official expert demo (play_once) and is skipped if the expert fails",
+    "planned_seeds_per_task": [
+      4300000,
+      4300001,
+      4300002
+    ],
+    "tasks": [
+      "bakery_close_2tasks"
+    ]
+  }
+]

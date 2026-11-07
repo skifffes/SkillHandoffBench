@@ -53,33 +53,52 @@ def _hash_rgb(task_env):
 
 
 def _joint_state(robot):
+    """SAPIEN 3 里 qpos/qvel 挂在 **articulation** 上（robot.left_entity.get_qpos()），
+    单个 joint 对象没有 get_qpos —— 这里按实体的方式读。"""
     out = {}
     for side in ("left", "right"):
-        joints = getattr(robot, f"{side}_arm_joints", None)
-        if not joints:
-            continue
+        joints = getattr(robot, f"{side}_arm_joints", None) or []
+        ent = getattr(robot, f"{side}_entity", None)
+        item = {}
         try:
-            out[side] = {
-                "names": [j.get_name() for j in joints],
-                "qpos": [float(j.get_qpos()) for j in joints],
-                "qvel": [float(j.get_qvel()) for j in joints],
-            }
+            item["names"] = [j.get_name() for j in joints]
+        except Exception as exc:
+            item["names_error"] = f"{type(exc).__name__}: {exc}"
+        try:
+            item["qpos"] = [float(x) for x in ent.get_qpos()]
+            item["qvel"] = [float(x) for x in ent.get_qvel()]
+            item["n_entity_dof"] = len(item["qpos"])
+        except Exception as exc:
+            item["qpos_error"] = f"{type(exc).__name__}: {exc}"
+        # 手臂 6 个关节的索引（与 names 对齐），方便下游只取手臂
+        try:
+            active = [j.get_name() for j in ent.get_active_joints()]
+            item["active_joint_names"] = active
+            item["arm_joint_indices"] = [active.index(n) for n in item.get("names", []) if n in active]
         except Exception:
-            out[side] = {"error": "unreadable"}
+            pass
+        out[side] = item
     return out
 
 
 def _ee_pose(robot):
+    """Robot.get_*_ee_pose() 返回的是 **7 维 list**（xyz + quat），不是 sapien.Pose。
+    这里同时兼容 list/ndarray/Pose 三种形态。"""
     out = {}
     for side in ("left", "right"):
         fn = getattr(robot, f"get_{side}_ee_pose", None)
         if fn is None:
+            out[side] = {"error": "no accessor"}
             continue
         try:
-            pose = fn()
-            out[side] = {"p": [float(x) for x in pose.p], "q": [float(x) for x in pose.q]}
-        except Exception:
-            out[side] = {"error": "unreadable"}
+            val = fn()
+            if hasattr(val, "p") and hasattr(val, "q"):
+                out[side] = {"p": [float(x) for x in val.p], "q": [float(x) for x in val.q]}
+            else:
+                arr = [float(x) for x in val]
+                out[side] = {"p": arr[:3], "q": arr[3:7], "raw_len": len(arr)}
+        except Exception as exc:
+            out[side] = {"error": f"{type(exc).__name__}: {exc}"}
     return out
 
 
@@ -124,7 +143,8 @@ def snapshot(task_env=None, model=None, state=None, action=None, **extra):
         "seed": _episode_seed,
         "step": int(getattr(task_env, "take_action_cnt", -1)) if task_env is not None else None,
     }
-    if action is not None and not _ACTIONS_ONLY:
+    if action is not None:
+        # 动作序列在两种模式下都要记（actions_only 的用途就是比对动作序列）
         try:
             rec["action"] = [float(x) for x in list(action)]
         except Exception:

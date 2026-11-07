@@ -1,0 +1,4 @@
+[summarize_split] wrote /scratch/lijh/SkillHandoffBench/results/phase2/gateC_bakery_close_2tasks/robocombine/oracle_hse/Motus/20261107_140731_robocombine_oracle_hse_motus/summary.json
+[summarize_split] wrote /scratch/lijh/SkillHandoffBench/results/phase2/gateC_bakery_close_2tasks/robocombine/oracle_hse/Motus/20261107_140731_robocombine_oracle_hse_motus/summary.md
+[run_split] START task=bakery_close_2tasks track=oracle_hse policy=Motus
+[run_split] END task=bakery_close_2tasks code=-11 stats=yes

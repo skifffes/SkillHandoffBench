@@ -1,0 +1,419 @@
+{
+  "label": "gateC_screening",
+  "run_root": [
+    "/scratch/lijh/SkillHandoffBench/results/phase2/gateC_arrange_sign_2tasks",
+    "/scratch/lijh/SkillHandoffBench/results/phase2/gateC_breakfast_prep_2tasks",
+    "/scratch/lijh/SkillHandoffBench/results/phase2/gateC_desk_arrange_2tasks",
+    "/scratch/lijh/SkillHandoffBench/results/phase2/gateC_office_organize_2tasks",
+    "/scratch/lijh/SkillHandoffBench/results/phase2/gateC_bakery_close_2tasks"
+  ],
+  "tasks": 5,
+  "overall": {
+    "ordered_success": {
+      "numerator": 9,
+      "denominator": 15,
+      "rate": 0.6,
+      "wilson95": [
+        0.3575,
+        0.8018
+      ]
+    },
+    "stage1_success": {
+      "numerator": 14,
+      "denominator": 15,
+      "rate": 0.9333333333333333,
+      "wilson95": [
+        0.7018,
+        0.9881
+      ]
+    },
+    "stage2_success": {
+      "numerator": 12,
+      "denominator": 15,
+      "rate": 0.8,
+      "wilson95": [
+        0.5481,
+        0.9295
+      ]
+    },
+    "transition_conversion": {
+      "numerator": 12,
+      "denominator": 14,
+      "rate": 0.8571428571428571,
+      "wilson95": [
+        0.6006,
+        0.9599
+      ]
+    },
+    "downstream_success_among_switched": {
+      "numerator": 12,
+      "denominator": 14,
+      "rate": 0.8571428571428571,
+      "wilson95": [
+        0.6006,
+        0.9599
+      ]
+    },
+    "switch_episodes": 14
+  },
+  "per_task": {
+    "arrange_sign_2tasks": {
+      "episodes": 3,
+      "ordered_success": {
+        "numerator": 0,
+        "denominator": 3,
+        "rate": 0.0,
+        "wilson95": [
+          0.0,
+          0.5615
+        ]
+      },
+      "stage1_success": {
+        "numerator": 2,
+        "denominator": 3,
+        "rate": 0.6666666666666666,
+        "wilson95": [
+          0.2077,
+          0.9385
+        ]
+      },
+      "stage2_success": {
+        "numerator": 2,
+        "denominator": 3,
+        "rate": 0.6666666666666666,
+        "wilson95": [
+          0.2077,
+          0.9385
+        ]
+      },
+      "transition_conversion": {
+        "numerator": 2,
+        "denominator": 2,
+        "rate": 1.0,
+        "wilson95": [
+          0.3424,
+          1.0
+        ]
+      },
+      "downstream_success_among_switched": {
+        "numerator": 2,
+        "denominator": 2,
+        "rate": 1.0,
+        "wilson95": [
+          0.3424,
+          1.0
+        ]
+      },
+      "switch_episodes": 2,
+      "all_subtasks_but_not_success": 2,
+      "first_failure_position": {
+        "stage1": 1,
+        "post_success_check": 2
+      },
+      "steps": {
+        "mean": 1500.0,
+        "min": 1500,
+        "max": 1500
+      },
+      "cue_to_switch_steps": {
+        "values": [
+          5,
+          9
+        ],
+        "mean": 7.0
+      },
+      "seeds": [
+        4300004,
+        4300007,
+        4300008
+      ],
+      "stats_path": "/scratch/lijh/SkillHandoffBench/results/phase2/gateC_arrange_sign_2tasks/robocombine/oracle_hse/Motus/20261107_122813_robocombine_oracle_hse_motus/tasks/arrange_sign_2tasks/evaluation_statistics.json"
+    },
+    "bakery_close_2tasks": {
+      "episodes": 3,
+      "ordered_success": {
+        "numerator": 2,
+        "denominator": 3,
+        "rate": 0.6666666666666666,
+        "wilson95": [
+          0.2077,
+          0.9385
+        ]
+      },
+      "stage1_success": {
+        "numerator": 3,
+        "denominator": 3,
+        "rate": 1.0,
+        "wilson95": [
+          0.4385,
+          1.0
+        ]
+      },
+      "stage2_success": {
+        "numerator": 3,
+        "denominator": 3,
+        "rate": 1.0,
+        "wilson95": [
+          0.4385,
+          1.0
+        ]
+      },
+      "transition_conversion": {
+        "numerator": 3,
+        "denominator": 3,
+        "rate": 1.0,
+        "wilson95": [
+          0.4385,
+          1.0
+        ]
+      },
+      "downstream_success_among_switched": {
+        "numerator": 3,
+        "denominator": 3,
+        "rate": 1.0,
+        "wilson95": [
+          0.4385,
+          1.0
+        ]
+      },
+      "switch_episodes": 3,
+      "all_subtasks_but_not_success": 1,
+      "first_failure_position": {
+        "post_success_check": 1
+      },
+      "steps": {
+        "mean": 629.3333333333334,
+        "min": 140,
+        "max": 1500
+      },
+      "cue_to_switch_steps": {
+        "values": [
+          11,
+          7,
+          10
+        ],
+        "mean": 9.333333333333334
+      },
+      "seeds": [
+        4300001,
+        4300004,
+        4300006
+      ],
+      "stats_path": "/scratch/lijh/SkillHandoffBench/results/phase2/gateC_bakery_close_2tasks/robocombine/oracle_hse/Motus/20261107_140731_robocombine_oracle_hse_motus/tasks/bakery_close_2tasks/evaluation_statistics.json"
+    },
+    "breakfast_prep_2tasks": {
+      "episodes": 3,
+      "ordered_success": {
+        "numerator": 3,
+        "denominator": 3,
+        "rate": 1.0,
+        "wilson95": [
+          0.4385,
+          1.0
+        ]
+      },
+      "stage1_success": {
+        "numerator": 3,
+        "denominator": 3,
+        "rate": 1.0,
+        "wilson95": [
+          0.4385,
+          1.0
+        ]
+      },
+      "stage2_success": {
+        "numerator": 3,
+        "denominator": 3,
+        "rate": 1.0,
+        "wilson95": [
+          0.4385,
+          1.0
+        ]
+      },
+      "transition_conversion": {
+        "numerator": 3,
+        "denominator": 3,
+        "rate": 1.0,
+        "wilson95": [
+          0.4385,
+          1.0
+        ]
+      },
+      "downstream_success_among_switched": {
+        "numerator": 3,
+        "denominator": 3,
+        "rate": 1.0,
+        "wilson95": [
+          0.4385,
+          1.0
+        ]
+      },
+      "switch_episodes": 3,
+      "all_subtasks_but_not_success": 0,
+      "first_failure_position": {},
+      "steps": {
+        "mean": 160.33333333333334,
+        "min": 142,
+        "max": 196
+      },
+      "cue_to_switch_steps": {
+        "values": [
+          13,
+          13,
+          13
+        ],
+        "mean": 13.0
+      },
+      "seeds": [
+        4300000,
+        4300001,
+        4300002
+      ],
+      "stats_path": "/scratch/lijh/SkillHandoffBench/results/phase2/gateC_breakfast_prep_2tasks/robocombine/oracle_hse/Motus/20261107_130737_robocombine_oracle_hse_motus/tasks/breakfast_prep_2tasks/evaluation_statistics.json"
+    },
+    "desk_arrange_2tasks": {
+      "episodes": 3,
+      "ordered_success": {
+        "numerator": 2,
+        "denominator": 3,
+        "rate": 0.6666666666666666,
+        "wilson95": [
+          0.2077,
+          0.9385
+        ]
+      },
+      "stage1_success": {
+        "numerator": 3,
+        "denominator": 3,
+        "rate": 1.0,
+        "wilson95": [
+          0.4385,
+          1.0
+        ]
+      },
+      "stage2_success": {
+        "numerator": 2,
+        "denominator": 3,
+        "rate": 0.6666666666666666,
+        "wilson95": [
+          0.2077,
+          0.9385
+        ]
+      },
+      "transition_conversion": {
+        "numerator": 2,
+        "denominator": 3,
+        "rate": 0.6666666666666666,
+        "wilson95": [
+          0.2077,
+          0.9385
+        ]
+      },
+      "downstream_success_among_switched": {
+        "numerator": 2,
+        "denominator": 3,
+        "rate": 0.6666666666666666,
+        "wilson95": [
+          0.2077,
+          0.9385
+        ]
+      },
+      "switch_episodes": 3,
+      "all_subtasks_but_not_success": 0,
+      "first_failure_position": {
+        "stage2": 1
+      },
+      "steps": {
+        "mean": 1006.3333333333334,
+        "min": 752,
+        "max": 1500
+      },
+      "cue_to_switch_steps": {
+        "values": [
+          13,
+          1,
+          6
+        ],
+        "mean": 6.666666666666667
+      },
+      "seeds": [
+        4300001,
+        4300002,
+        4300003
+      ],
+      "stats_path": "/scratch/lijh/SkillHandoffBench/results/phase2/gateC_desk_arrange_2tasks/robocombine/oracle_hse/Motus/20261107_131630_robocombine_oracle_hse_motus/tasks/desk_arrange_2tasks/evaluation_statistics.json"
+    },
+    "office_organize_2tasks": {
+      "episodes": 3,
+      "ordered_success": {
+        "numerator": 2,
+        "denominator": 3,
+        "rate": 0.6666666666666666,
+        "wilson95": [
+          0.2077,
+          0.9385
+        ]
+      },
+      "stage1_success": {
+        "numerator": 3,
+        "denominator": 3,
+        "rate": 1.0,
+        "wilson95": [
+          0.4385,
+          1.0
+        ]
+      },
+      "stage2_success": {
+        "numerator": 2,
+        "denominator": 3,
+        "rate": 0.6666666666666666,
+        "wilson95": [
+          0.2077,
+          0.9385
+        ]
+      },
+      "transition_conversion": {
+        "numerator": 2,
+        "denominator": 3,
+        "rate": 0.6666666666666666,
+        "wilson95": [
+          0.2077,
+          0.9385
+        ]
+      },
+      "downstream_success_among_switched": {
+        "numerator": 2,
+        "denominator": 3,
+        "rate": 0.6666666666666666,
+        "wilson95": [
+          0.2077,
+          0.9385
+        ]
+      },
+      "switch_episodes": 3,
+      "all_subtasks_but_not_success": 0,
+      "first_failure_position": {
+        "stage2": 1
+      },
+      "steps": {
+        "mean": 808.3333333333334,
+        "min": 448,
+        "max": 1500
+      },
+      "cue_to_switch_steps": {
+        "values": [
+          7,
+          5,
+          7
+        ],
+        "mean": 6.333333333333333
+      },
+      "seeds": [
+        4300000,
+        4300002,
+        4300014
+      ],
+      "stats_path": "/scratch/lijh/SkillHandoffBench/results/phase2/gateC_office_organize_2tasks/robocombine/oracle_hse/Motus/20261107_134426_robocombine_oracle_hse_motus/tasks/office_organize_2tasks/evaluation_statistics.json"
+    }
+  }
+}

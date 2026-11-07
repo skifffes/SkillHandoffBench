@@ -1,0 +1,23 @@
+{
+  "label": "full",
+  "episodes": [
+    {
+      "episode_idx": 0,
+      "seed": 4300000,
+      "initial_instruction": "Place cup on coaster",
+      "stages_prompted": [
+        "Place cup on coaster",
+        "Place fan on pad"
+      ],
+      "success": true,
+      "total_steps": 173,
+      "cue_steps": [
+        51,
+        125
+      ],
+      "n_switch_events": 1,
+      "n_records": 524
+    }
+  ],
+  "n_records": 524
+}

@@ -1,0 +1,6 @@
+{"tag":"gateB_office","track":"full_inst","episodes":5,"tasks":"office_desk_2tasks","exit":137,"wall_s":3238}
+{"tag":"gateC_arrange_sign_2tasks","track":"oracle_hse","episodes":3,"tasks":"arrange_sign_2tasks","exit":1,"wall_s":2363}
+{"tag":"gateC_breakfast_prep_2tasks","track":"oracle_hse","episodes":3,"tasks":"breakfast_prep_2tasks","exit":1,"wall_s":532}
+{"tag":"gateC_desk_arrange_2tasks","track":"oracle_hse","episodes":3,"tasks":"desk_arrange_2tasks","exit":1,"wall_s":1675}
+{"tag":"gateC_office_organize_2tasks","track":"oracle_hse","episodes":3,"tasks":"office_organize_2tasks","exit":1,"wall_s":1384}
+{"tag":"gateC_bakery_close_2tasks","track":"oracle_hse","episodes":3,"tasks":"bakery_close_2tasks","exit":1,"wall_s":1185}

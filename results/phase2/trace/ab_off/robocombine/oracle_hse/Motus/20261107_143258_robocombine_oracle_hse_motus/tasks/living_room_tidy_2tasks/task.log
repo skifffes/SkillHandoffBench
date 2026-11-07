@@ -1,0 +1,218 @@
+# cwd: /scratch/lijh/SkillHandoffBench/third_party/RoboCombine
+# command: /scratch/lijh/SkillHandoffBench/envs/motus/bin/python script/eval_policy.py --config /scratch/lijh/SkillHandoffBench/third_party/RoboCombine/policy/Motus/deploy_policy.yml --overrides --task_name living_room_tidy_2tasks --task_config robocombine_eval --policy_name Motus --seed 42 --episode_num 1 --ckpt_setting /scratch/lijh/SkillHandoffBench/assets/models/Motus_robotwin2 --ckpt_setting_label motus_robotwin2_official --save_dir /scratch/lijh/SkillHandoffBench/results/phase2/trace/ab_off/robocombine/oracle_hse/Motus/20261107_143258_robocombine_oracle_hse_motus/tasks/living_room_tidy_2tasks --log_dir /scratch/lijh/SkillHandoffBench/results/phase2/trace/ab_off/robocombine/oracle_hse/Motus/20261107_143258_robocombine_oracle_hse_motus/tasks/living_room_tidy_2tasks --hse_variant oracle_hse --clear_cache false --max_steps_per_episode 1500 --wan_path /scratch/lijh/SkillHandoffBench/assets/models/Wan2.2-TI2V-5B --vlm_path /scratch/lijh/SkillHandoffBench/assets/models/Qwen3-VL-2B-Instruct
+
+/scratch/lijh/SkillHandoffBench/envs/motus/lib/python3.10/site-packages/sapien/__init__.py:2: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  import pkg_resources
+missing pytorch3d
+/scratch/lijh/SkillHandoffBench/third_party/RoboCombine/policy/Motus/bak/wan/modules/vae2_2.py:883: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  torch.load(pretrained_path, map_location=device), assign=True)
+`torch_dtype` is deprecated! Use `dtype` instead!
+/scratch/lijh/SkillHandoffBench/third_party/RoboCombine/policy/Motus/models/motus.py:369: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  checkpoint = torch.load(path, map_location='cpu')
+/scratch/lijh/SkillHandoffBench/third_party/RoboCombine/policy/Motus/bak/wan/modules/t5.py:496: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  model.load_state_dict(torch.load(checkpoint_path, map_location='cpu'))
+living_room_tidy_2tasks not in step limit file, set to 1000
+max_steps_per_episode override: 1000 -> 1500
+[Subtask 1] Place cup on coaster
+[Subtask 2] Place fan on pad
+  Subtask 1 completed: Cup placed on coaster
+  Subtask 2 completed: Fan placed on pad
+[Step    0] S1:✓ S2:✓ L:1.000(✓) R:1.000(✓) -> SUCCESS!
+living_room_tidy_2tasks not in step limit file, set to 1000
+max_steps_per_episode override: 1000 -> 1500
+/scratch/lijh/SkillHandoffBench/third_party/RoboCombine/policy/Motus/bak/wan/modules/attention.py:130: UserWarning: FlashAttention is unavailable; falling back to scaled_dot_product_attention. Padding mask is ignored in this fallback path.
+  warnings.warn(
+/scratch/lijh/SkillHandoffBench/third_party/RoboCombine/policy/Motus/bak/wan/modules/vae2_2.py:1032: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with amp.autocast(dtype=self.dtype):
+step: [92m1 / 1500[0m[Step    1] S1:✗ S2:✗ L:1.000(✓) R:0.998(✓) -> FAIL: S1,S2
+step: [92m2 / 1500[0m[Step    2] S1:✗ S2:✗ L:1.000(✓) R:0.926(✓) -> FAIL: S1,S2
+step: [92m3 / 1500[0m[Step    3] S1:✗ S2:✗ L:0.996(✓) R:0.838(✓) -> FAIL: S1,S2
+step: [92m4 / 1500[0m[Step    4] S1:✗ S2:✗ L:0.996(✓) R:0.735(✗) -> FAIL: S1,S2
+step: [92m5 / 1500[0m[Step    5] S1:✗ S2:✗ L:1.000(✓) R:0.632(✗) -> FAIL: S1,S2
+step: [92m6 / 1500[0m[Step    6] S1:✗ S2:✗ L:0.996(✓) R:0.602(✗) -> FAIL: S1,S2
+step: [92m7 / 1500[0m[Step    7] S1:✗ S2:✗ L:0.996(✓) R:0.602(✗) -> FAIL: S1,S2
+step: [92m8 / 1500[0m[Step    8] S1:✗ S2:✗ L:0.996(✓) R:0.606(✗) -> FAIL: S1,S2
+step: [92m9 / 1500[0m[Step    9] S1:✗ S2:✗ L:0.992(✓) R:0.609(✗) -> FAIL: S1,S2
+step: [92m10 / 1500[0m[Step   10] S1:✗ S2:✗ L:0.996(✓) R:0.613(✗) -> FAIL: S1,S2
+[Step 10] Instruction='Place cup on coaster' step_time=0.34s
+step: [92m11 / 1500[0m[Step   11] S1:✗ S2:✗ L:0.992(✓) R:0.617(✗) -> FAIL: S1,S2
+step: [92m12 / 1500[0m[Step   12] S1:✗ S2:✗ L:0.992(✓) R:0.613(✗) -> FAIL: S1,S2
+step: [92m13 / 1500[0m[Step   13] S1:✗ S2:✗ L:0.992(✓) R:0.609(✗) -> FAIL: S1,S2
+step: [92m14 / 1500[0m[Step   14] S1:✗ S2:✗ L:0.992(✓) R:0.613(✗) -> FAIL: S1,S2
+step: [92m15 / 1500[0m[Step   15] S1:✗ S2:✗ L:0.992(✓) R:0.605(✗) -> FAIL: S1,S2
+step: [92m16 / 1500[0m[Step   16] S1:✗ S2:✗ L:0.992(✓) R:0.605(✗) -> FAIL: S1,S2
+step: [92m17 / 1500[0m[Step   17] S1:✗ S2:✗ L:0.988(✓) R:0.609(✗) -> FAIL: S1,S2
+step: [92m18 / 1500[0m[Step   18] S1:✗ S2:✗ L:0.988(✓) R:0.609(✗) -> FAIL: S1,S2
+step: [92m19 / 1500[0m[Step   19] S1:✗ S2:✗ L:0.992(✓) R:0.598(✗) -> FAIL: S1,S2
+step: [92m20 / 1500[0m[Step   20] S1:✗ S2:✗ L:0.988(✓) R:0.598(✗) -> FAIL: S1,S2
+[Step 20] Instruction='Place cup on coaster' step_time=0.38s
+step: [92m21 / 1500[0m[Step   21] S1:✗ S2:✗ L:0.988(✓) R:0.594(✗) -> FAIL: S1,S2
+step: [92m22 / 1500[0m[Step   22] S1:✗ S2:✗ L:0.992(✓) R:0.605(✗) -> FAIL: S1,S2
+step: [92m23 / 1500[0m[Step   23] S1:✗ S2:✗ L:0.988(✓) R:0.605(✗) -> FAIL: S1,S2
+step: [92m24 / 1500[0m[Step   24] S1:✗ S2:✗ L:0.992(✓) R:0.601(✗) -> FAIL: S1,S2
+step: [92m25 / 1500[0m[Step   25] S1:✗ S2:✗ L:0.988(✓) R:0.567(✗) -> FAIL: S1,S2
+step: [92m26 / 1500[0m[Step   26] S1:✗ S2:✗ L:0.985(✓) R:0.417(✗) -> FAIL: S1,S2
+step: [92m27 / 1500[0m[Step   27] S1:✗ S2:✗ L:0.992(✓) R:0.283(✗) -> FAIL: S1,S2
+step: [92m28 / 1500[0m[Step   28] S1:✗ S2:✗ L:0.992(✓) R:0.154(✗) -> FAIL: S1,S2
+step: [92m29 / 1500[0m[Step   29] S1:✗ S2:✗ L:0.992(✓) R:0.028(✗) -> FAIL: S1,S2
+step: [92m30 / 1500[0m[Step   30] S1:✗ S2:✗ L:0.992(✓) R:0.002(✗) -> FAIL: S1,S2
+[Step 30] Instruction='Place cup on coaster' step_time=0.24s
+step: [92m31 / 1500[0m[Step   31] S1:✗ S2:✗ L:0.996(✓) R:0.002(✗) -> FAIL: S1,S2
+step: [92m32 / 1500[0m[Step   32] S1:✗ S2:✗ L:0.996(✓) R:0.004(✗) -> FAIL: S1,S2
+step: [92m33 / 1500[0m[Step   33] S1:✗ S2:✗ L:0.992(✓) R:0.005(✗) -> FAIL: S1,S2
+step: [92m34 / 1500[0m[Step   34] S1:✗ S2:✗ L:0.989(✓) R:0.008(✗) -> FAIL: S1,S2
+step: [92m35 / 1500[0m[Step   35] S1:✗ S2:✗ L:0.996(✓) R:0.008(✗) -> FAIL: S1,S2
+step: [92m36 / 1500[0m[Step   36] S1:✗ S2:✗ L:0.988(✓) R:0.008(✗) -> FAIL: S1,S2
+step: [92m37 / 1500[0m[Step   37] S1:✗ S2:✗ L:0.992(✓) R:0.011(✗) -> FAIL: S1,S2
+step: [92m38 / 1500[0m[Step   38] S1:✗ S2:✗ L:0.988(✓) R:0.008(✗) -> FAIL: S1,S2
+step: [92m39 / 1500[0m[Step   39] S1:✗ S2:✗ L:0.988(✓) R:0.008(✗) -> FAIL: S1,S2
+step: [92m40 / 1500[0m[Step   40] S1:✗ S2:✗ L:0.988(✓) R:0.007(✗) -> FAIL: S1,S2
+[Step 40] Instruction='Place cup on coaster' step_time=0.34s
+step: [92m41 / 1500[0m[Step   41] S1:✗ S2:✗ L:0.988(✓) R:0.006(✗) -> FAIL: S1,S2
+step: [92m42 / 1500[0m[Step   42] S1:✗ S2:✗ L:0.992(✓) R:0.010(✗) -> FAIL: S1,S2
+step: [92m43 / 1500[0m[Step   43] S1:✗ S2:✗ L:0.992(✓) R:0.008(✗) -> FAIL: S1,S2
+step: [92m44 / 1500[0m[Step   44] S1:✗ S2:✗ L:0.992(✓) R:0.009(✗) -> FAIL: S1,S2
+step: [92m45 / 1500[0m[Step   45] S1:✗ S2:✗ L:0.988(✓) R:0.009(✗) -> FAIL: S1,S2
+step: [92m46 / 1500[0m[Step   46] S1:✗ S2:✗ L:0.996(✓) R:0.008(✗) -> FAIL: S1,S2
+step: [92m47 / 1500[0m[Step   47] S1:✗ S2:✗ L:0.988(✓) R:0.009(✗) -> FAIL: S1,S2
+step: [92m48 / 1500[0m[Step   48] S1:✗ S2:✗ L:0.992(✓) R:0.013(✗) -> FAIL: S1,S2
+step: [92m49 / 1500[0m[Step   49] S1:✗ S2:✗ L:0.981(✓) R:0.031(✗) -> FAIL: S1,S2
+step: [92m50 / 1500[0m[Step   50] S1:✗ S2:✗ L:0.985(✓) R:0.069(✗) -> FAIL: S1,S2
+[Step 50] Instruction='Place cup on coaster' step_time=0.28s
+step: [92m51 / 1500[0m[Step   51] S1:✗ S2:✗ L:0.988(✓) R:0.219(✗) -> FAIL: S1,S2
+  Subtask 1 completed: Cup placed on coaster
+step: [92m52 / 1500[0m[Step   52] S1:✓ S2:✗ L:0.981(✓) R:0.438(✗) -> FAIL: S2
+step: [92m53 / 1500[0m[Step   53] S1:✓ S2:✗ L:0.984(✓) R:0.630(✗) -> FAIL: S2
+step: [92m54 / 1500[0m[Step   54] S1:✓ S2:✗ L:0.988(✓) R:0.852(✓) -> FAIL: S2
+step: [92m55 / 1500[0m[Step   55] S1:✓ S2:✗ L:0.985(✓) R:0.985(✓) -> FAIL: S2
+step: [92m56 / 1500[0m[Step   56] S1:✓ S2:✗ L:0.988(✓) R:1.000(✓) -> FAIL: S2
+step: [92m57 / 1500[0m[Step   57] S1:✓ S2:✗ L:0.988(✓) R:1.000(✓) -> FAIL: S2
+step: [92m58 / 1500[0m[Step   58] S1:✓ S2:✗ L:0.981(✓) R:1.000(✓) -> FAIL: S2
+step: [92m59 / 1500[0m[Step   59] S1:✓ S2:✗ L:0.984(✓) R:1.000(✓) -> FAIL: S2
+step: [92m60 / 1500[0m[Step   60] S1:✓ S2:✗ L:0.984(✓) R:1.000(✓) -> FAIL: S2
+[Step 60] Instruction='Place cup on coaster' step_time=0.28s
+step: [92m61 / 1500[0m[Step   61] S1:✓ S2:✗ L:0.984(✓) R:1.000(✓) -> FAIL: S2
+step: [92m62 / 1500[0m[Step   62] S1:✓ S2:✗ L:0.984(✓) R:1.000(✓) -> FAIL: S2
+step: [92m63 / 1500[0m[Step   63] S1:✓ S2:✗ L:0.984(✓) R:1.000(✓) -> FAIL: S2
+step: [92m64 / 1500[0m[Step   64] S1:✓ S2:✗ L:0.985(✓) R:1.000(✓) -> FAIL: S2
+step: [92m65 / 1500[0m[Step   65] S1:✓ S2:✗ L:0.988(✓) R:1.000(✓) -> FAIL: S2
+step: [92m66 / 1500[0m[Step   66] S1:✓ S2:✗ L:0.996(✓) R:0.996(✓) -> FAIL: S2
+step: [92m67 / 1500[0m[Step   67] S1:✓ S2:✗ L:1.000(✓) R:1.000(✓) -> FAIL: S2
+step: [92m68 / 1500[0m[Step   68] S1:✓ S2:✗ L:1.000(✓) R:0.992(✓) -> FAIL: S2
+step: [92m69 / 1500[0m[Step   69] S1:✓ S2:✗ L:1.000(✓) R:0.996(✓) -> FAIL: S2
+step: [92m70 / 1500[0m[Step   70] S1:✓ S2:✗ L:1.000(✓) R:0.996(✓) -> FAIL: S2
+[Step 70] Instruction='Place fan on pad' step_time=0.31s
+step: [92m71 / 1500[0m[Step   71] S1:✓ S2:✗ L:0.996(✓) R:1.000(✓) -> FAIL: S2
+step: [92m72 / 1500[0m[Step   72] S1:✓ S2:✗ L:0.996(✓) R:0.992(✓) -> FAIL: S2
+step: [92m73 / 1500[0m[Step   73] S1:✓ S2:✗ L:0.996(✓) R:0.858(✓) -> FAIL: S2
+step: [92m74 / 1500[0m[Step   74] S1:✓ S2:✗ L:0.996(✓) R:0.628(✗) -> FAIL: S2
+step: [92m75 / 1500[0m[Step   75] S1:✓ S2:✗ L:0.992(✓) R:0.417(✗) -> FAIL: S2
+step: [92m76 / 1500[0m[Step   76] S1:✓ S2:✗ L:0.992(✓) R:0.188(✗) -> FAIL: S2
+step: [92m77 / 1500[0m[Step   77] S1:✓ S2:✗ L:1.000(✓) R:0.017(✗) -> FAIL: S2
+step: [92m78 / 1500[0m[Step   78] S1:✓ S2:✗ L:1.000(✓) R:0.005(✗) -> FAIL: S2
+step: [92m79 / 1500[0m[Step   79] S1:✓ S2:✗ L:0.996(✓) R:0.008(✗) -> FAIL: S2
+step: [92m80 / 1500[0m[Step   80] S1:✓ S2:✗ L:1.000(✓) R:0.007(✗) -> FAIL: S2
+[Step 80] Instruction='Place fan on pad' step_time=0.38s
+step: [92m81 / 1500[0m[Step   81] S1:✓ S2:✗ L:1.000(✓) R:0.007(✗) -> FAIL: S2
+step: [92m82 / 1500[0m[Step   82] S1:✓ S2:✗ L:1.000(✓) R:0.017(✗) -> FAIL: S2
+step: [92m83 / 1500[0m[Step   83] S1:✓ S2:✗ L:1.000(✓) R:0.017(✗) -> FAIL: S2
+step: [92m84 / 1500[0m[Step   84] S1:✓ S2:✗ L:1.000(✓) R:0.024(✗) -> FAIL: S2
+step: [92m85 / 1500[0m[Step   85] S1:✓ S2:✗ L:1.000(✓) R:0.023(✗) -> FAIL: S2
+step: [92m86 / 1500[0m[Step   86] S1:✓ S2:✗ L:0.992(✓) R:0.027(✗) -> FAIL: S2
+step: [92m87 / 1500[0m[Step   87] S1:✓ S2:✗ L:0.988(✓) R:0.029(✗) -> FAIL: S2
+step: [92m88 / 1500[0m[Step   88] S1:✓ S2:✗ L:0.984(✓) R:0.029(✗) -> FAIL: S2
+step: [92m89 / 1500[0m[Step   89] S1:✓ S2:✗ L:0.988(✓) R:0.024(✗) -> FAIL: S2
+step: [92m90 / 1500[0m[Step   90] S1:✓ S2:✗ L:0.984(✓) R:0.022(✗) -> FAIL: S2
+[Step 90] Instruction='Place fan on pad' step_time=0.29s
+step: [92m91 / 1500[0m[Step   91] S1:✓ S2:✗ L:0.988(✓) R:0.025(✗) -> FAIL: S2
+step: [92m92 / 1500[0m[Step   92] S1:✓ S2:✗ L:0.984(✓) R:0.025(✗) -> FAIL: S2
+step: [92m93 / 1500[0m[Step   93] S1:✓ S2:✗ L:0.984(✓) R:0.025(✗) -> FAIL: S2
+step: [92m94 / 1500[0m[Step   94] S1:✓ S2:✗ L:0.992(✓) R:0.029(✗) -> FAIL: S2
+step: [92m95 / 1500[0m[Step   95] S1:✓ S2:✗ L:0.992(✓) R:0.025(✗) -> FAIL: S2
+step: [92m96 / 1500[0m[Step   96] S1:✓ S2:✗ L:0.988(✓) R:0.029(✗) -> FAIL: S2
+step: [92m97 / 1500[0m[Step   97] S1:✓ S2:✗ L:0.980(✓) R:0.027(✗) -> FAIL: S2
+step: [92m98 / 1500[0m[Step   98] S1:✓ S2:✗ L:0.713(✗) R:0.048(✗) -> FAIL: S2
+step: [92m99 / 1500[0m[Step   99] S1:✓ S2:✗ L:0.466(✗) R:0.039(✗) -> FAIL: S2
+step: [92m100 / 1500[0m[Step  100] S1:✓ S2:✗ L:0.226(✗) R:0.013(✗) -> FAIL: S2
+[Step 100] Instruction='Place fan on pad' step_time=0.30s
+step: [92m101 / 1500[0m[Step  101] S1:✓ S2:✗ L:0.030(✗) R:0.000(✗) -> FAIL: S2
+step: [92m102 / 1500[0m[Step  102] S1:✓ S2:✗ L:0.021(✗) R:0.000(✗) -> FAIL: S2
+step: [92m103 / 1500[0m[Step  103] S1:✓ S2:✗ L:0.024(✗) R:0.000(✗) -> FAIL: S2
+step: [92m104 / 1500[0m[Step  104] S1:✓ S2:✗ L:0.025(✗) R:0.000(✗) -> FAIL: S2
+step: [92m105 / 1500[0m[Step  105] S1:✓ S2:✗ L:0.026(✗) R:0.000(✗) -> FAIL: S2
+step: [92m106 / 1500[0m[Step  106] S1:✓ S2:✗ L:0.031(✗) R:0.000(✗) -> FAIL: S2
+step: [92m107 / 1500[0m[Step  107] S1:✓ S2:✗ L:0.027(✗) R:0.000(✗) -> FAIL: S2
+step: [92m108 / 1500[0m[Step  108] S1:✓ S2:✗ L:0.026(✗) R:0.000(✗) -> FAIL: S2
+step: [92m109 / 1500[0m[Step  109] S1:✓ S2:✗ L:0.024(✗) R:0.000(✗) -> FAIL: S2
+step: [92m110 / 1500[0m[Step  110] S1:✓ S2:✗ L:0.027(✗) R:0.000(✗) -> FAIL: S2
+[Step 110] Instruction='Place fan on pad' step_time=0.35s
+step: [92m111 / 1500[0m[Step  111] S1:✓ S2:✗ L:0.031(✗) R:0.000(✗) -> FAIL: S2
+step: [92m112 / 1500[0m[Step  112] S1:✓ S2:✗ L:0.032(✗) R:0.000(✗) -> FAIL: S2
+step: [92m113 / 1500[0m[Step  113] S1:✓ S2:✗ L:0.027(✗) R:0.000(✗) -> FAIL: S2
+step: [92m114 / 1500[0m[Step  114] S1:✓ S2:✗ L:0.028(✗) R:0.026(✗) -> FAIL: S2
+step: [92m115 / 1500[0m[Step  115] S1:✓ S2:✗ L:0.030(✗) R:0.022(✗) -> FAIL: S2
+step: [92m116 / 1500[0m[Step  116] S1:✓ S2:✗ L:0.030(✗) R:0.029(✗) -> FAIL: S2
+step: [92m117 / 1500[0m[Step  117] S1:✓ S2:✗ L:0.028(✗) R:0.023(✗) -> FAIL: S2
+step: [92m118 / 1500[0m[Step  118] S1:✓ S2:✗ L:0.025(✗) R:0.025(✗) -> FAIL: S2
+step: [92m119 / 1500[0m[Step  119] S1:✓ S2:✗ L:0.026(✗) R:0.024(✗) -> FAIL: S2
+step: [92m120 / 1500[0m[Step  120] S1:✓ S2:✗ L:0.021(✗) R:0.022(✗) -> FAIL: S2
+[Step 120] Instruction='Place fan on pad' step_time=0.45s
+step: [92m121 / 1500[0m[Step  121] S1:✓ S2:✗ L:0.021(✗) R:0.021(✗) -> FAIL: S2
+step: [92m122 / 1500[0m[Step  122] S1:✓ S2:✗ L:0.023(✗) R:0.019(✗) -> FAIL: S2
+step: [92m123 / 1500[0m[Step  123] S1:✓ S2:✗ L:0.018(✗) R:0.015(✗) -> FAIL: S2
+step: [92m124 / 1500[0m[Step  124] S1:✓ S2:✗ L:0.020(✗) R:0.016(✗) -> FAIL: S2
+step: [92m125 / 1500[0m[Step  125] S1:✓ S2:✗ L:0.019(✗) R:0.013(✗) -> FAIL: S2
+  Subtask 2 completed: Fan placed on pad
+step: [92m126 / 1500[0m[Step  126] S1:✓ S2:✓ L:0.017(✗) R:0.014(✗) -> FAIL: L<0.8,R<0.8
+step: [92m127 / 1500[0m[Step  127] S1:✓ S2:✓ L:0.034(✗) R:0.012(✗) -> FAIL: L<0.8,R<0.8
+step: [92m128 / 1500[0m[Step  128] S1:✓ S2:✓ L:0.159(✗) R:0.010(✗) -> FAIL: L<0.8,R<0.8
+step: [92m129 / 1500[0m[Step  129] S1:✓ S2:✓ L:0.321(✗) R:0.019(✗) -> FAIL: L<0.8,R<0.8
+step: [92m130 / 1500[0m[Step  130] S1:✓ S2:✓ L:0.110(✗) R:0.034(✗) -> FAIL: L<0.8,R<0.8
+[Step 130] Instruction='Place fan on pad' step_time=0.25s
+step: [92m131 / 1500[0m[Step  131] S1:✓ S2:✓ L:0.120(✗) R:0.038(✗) -> FAIL: L<0.8,R<0.8
+step: [92m132 / 1500[0m[Step  132] S1:✓ S2:✓ L:0.109(✗) R:0.045(✗) -> FAIL: L<0.8,R<0.8
+step: [92m133 / 1500[0m[Step  133] S1:✓ S2:✓ L:0.100(✗) R:0.046(✗) -> FAIL: L<0.8,R<0.8
+step: [92m134 / 1500[0m[Step  134] S1:✓ S2:✓ L:0.101(✗) R:0.053(✗) -> FAIL: L<0.8,R<0.8
+step: [92m135 / 1500[0m[Step  135] S1:✓ S2:✓ L:0.087(✗) R:0.050(✗) -> FAIL: L<0.8,R<0.8
+step: [92m136 / 1500[0m[Step  136] S1:✓ S2:✓ L:0.089(✗) R:0.090(✗) -> FAIL: L<0.8,R<0.8
+step: [92m137 / 1500[0m[Step  137] S1:✓ S2:✓ L:0.092(✗) R:0.233(✗) -> FAIL: L<0.8,R<0.8
+step: [92m138 / 1500[0m[Step  138] S1:✓ S2:✓ L:0.082(✗) R:0.404(✗) -> FAIL: L<0.8,R<0.8
+step: [92m139 / 1500[0m[Step  139] S1:✓ S2:✓ L:0.083(✗) R:0.662(✗) -> FAIL: L<0.8,R<0.8
+step: [92m140 / 1500[0m[Step  140] S1:✓ S2:✓ L:0.080(✗) R:0.860(✓) -> FAIL: L<0.8
+[Step 140] Instruction='Place fan on pad' step_time=0.31s
+step: [92m141 / 1500[0m[Step  141] S1:✓ S2:✓ L:0.077(✗) R:0.961(✓) -> FAIL: L<0.8
+step: [92m142 / 1500[0m[Step  142] S1:✓ S2:✓ L:0.069(✗) R:0.985(✓) -> FAIL: L<0.8
+step: [92m143 / 1500[0m[Step  143] S1:✓ S2:✓ L:0.069(✗) R:1.000(✓) -> FAIL: L<0.8
+step: [92m144 / 1500[0m[Step  144] S1:✓ S2:✓ L:0.068(✗) R:1.000(✓) -> FAIL: L<0.8
+step: [92m145 / 1500[0m[Step  145] S1:✓ S2:✓ L:0.062(✗) R:1.000(✓) -> FAIL: L<0.8
+step: [92m146 / 1500[0m[Step  146] S1:✓ S2:✓ L:0.062(✗) R:0.957(✓) -> FAIL: L<0.8
+step: [92m147 / 1500[0m[Step  147] S1:✓ S2:✓ L:0.042(✗) R:0.953(✓) -> FAIL: L<0.8
+step: [92m148 / 1500[0m[Step  148] S1:✓ S2:✓ L:0.027(✗) R:0.961(✓) -> FAIL: L<0.8
+step: [92m149 / 1500[0m[Step  149] S1:✓ S2:✓ L:0.024(✗) R:0.961(✓) -> FAIL: L<0.8
+step: [92m150 / 1500[0m[Step  150] S1:✓ S2:✓ L:0.025(✗) R:0.965(✓) -> FAIL: L<0.8
+[Step 150] Instruction='Place fan on pad' step_time=0.25s
+step: [92m151 / 1500[0m[Step  151] S1:✓ S2:✓ L:0.017(✗) R:0.965(✓) -> FAIL: L<0.8
+step: [92m152 / 1500[0m[Step  152] S1:✓ S2:✓ L:0.018(✗) R:0.965(✓) -> FAIL: L<0.8
+step: [92m153 / 1500[0m[Step  153] S1:✓ S2:✓ L:0.020(✗) R:0.973(✓) -> FAIL: L<0.8
+step: [92m154 / 1500[0m[Step  154] S1:✓ S2:✓ L:0.020(✗) R:0.984(✓) -> FAIL: L<0.8
+step: [92m155 / 1500[0m[Step  155] S1:✓ S2:✓ L:0.014(✗) R:0.992(✓) -> FAIL: L<0.8
+step: [92m156 / 1500[0m[Step  156] S1:✓ S2:✓ L:0.015(✗) R:1.000(✓) -> FAIL: L<0.8
+step: [92m157 / 1500[0m[Step  157] S1:✓ S2:✓ L:0.016(✗) R:1.000(✓) -> FAIL: L<0.8
+step: [92m158 / 1500[0m[Step  158] S1:✓ S2:✓ L:0.012(✗) R:1.000(✓) -> FAIL: L<0.8
+step: [92m159 / 1500[0m[Step  159] S1:✓ S2:✓ L:0.015(✗) R:1.000(✓) -> FAIL: L<0.8
+step: [92m160 / 1500[0m[Step  160] S1:✓ S2:✓ L:0.012(✗) R:1.000(✓) -> FAIL: L<0.8
+[Step 160] Instruction='Place fan on pad' step_time=0.26s
+step: [92m161 / 1500[0m[Step  161] S1:✓ S2:✓ L:0.007(✗) R:1.000(✓) -> FAIL: L<0.8
+step: [92m162 / 1500[0m[Step  162] S1:✓ S2:✓ L:0.008(✗) R:1.000(✓) -> FAIL: L<0.8
+step: [92m163 / 1500[0m[Step  163] S1:✓ S2:✓ L:0.009(✗) R:1.000(✓) -> FAIL: L<0.8
+step: [92m164 / 1500[0m[Step  164] S1:✓ S2:✓ L:0.008(✗) R:1.000(✓) -> FAIL: L<0.8
+step: [92m165 / 1500[0m[Step  165] S1:✓ S2:✓ L:0.009(✗) R:1.000(✓) -> FAIL: L<0.8
+step: [92m166 / 1500[0m[Step  166] S1:✓ S2:✓ L:0.011(✗) R:1.000(✓) -> FAIL: L<0.8
+step: [92m167 / 1500[0m[Step  167] S1:✓ S2:✓ L:0.008(✗) R:1.000(✓) -> FAIL: L<0.8
+step: [92m168 / 1500[0m[Step  168] S1:✓ S2:✓ L:0.004(✗) R:1.000(✓) -> FAIL: L<0.8
+step: [92m169 / 1500[0m[Step  169] S1:✓ S2:✓ L:0.002(✗) R:1.000(✓) -> FAIL: L<0.8
+step: [92m170 / 1500[0m[Step  170] S1:✓ S2:✓ L:0.022(✗) R:1.000(✓) -> FAIL: L<0.8
+[Step 170] Instruction='Place fan on pad' step_time=0.24s
+step: [92m171 / 1500[0m[Step  171] S1:✓ S2:✓ L:0.199(✗) R:1.000(✓) -> FAIL: L<0.8
+step: [92m172 / 1500[0m[Step  172] S1:✓ S2:✓ L:0.427(✗) R:1.000(✓) -> FAIL: L<0.8
+step: [92m173 / 1500[0m[Step  173] S1:✓ S2:✓ L:0.619(✗) R:1.000(✓) -> FAIL: L<0.8

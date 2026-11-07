@@ -1,0 +1,16 @@
+task,seed,success,s1_completed,s2_completed,total_steps,s1_step,s2_step,switch_step,cue_step,cue_to_switch,cache_cleared,mechanism,n_switch_events
+arrange_sign_2tasks,4300004,False,False,False,1500,,,,,,,,0
+arrange_sign_2tasks,4300007,False,True,True,1500,811,1259,816,811,5,False,gt,1
+arrange_sign_2tasks,4300008,False,True,True,1500,343,80,352,343,9,False,gt,1
+bakery_close_2tasks,4300001,True,True,True,248,37,112,48,37,11,False,gt,1
+bakery_close_2tasks,4300004,True,True,True,140,41,64,48,41,7,False,gt,1
+bakery_close_2tasks,4300006,False,True,True,1500,38,218,48,38,10,False,gt,1
+breakfast_prep_2tasks,4300000,True,True,True,143,51,104,64,51,13,False,gt,1
+breakfast_prep_2tasks,4300001,True,True,True,196,51,112,64,51,13,False,gt,1
+breakfast_prep_2tasks,4300002,True,True,True,142,51,109,64,51,13,False,gt,1
+desk_arrange_2tasks,4300001,True,True,True,752,51,706,64,51,13,False,gt,1
+desk_arrange_2tasks,4300002,True,True,True,767,399,478,400,399,1,False,gt,1
+desk_arrange_2tasks,4300003,False,True,False,1500,42,,48,42,6,False,gt,1
+office_organize_2tasks,4300000,False,True,False,1500,41,,48,41,7,False,gt,1
+office_organize_2tasks,4300002,True,True,True,477,43,447,48,43,5,False,gt,1
+office_organize_2tasks,4300014,True,True,True,448,137,347,144,137,7,False,gt,1

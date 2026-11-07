@@ -1,0 +1,68 @@
+diff --git a/script/eval_policy.py b/script/eval_policy.py
+index b5d0333..61ade1d 100644
+--- a/script/eval_policy.py
++++ b/script/eval_policy.py
+@@ -30,6 +30,14 @@ from handoff_eval.hse import ORDERED_HSE
+ from handoff_eval.hse import ORACLE_HSE
+ from handoff_eval.hse import resolve_hse_variant
+ from handoff_eval.real_switch_runtime import XVLARealSwitchSession
++try:  # [SkillHandoffBench patch 004] 被动状态记录（未设置 SHB_TRACE_JSONL 时零开销）
++    import shb_trace
++except ImportError:  # 没把 scripts/ 放进 PYTHONPATH 时保持官方行为不变
++    class _NoTrace:
++        @staticmethod
++        def hook(*args, **kwargs):
++            return None
++    shb_trace = _NoTrace()
+ from envs import asset_path
+ 
+ CURRENT_FILE_PATH = os.path.abspath(__file__)
+@@ -822,6 +830,7 @@ def eval_policy(
+         initial_instruction = controller.initial_instruction(full_instruction=full_inst)
+         task_env.set_instruction(instruction=initial_instruction)
+         reset_event = controller.begin_episode(env=task_env, state=episode_state, initial_instruction=initial_instruction, step_count=0)
++        shb_trace.hook('episode_start', task_env=task_env, model=model, state=episode_state, seed=now_seed, subtask_instructions=subtask_instructions, initial_instruction=initial_instruction)
+         if reset_event is not None:
+             print(f"REAL predictor reset: camera={reset_event.get('camera_key')} bundle={reset_event.get('predictor_bundle_dir')}", flush=True)
+         if task_env.eval_video_path is not None:
+@@ -867,8 +876,10 @@ def eval_policy(
+         while task_env.take_action_cnt < task_env.step_lim:
+             step_start = time.time()
+             observation = task_env.get_obs()
++            shb_trace.hook('pre_action', task_env=task_env, model=model, state=episode_state)  # [SkillHandoffBench patch 004]
+             eval_func(task_env, model, observation)
+             step_count = task_env.take_action_cnt
++            shb_trace.hook('post_action', task_env=task_env, model=model, state=episode_state)  # [SkillHandoffBench patch 004]
+             if hse_variant == ORDERED_HSE:
+                 try:
+                     real_switch_metadata, switch_event = controller.observe_real_switch(
+@@ -895,6 +906,7 @@ def eval_policy(
+                 for i in range(num_subtasks):
+                     if task_env.subtask_completed[i] and subtask_completion_steps[i] is None:
+                         subtask_completion_steps[i] = step_count
++                        shb_trace.hook('cue', task_env=task_env, model=model, state=episode_state, stage_idx=i, completion_step=step_count)  # [SkillHandoffBench patch 004] 完成信号(=Oracle 切换信号)首次为真
+                         if hse_variant == ORACLE_HSE and i == episode_state.current_stage_idx:
+                             switch_event = controller.handle_oracle_hse(
+                                 env=task_env,
+@@ -907,9 +919,12 @@ def eval_policy(
+                                     f"Oracle HSE -> stage {switch_event['to_subtask_idx'] + 1} at step {step_count}",
+                                     flush=True,
+                                 )
+-            controller.flush_pending_switch(
++                                shb_trace.hook('switch', task_env=task_env, model=model, state=episode_state, mechanism='oracle_immediate', switch_event=switch_event)  # [SkillHandoffBench patch 004]
++            _shb_deferred_switch = controller.flush_pending_switch(
+                 env=task_env, model=model, state=episode_state, step_count=step_count,
+             )
++            if _shb_deferred_switch is not None:
++                shb_trace.hook('switch', task_env=task_env, model=model, state=episode_state, mechanism='deferred_after_chunk', switch_event=_shb_deferred_switch)  # [SkillHandoffBench patch 004]
+             if step_count % 10 == 0:
+                 current_instruction = task_env.get_instruction() if hasattr(task_env, "get_instruction") else initial_instruction
+                 print(f"[Step {step_count}] Instruction={current_instruction!r} step_time={time.time() - step_start:.2f}s", flush=True)
+@@ -919,6 +934,7 @@ def eval_policy(
+         inference_time = time.time() - inference_start
+         inference_times.append(inference_time)
+         actual_steps = task_env.take_action_cnt
++        shb_trace.hook('episode_end', task_env=task_env, model=model, state=episode_state, success=succ, total_steps=actual_steps, subtask_completion_steps=list(subtask_completion_steps), switch_events=list(episode_switch_events))  # [SkillHandoffBench patch 004]
+         subtask_stats["episode_steps"].append(actual_steps)
+         if real_switch_trace_file is not None:
+             trace_payload = controller.export_real_switch_trace()
