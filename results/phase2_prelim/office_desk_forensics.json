@@ -1,0 +1,305 @@
+{
+  "log": "results\\gate3b_20261107_013845_robocombine_oracle_hse_motus\\official\\tasks\\office_desk_2tasks\\task.log",
+  "total_step_lines": 2591,
+  "runs": 5,
+  "policy_episodes": 5,
+  "items": [
+    {
+      "episode_index": 0,
+      "n_logged_steps": 172,
+      "step_range": [
+        1,
+        172
+      ],
+      "s1_ever": true,
+      "s2_ever": true,
+      "first_s1_step": 44,
+      "first_s2_step": 169,
+      "n_s2_true_logged": 4,
+      "last_s2_true_step": 172,
+      "lgrip": {
+        "min": 0.0,
+        "max": 1.0,
+        "mean": 0.85
+      },
+      "rgrip": {
+        "min": 0.0,
+        "max": 1.0,
+        "mean": 0.328
+      },
+      "instruction_changes": [
+        {
+          "step": 10,
+          "instruction": "Place mouse on pad"
+        },
+        {
+          "step": 50,
+          "instruction": "Move pill bottle to pad"
+        }
+      ],
+      "longest_plateaus": [
+        {
+          "pattern": [
+            true,
+            false
+          ],
+          "len": 125,
+          "until_step": 169
+        },
+        {
+          "pattern": [
+            false,
+            false
+          ],
+          "len": 43,
+          "until_step": 44
+        },
+        {
+          "pattern": [
+            true,
+            true
+          ],
+          "len": 4,
+          "until_step": 172
+        }
+      ],
+      "stall_after_switch_hint": true
+    },
+    {
+      "episode_index": 1,
+      "n_logged_steps": 285,
+      "step_range": [
+        1,
+        285
+      ],
+      "s1_ever": true,
+      "s2_ever": true,
+      "first_s1_step": 80,
+      "first_s2_step": 247,
+      "n_s2_true_logged": 39,
+      "last_s2_true_step": 285,
+      "lgrip": {
+        "min": 0.0,
+        "max": 1.0,
+        "mean": 0.828
+      },
+      "rgrip": {
+        "min": 0.0,
+        "max": 1.0,
+        "mean": 0.261
+      },
+      "instruction_changes": [
+        {
+          "step": 10,
+          "instruction": "Place mouse on pad"
+        },
+        {
+          "step": 80,
+          "instruction": "Move pill bottle to pad"
+        }
+      ],
+      "longest_plateaus": [
+        {
+          "pattern": [
+            true,
+            false
+          ],
+          "len": 167,
+          "until_step": 247
+        },
+        {
+          "pattern": [
+            false,
+            false
+          ],
+          "len": 79,
+          "until_step": 80
+        },
+        {
+          "pattern": [
+            true,
+            true
+          ],
+          "len": 39,
+          "until_step": 285
+        }
+      ],
+      "stall_after_switch_hint": true
+    },
+    {
+      "episode_index": 2,
+      "n_logged_steps": 423,
+      "step_range": [
+        1,
+        423
+      ],
+      "s1_ever": true,
+      "s2_ever": true,
+      "first_s1_step": 45,
+      "first_s2_step": 401,
+      "n_s2_true_logged": 23,
+      "last_s2_true_step": 423,
+      "lgrip": {
+        "min": 0.0,
+        "max": 1.0,
+        "mean": 0.926
+      },
+      "rgrip": {
+        "min": 0.0,
+        "max": 1.0,
+        "mean": 0.242
+      },
+      "instruction_changes": [
+        {
+          "step": 10,
+          "instruction": "Place mouse on pad"
+        },
+        {
+          "step": 50,
+          "instruction": "Move pill bottle to pad"
+        }
+      ],
+      "longest_plateaus": [
+        {
+          "pattern": [
+            true,
+            false
+          ],
+          "len": 356,
+          "until_step": 401
+        },
+        {
+          "pattern": [
+            false,
+            false
+          ],
+          "len": 44,
+          "until_step": 45
+        },
+        {
+          "pattern": [
+            true,
+            true
+          ],
+          "len": 23,
+          "until_step": 423
+        }
+      ],
+      "stall_after_switch_hint": true
+    },
+    {
+      "episode_index": 3,
+      "n_logged_steps": 1500,
+      "step_range": [
+        1,
+        1500
+      ],
+      "s1_ever": true,
+      "s2_ever": false,
+      "first_s1_step": 178,
+      "first_s2_step": null,
+      "n_s2_true_logged": 0,
+      "last_s2_true_step": null,
+      "lgrip": {
+        "min": 0.0,
+        "max": 1.0,
+        "mean": 0.452
+      },
+      "rgrip": {
+        "min": 0.0,
+        "max": 1.0,
+        "mean": 0.687
+      },
+      "instruction_changes": [
+        {
+          "step": 10,
+          "instruction": "Place mouse on pad"
+        },
+        {
+          "step": 200,
+          "instruction": "Move pill bottle to pad"
+        }
+      ],
+      "longest_plateaus": [
+        {
+          "pattern": [
+            true,
+            false
+          ],
+          "len": 1323,
+          "until_step": 1500
+        },
+        {
+          "pattern": [
+            false,
+            false
+          ],
+          "len": 177,
+          "until_step": 178
+        }
+      ],
+      "stall_after_switch_hint": true
+    },
+    {
+      "episode_index": 4,
+      "n_logged_steps": 206,
+      "step_range": [
+        1,
+        206
+      ],
+      "s1_ever": true,
+      "s2_ever": true,
+      "first_s1_step": 50,
+      "first_s2_step": 202,
+      "n_s2_true_logged": 5,
+      "last_s2_true_step": 206,
+      "lgrip": {
+        "min": 0.0,
+        "max": 1.0,
+        "mean": 0.866
+      },
+      "rgrip": {
+        "min": 0.0,
+        "max": 1.0,
+        "mean": 0.353
+      },
+      "instruction_changes": [
+        {
+          "step": 10,
+          "instruction": "Place mouse on pad"
+        },
+        {
+          "step": 70,
+          "instruction": "Move pill bottle to pad"
+        }
+      ],
+      "longest_plateaus": [
+        {
+          "pattern": [
+            true,
+            false
+          ],
+          "len": 152,
+          "until_step": 202
+        },
+        {
+          "pattern": [
+            false,
+            false
+          ],
+          "len": 49,
+          "until_step": 50
+        },
+        {
+          "pattern": [
+            true,
+            true
+          ],
+          "len": 5,
+          "until_step": 206
+        }
+      ],
+      "stall_after_switch_hint": true
+    }
+  ]
+}
