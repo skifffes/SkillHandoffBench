@@ -1,0 +1,12 @@
+{
+  "task_name": "stamp_seal",
+  "expert_demo_seeds": [
+    4300001,
+    4300002,
+    4300003,
+    5300003,
+    5300004
+  ],
+  "total_seeds": 5,
+  "last_updated": "2026-11-07 19:00:42"
+}

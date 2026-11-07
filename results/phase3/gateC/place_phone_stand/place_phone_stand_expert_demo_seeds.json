@@ -1,0 +1,12 @@
+{
+  "task_name": "place_phone_stand",
+  "expert_demo_seeds": [
+    4300000,
+    5300000,
+    5300001,
+    5300002,
+    5300004
+  ],
+  "total_seeds": 5,
+  "last_updated": "2026-11-07 18:46:52"
+}

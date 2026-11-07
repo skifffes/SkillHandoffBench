@@ -1,0 +1,12 @@
+{
+  "task_name": "desk_arrange_2tasks",
+  "expert_demo_seeds": [
+    4300000,
+    4300001,
+    4400001,
+    4400002,
+    4400004
+  ],
+  "total_seeds": 5,
+  "last_updated": "2026-11-07 19:24:23"
+}

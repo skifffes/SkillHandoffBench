@@ -1,0 +1,108 @@
+{
+  "metadata": {
+    "eval_topic": null,
+    "task_name": "stamp_seal",
+    "policy_name": "Motus",
+    "task_config": "robocombine_eval",
+    "ckpt_setting": "/scratch/lijh/SkillHandoffBench/assets/models/Motus_robotwin2",
+    "timestamp": "2026-11-07 18:52:03",
+    "total_episodes": 5,
+    "num_subtasks": 1,
+    "total_successes": 5,
+    "overall_success_rate": 1.0,
+    "last_updated": "2026-11-07 19:02:54",
+    "run_metadata": {
+      "hse_variant": "full_inst",
+      "full_inst_mode": true,
+      "oracle_hse_mode": false,
+      "ordered_hse_mode": false,
+      "real_decision_rule": null,
+      "real_switch_mode": null,
+      "real_camera_key": null,
+      "real_predictor_bundle_dir": null,
+      "real_xvla_model_dir": null,
+      "gripper_check_mode": "full",
+      "max_steps_per_episode": 1500,
+      "switch_cache_reset": false
+    }
+  },
+  "subtask_completion": {
+    "any_order": {
+      "subtask_1": {
+        "count": 0,
+        "rate": 0.0,
+        "avg_steps": null,
+        "min_steps": null,
+        "max_steps": null
+      },
+      "all_subtasks": {
+        "count": 0,
+        "rate": 0.0
+      }
+    },
+    "sequential": {
+      "subtask_1": {
+        "count": 0,
+        "rate": 0.0
+      }
+    }
+  },
+  "funnel_analysis": {
+    "all_to_s1": {
+      "count": 0,
+      "total": 5,
+      "rate": 0.0
+    },
+    "s1_to_success": {
+      "count": 5,
+      "total": 0,
+      "rate": 0.0
+    }
+  },
+  "failure_analysis": {
+    "by_stage": {
+      "failed_at_s1": {
+        "count": 5,
+        "rate": 1.0
+      },
+      "failed_after_s1": {
+        "count": -5,
+        "rate": -1.0
+      }
+    },
+    "by_type": {
+      "timeout": {
+        "count": 0,
+        "rate": 0.0
+      },
+      "gripper_not_open": {
+        "count": 0,
+        "rate": 0.0
+      },
+      "subtask_incomplete": {
+        "count": 0,
+        "rate": 0.0
+      }
+    }
+  },
+  "out_of_order": {
+    "count": 0,
+    "rate": 0.0
+  },
+  "episode_details": [],
+  "timing": {
+    "avg_episode_time": 113.84253506660461,
+    "avg_setup_time": 11.513400793075562,
+    "avg_inference_time": 108.67382307052613,
+    "total_evaluation_time": 569.2126753330231
+  },
+  "episode_steps": {
+    "avg": 129.4,
+    "min": 45,
+    "max": 336
+  },
+  "key_findings": {
+    "biggest_bottleneck": "subtask_1",
+    "bottleneck_rate": 1.0
+  }
+}

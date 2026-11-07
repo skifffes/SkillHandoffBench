@@ -71,7 +71,7 @@ def main() -> int:
     print(f"[sim_smoke] assets={os.environ.get('ROBOCOMBINE_ASSETS_DIR')}", flush=True)
     args = build_args(task_name)
     env_cls = ep.class_decorator(task_name)
-    env = env_cls()
+    env = env_cls  # class_decorator 返回的是**实例**，不是类（Phase 1 踩过一次）
     try:
         env.setup_demo(now_ep_num=0, seed=seed, is_test=True, **args)
         print(f"[sim_smoke] setup_demo OK in {time.time()-t0:.1f}s; subtasks={len(getattr(env, 'subtask_completed', []))}", flush=True)

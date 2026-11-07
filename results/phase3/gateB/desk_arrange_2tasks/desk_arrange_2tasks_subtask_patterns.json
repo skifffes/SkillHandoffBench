@@ -1,0 +1,129 @@
+{
+  "task_name": "desk_arrange_2tasks",
+  "episodes": [
+    {
+      "seed": 4300003,
+      "task_name": "desk_arrange_2tasks",
+      "success": false,
+      "episode_success": false,
+      "total_steps": 1500,
+      "subtask_completion_steps": [
+        42,
+        null
+      ],
+      "env_subtask_completion_steps": [
+        42,
+        null
+      ],
+      "predictor_switch_steps": [
+        null,
+        null
+      ],
+      "predictor_switch_step": null,
+      "switch_step": 48,
+      "s1_completed": true,
+      "s2_completed": false,
+      "gripper_check_mode": "full",
+      "switch_events": [
+        {
+          "source": "gt",
+          "switch_source": "gt",
+          "from_subtask_idx": 0,
+          "to_subtask_idx": 1,
+          "completed_subtask_idx": 0,
+          "completed_subtask_name": "Move stapler to pad",
+          "new_instruction": "Place phone on stand",
+          "switch_step": 48,
+          "cache_len_before_switch": 0,
+          "cache_cleared": false,
+          "cue_step": 42
+        }
+      ],
+      "gripper_status": {
+        "gripper_check_mode": "full",
+        "left_gripper_val": 1.0,
+        "right_gripper_val": 0.9765625,
+        "left_open": true,
+        "right_open": true,
+        "gripper_open": true
+      },
+      "cache_len_before_switch": 0,
+      "prev_action_before_switch": null,
+      "s1_step": 42,
+      "s2_step": null,
+      "s1_predictor_switch_step": null,
+      "s2_predictor_switch_step": null,
+      "pattern": "1",
+      "sequential_pattern": "1",
+      "subtask_completed": [
+        true,
+        false
+      ],
+      "gripper_open": true
+    },
+    {
+      "seed": 4300003,
+      "task_name": "desk_arrange_2tasks",
+      "success": false,
+      "episode_success": false,
+      "total_steps": 1500,
+      "subtask_completion_steps": [
+        42,
+        null
+      ],
+      "env_subtask_completion_steps": [
+        42,
+        null
+      ],
+      "predictor_switch_steps": [
+        null,
+        null
+      ],
+      "predictor_switch_step": null,
+      "switch_step": 48,
+      "s1_completed": true,
+      "s2_completed": false,
+      "gripper_check_mode": "full",
+      "switch_events": [
+        {
+          "source": "gt",
+          "switch_source": "gt",
+          "from_subtask_idx": 0,
+          "to_subtask_idx": 1,
+          "completed_subtask_idx": 0,
+          "completed_subtask_name": "Move stapler to pad",
+          "new_instruction": "Place phone on stand",
+          "switch_step": 48,
+          "cache_len_before_switch": 0,
+          "cache_cleared": false,
+          "cue_step": 42
+        }
+      ],
+      "gripper_status": {
+        "gripper_check_mode": "full",
+        "left_gripper_val": 1.0,
+        "right_gripper_val": 0.9765625,
+        "left_open": true,
+        "right_open": true,
+        "gripper_open": true
+      },
+      "cache_len_before_switch": 0,
+      "prev_action_before_switch": null,
+      "s1_step": 42,
+      "s2_step": null,
+      "s1_predictor_switch_step": null,
+      "s2_predictor_switch_step": null,
+      "pattern": "1",
+      "sequential_pattern": "1",
+      "subtask_completed": [
+        true,
+        false
+      ],
+      "gripper_open": true
+    }
+  ],
+  "patterns": {
+    "1": 2
+  },
+  "last_updated": "2026-11-07 17:47:01"
+}

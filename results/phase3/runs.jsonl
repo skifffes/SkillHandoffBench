@@ -1,0 +1,6 @@
+{"tag":"gateB","task":"desk_arrange_2tasks","episodes":2,"seeds_file":"/scratch/lijh/SkillHandoffBench/results/phase3/seeds/desk_arrange_4300003.txt","variant":"oracle_hse","trace":"-","exit":139}
+{"tag":"gateB","task":"office_organize_2tasks","episodes":2,"seeds_file":"/scratch/lijh/SkillHandoffBench/results/phase3/seeds/office_organize_4300000.txt","variant":"oracle_hse","trace":"-","exit":139}
+{"tag":"gateC","task":"place_phone_stand","episodes":5,"seeds_file":"/scratch/lijh/SkillHandoffBench/results/phase3/seeds/b0_5300000_5300004.txt","variant":"full_inst","trace":"-","exit":139}
+{"tag":"gateC","task":"stamp_seal","episodes":5,"seeds_file":"/scratch/lijh/SkillHandoffBench/results/phase3/seeds/b0_5300000_5300004.txt","variant":"full_inst","trace":"-","exit":139}
+{"tag":"gateD","task":"desk_arrange_2tasks","episodes":5,"seeds_file":"/scratch/lijh/SkillHandoffBench/results/phase3/seeds/ab_4400000_4400004.txt","variant":"oracle_hse","trace":"/scratch/lijh/SkillHandoffBench/results/phase3/trace/desk_arrange.jsonl","exit":139}
+{"tag":"gateD","task":"office_organize_2tasks","episodes":5,"seeds_file":"/scratch/lijh/SkillHandoffBench/results/phase3/seeds/ab_4400000_4400004.txt","variant":"oracle_hse","trace":"/scratch/lijh/SkillHandoffBench/results/phase3/trace/office_organize.jsonl","exit":137}

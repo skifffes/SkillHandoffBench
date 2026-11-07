@@ -1,0 +1,184 @@
+{
+  "metadata": {
+    "eval_topic": null,
+    "task_name": "office_organize_2tasks",
+    "policy_name": "Motus",
+    "task_config": "robocombine_eval",
+    "ckpt_setting": "/scratch/lijh/SkillHandoffBench/assets/models/Motus_robotwin2",
+    "timestamp": "2026-11-07 19:39:41",
+    "total_episodes": 1,
+    "num_subtasks": 2,
+    "total_successes": 1,
+    "overall_success_rate": 1.0,
+    "last_updated": "2026-11-07 19:46:11",
+    "run_metadata": {
+      "hse_variant": "oracle_hse",
+      "full_inst_mode": false,
+      "oracle_hse_mode": true,
+      "ordered_hse_mode": false,
+      "real_decision_rule": null,
+      "real_switch_mode": null,
+      "real_camera_key": null,
+      "real_predictor_bundle_dir": null,
+      "real_xvla_model_dir": null,
+      "gripper_check_mode": "full",
+      "max_steps_per_episode": 1500,
+      "switch_cache_reset": false
+    }
+  },
+  "subtask_completion": {
+    "any_order": {
+      "subtask_1": {
+        "count": 1,
+        "rate": 1.0,
+        "avg_steps": 55.0,
+        "min_steps": 55,
+        "max_steps": 55
+      },
+      "subtask_2": {
+        "count": 1,
+        "rate": 1.0,
+        "avg_steps": 269.0,
+        "min_steps": 269,
+        "max_steps": 269
+      },
+      "all_subtasks": {
+        "count": 1,
+        "rate": 1.0
+      }
+    },
+    "sequential": {
+      "subtask_1": {
+        "count": 1,
+        "rate": 1.0
+      },
+      "subtask_1_to_2": {
+        "count": 1,
+        "rate": 1.0,
+        "conversion_from_prev": 1.0
+      }
+    }
+  },
+  "funnel_analysis": {
+    "all_to_s1": {
+      "count": 1,
+      "total": 1,
+      "rate": 1.0
+    },
+    "s1_to_s2": {
+      "count": 1,
+      "total": 1,
+      "rate": 1.0
+    },
+    "s2_to_success": {
+      "count": 1,
+      "total": 1,
+      "rate": 1.0
+    }
+  },
+  "failure_analysis": {
+    "by_stage": {
+      "failed_at_s1": {
+        "count": 0,
+        "rate": 0.0
+      },
+      "failed_at_s2": {
+        "count": 0,
+        "rate": 0.0
+      },
+      "failed_after_s2": {
+        "count": 0,
+        "rate": 0.0
+      }
+    },
+    "by_type": {
+      "timeout": {
+        "count": 0,
+        "rate": 0.0
+      },
+      "gripper_not_open": {
+        "count": 0,
+        "rate": 0.0
+      },
+      "subtask_incomplete": {
+        "count": 0,
+        "rate": 0.0
+      }
+    }
+  },
+  "out_of_order": {
+    "count": 0,
+    "rate": 0.0
+  },
+  "episode_details": [
+    {
+      "seed": 4400000,
+      "task_name": "office_organize_2tasks",
+      "success": true,
+      "episode_success": true,
+      "total_steps": 351,
+      "subtask_completion_steps": [
+        55,
+        269
+      ],
+      "env_subtask_completion_steps": [
+        55,
+        269
+      ],
+      "predictor_switch_steps": [
+        null,
+        null
+      ],
+      "predictor_switch_step": null,
+      "switch_step": 64,
+      "s1_completed": true,
+      "s2_completed": true,
+      "gripper_check_mode": "full",
+      "switch_events": [
+        {
+          "source": "gt",
+          "switch_source": "gt",
+          "from_subtask_idx": 0,
+          "to_subtask_idx": 1,
+          "completed_subtask_idx": 0,
+          "completed_subtask_name": "Place mouse on pad",
+          "new_instruction": "Stamp seal",
+          "switch_step": 64,
+          "cache_len_before_switch": 0,
+          "cache_cleared": false,
+          "cue_step": 55
+        }
+      ],
+      "gripper_status": {
+        "gripper_check_mode": "full",
+        "left_gripper_val": 0.8416193181818181,
+        "right_gripper_val": 0.8028231534090909,
+        "left_open": true,
+        "right_open": true,
+        "gripper_open": true
+      },
+      "cache_len_before_switch": 0,
+      "prev_action_before_switch": null,
+      "s1_step": 55,
+      "s2_step": 269,
+      "s1_predictor_switch_step": null,
+      "s2_predictor_switch_step": null,
+      "sequential": true
+    }
+  ],
+  "timing": {
+    "avg_episode_time": 390.2536268234253,
+    "avg_setup_time": 71.04711484909058,
+    "avg_inference_time": 318.66362857818604,
+    "total_evaluation_time": 390.2536268234253
+  },
+  "episode_steps": {
+    "avg": 351.0,
+    "min": 351,
+    "max": 351
+  },
+  "key_findings": {
+    "biggest_bottleneck": "subtask_1",
+    "bottleneck_rate": 0.0
+  }
+}

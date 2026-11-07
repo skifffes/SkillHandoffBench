@@ -1,0 +1,147 @@
+/scratch/lijh/SkillHandoffBench/envs/motus/lib/python3.10/site-packages/sapien/__init__.py:2: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  import pkg_resources
+missing pytorch3d
+/scratch/lijh/SkillHandoffBench/third_party/RoboCombine/policy/Motus/bak/wan/modules/vae2_2.py:883: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  torch.load(pretrained_path, map_location=device), assign=True)
+`torch_dtype` is deprecated! Use `dtype` instead!
+/scratch/lijh/SkillHandoffBench/third_party/RoboCombine/policy/Motus/models/motus.py:369: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  checkpoint = torch.load(path, map_location='cpu')
+/scratch/lijh/SkillHandoffBench/third_party/RoboCombine/policy/Motus/bak/wan/modules/t5.py:496: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  model.load_state_dict(torch.load(checkpoint_path, map_location='cpu'))
+Loaded 2 successful seeds from /scratch/lijh/SkillHandoffBench/results/phase3/gateD/office_organize_2tasks/office_organize_2tasks_successful_seeds.json
+Loaded 3 expert demo seeds from /scratch/lijh/SkillHandoffBench/results/phase3/gateD/office_organize_2tasks/office_organize_2tasks_expert_demo_seeds.json
+Loaded 2 episode records from /scratch/lijh/SkillHandoffBench/results/phase3/gateD/office_organize_2tasks/office_organize_2tasks_subtask_patterns.json
+office_organize_2tasks not in step limit file, set to 1000
+max_steps_per_episode override: 1000 -> 1500
+[Subtask 1] Place mouse on pad
+[Subtask 2] Stamp seal
+  Subtask 1 completed: Mouse placed on pad
+  Subtask 2 completed: Seal stamped on target
+[Step    0] S1:✓ S2:✓ L:1.000(✓) R:1.000(✓) -> SUCCESS!
+office_organize_2tasks not in step limit file, set to 1000
+max_steps_per_episode override: 1000 -> 1500
+/scratch/lijh/SkillHandoffBench/third_party/RoboCombine/policy/Motus/bak/wan/modules/attention.py:130: UserWarning: FlashAttention is unavailable; falling back to scaled_dot_product_attention. Padding mask is ignored in this fallback path.
+  warnings.warn(
+/scratch/lijh/SkillHandoffBench/third_party/RoboCombine/policy/Motus/bak/wan/modules/vae2_2.py:1032: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with amp.autocast(dtype=self.dtype):
+step: [92m1 / 1500[0m[Step    1] S1:✗ S2:✗ L:1.000(✓) R:1.000(✓) -> FAIL: S1,S2
+step: [92m2 / 1500[0m[Step    2] S1:✗ S2:✗ L:0.988(✓) R:1.000(✓) -> FAIL: S1,S2
+step: [92m3 / 1500[0m[Step    3] S1:✗ S2:✗ L:0.992(✓) R:1.000(✓) -> FAIL: S1,S2
+step: [92m4 / 1500[0m[Step    4] S1:✗ S2:✗ L:0.992(✓) R:1.000(✓) -> FAIL: S1,S2
+step: [92m5 / 1500[0m[Step    5] S1:✗ S2:✗ L:0.992(✓) R:1.000(✓) -> FAIL: S1,S2
+step: [92m6 / 1500[0m[Step    6] S1:✗ S2:✗ L:0.992(✓) R:1.000(✓) -> FAIL: S1,S2
+step: [92m7 / 1500[0m[Step    7] S1:✗ S2:✗ L:0.988(✓) R:0.996(✓) -> FAIL: S1,S2
+step: [92m8 / 1500[0m[Step    8] S1:✗ S2:✗ L:0.988(✓) R:1.000(✓) -> FAIL: S1,S2
+step: [92m9 / 1500[0m[Step    9] S1:✗ S2:✗ L:0.988(✓) R:1.000(✓) -> FAIL: S1,S2
+step: [92m10 / 1500[0m[Step   10] S1:✗ S2:✗ L:0.984(✓) R:1.000(✓) -> FAIL: S1,S2
+[Step 10] Instruction='Place mouse on pad' step_time=1.03s
+step: [92m11 / 1500[0m[Step   11] S1:✗ S2:✗ L:0.984(✓) R:1.000(✓) -> FAIL: S1,S2
+step: [92m12 / 1500[0m[Step   12] S1:✗ S2:✗ L:0.981(✓) R:1.000(✓) -> FAIL: S1,S2
+step: [92m13 / 1500[0m[Step   13] S1:✗ S2:✗ L:0.984(✓) R:1.000(✓) -> FAIL: S1,S2
+step: [92m14 / 1500[0m[Step   14] S1:✗ S2:✗ L:0.984(✓) R:1.000(✓) -> FAIL: S1,S2
+step: [92m15 / 1500[0m[Step   15] S1:✗ S2:✗ L:0.984(✓) R:1.000(✓) -> FAIL: S1,S2
+step: [92m16 / 1500[0m[Step   16] S1:✗ S2:✗ L:0.984(✓) R:1.000(✓) -> FAIL: S1,S2
+step: [92m17 / 1500[0m[Step   17] S1:✗ S2:✗ L:0.984(✓) R:0.998(✓) -> FAIL: S1,S2
+step: [92m18 / 1500[0m[Step   18] S1:✗ S2:✗ L:0.988(✓) R:0.855(✓) -> FAIL: S1,S2
+step: [92m19 / 1500[0m[Step   19] S1:✗ S2:✗ L:0.984(✓) R:0.649(✗) -> FAIL: S1,S2
+step: [92m20 / 1500[0m[Step   20] S1:✗ S2:✗ L:0.980(✓) R:0.414(✗) -> FAIL: S1,S2
+[Step 20] Instruction='Place mouse on pad' step_time=0.29s
+step: [92m21 / 1500[0m[Step   21] S1:✗ S2:✗ L:0.981(✓) R:0.182(✗) -> FAIL: S1,S2
+step: [92m22 / 1500[0m[Step   22] S1:✗ S2:✗ L:0.985(✓) R:0.005(✗) -> FAIL: S1,S2
+step: [92m23 / 1500[0m[Step   23] S1:✗ S2:✗ L:0.992(✓) R:0.000(✗) -> FAIL: S1,S2
+step: [92m24 / 1500[0m[Step   24] S1:✗ S2:✗ L:0.988(✓) R:0.000(✗) -> FAIL: S1,S2
+step: [92m25 / 1500[0m[Step   25] S1:✗ S2:✗ L:0.988(✓) R:0.000(✗) -> FAIL: S1,S2
+step: [92m26 / 1500[0m[Step   26] S1:✗ S2:✗ L:0.984(✓) R:0.000(✗) -> FAIL: S1,S2
+step: [92m27 / 1500[0m[Step   27] S1:✗ S2:✗ L:0.984(✓) R:0.000(✗) -> FAIL: S1,S2
+step: [92m28 / 1500[0m[Step   28] S1:✗ S2:✗ L:0.984(✓) R:0.000(✗) -> FAIL: S1,S2
+step: [92m29 / 1500[0m[Step   29] S1:✗ S2:✗ L:0.981(✓) R:0.000(✗) -> FAIL: S1,S2
+step: [92m30 / 1500[0m[Step   30] S1:✗ S2:✗ L:0.985(✓) R:0.000(✗) -> FAIL: S1,S2
+[Step 30] Instruction='Place mouse on pad' step_time=0.32s
+step: [92m31 / 1500[0m[Step   31] S1:✗ S2:✗ L:0.988(✓) R:0.000(✗) -> FAIL: S1,S2
+step: [92m32 / 1500[0m[Step   32] S1:✗ S2:✗ L:0.989(✓) R:0.000(✗) -> FAIL: S1,S2
+step: [92m33 / 1500[0m[Step   33] S1:✗ S2:✗ L:0.996(✓) R:0.002(✗) -> FAIL: S1,S2
+step: [92m34 / 1500[0m[Step   34] S1:✗ S2:✗ L:0.992(✓) R:0.007(✗) -> FAIL: S1,S2
+step: [92m35 / 1500[0m[Step   35] S1:✗ S2:✗ L:0.992(✓) R:0.005(✗) -> FAIL: S1,S2
+step: [92m36 / 1500[0m[Step   36] S1:✗ S2:✗ L:0.992(✓) R:0.003(✗) -> FAIL: S1,S2
+  Subtask 1 completed: Mouse placed on pad
+step: [92m37 / 1500[0m[Step   37] S1:✓ S2:✗ L:1.000(✓) R:0.008(✗) -> FAIL: S2
+step: [92m38 / 1500[0m[Step   38] S1:✓ S2:✗ L:0.996(✓) R:0.004(✗) -> FAIL: S2
+step: [92m39 / 1500[0m[Step   39] S1:✓ S2:✗ L:0.996(✓) R:0.004(✗) -> FAIL: S2
+step: [92m40 / 1500[0m[Step   40] S1:✓ S2:✗ L:0.996(✓) R:0.001(✗) -> FAIL: S2
+[Step 40] Instruction='Place mouse on pad' step_time=0.36s
+step: [92m41 / 1500[0m[Step   41] S1:✓ S2:✗ L:0.992(✓) R:0.000(✗) -> FAIL: S2
+step: [92m42 / 1500[0m[Step   42] S1:✓ S2:✗ L:0.996(✓) R:0.000(✗) -> FAIL: S2
+step: [92m43 / 1500[0m[Step   43] S1:✓ S2:✗ L:0.992(✓) R:0.005(✗) -> FAIL: S2
+step: [92m44 / 1500[0m[Step   44] S1:✓ S2:✗ L:0.992(✓) R:0.076(✗) -> FAIL: S2
+step: [92m45 / 1500[0m[Step   45] S1:✓ S2:✗ L:0.996(✓) R:0.324(✗) -> FAIL: S2
+step: [92m46 / 1500[0m[Step   46] S1:✓ S2:✗ L:0.992(✓) R:0.558(✗) -> FAIL: S2
+step: [92m47 / 1500[0m[Step   47] S1:✓ S2:✗ L:0.988(✓) R:0.789(✗) -> FAIL: S2
+step: [92m48 / 1500[0m[Step   48] S1:✓ S2:✗ L:0.992(✓) R:0.973(✓) -> FAIL: S2
+step: [92m49 / 1500[0m[Step   49] S1:✓ S2:✗ L:0.988(✓) R:0.995(✓) -> FAIL: S2
+step: [92m50 / 1500[0m[Step   50] S1:✓ S2:✗ L:0.992(✓) R:0.672(✗) -> FAIL: S2
+[Step 50] Instruction='Stamp seal' step_time=0.34s
+step: [92m51 / 1500[0m[Step   51] S1:✓ S2:✗ L:0.988(✓) R:0.452(✗) -> FAIL: S2
+step: [92m52 / 1500[0m[Step   52] S1:✓ S2:✗ L:0.981(✓) R:0.227(✗) -> FAIL: S2
+step: [92m53 / 1500[0m[Step   53] S1:✓ S2:✗ L:0.985(✓) R:0.047(✗) -> FAIL: S2
+step: [92m54 / 1500[0m[Step   54] S1:✓ S2:✗ L:0.992(✓) R:0.009(✗) -> FAIL: S2
+step: [92m55 / 1500[0m[Step   55] S1:✓ S2:✗ L:0.992(✓) R:0.002(✗) -> FAIL: S2
+step: [92m56 / 1500[0m[Step   56] S1:✓ S2:✗ L:0.985(✓) R:0.007(✗) -> FAIL: S2
+step: [92m57 / 1500[0m[Step   57] S1:✓ S2:✗ L:0.992(✓) R:0.012(✗) -> FAIL: S2
+step: [92m58 / 1500[0m[Step   58] S1:✓ S2:✗ L:0.988(✓) R:0.013(✗) -> FAIL: S2
+step: [92m59 / 1500[0m[Step   59] S1:✓ S2:✗ L:0.988(✓) R:0.009(✗) -> FAIL: S2
+step: [92m60 / 1500[0m[Step   60] S1:✓ S2:✗ L:0.988(✓) R:0.009(✗) -> FAIL: S2
+[Step 60] Instruction='Stamp seal' step_time=0.25s
+step: [92m61 / 1500[0m[Step   61] S1:✓ S2:✗ L:0.988(✓) R:0.010(✗) -> FAIL: S2
+step: [92m62 / 1500[0m[Step   62] S1:✓ S2:✗ L:0.992(✓) R:0.012(✗) -> FAIL: S2
+step: [92m63 / 1500[0m[Step   63] S1:✓ S2:✗ L:0.996(✓) R:0.015(✗) -> FAIL: S2
+step: [92m64 / 1500[0m[Step   64] S1:✓ S2:✗ L:1.000(✓) R:0.016(✗) -> FAIL: S2
+step: [92m65 / 1500[0m[Step   65] S1:✓ S2:✗ L:1.000(✓) R:0.021(✗) -> FAIL: S2
+step: [92m66 / 1500[0m[Step   66] S1:✓ S2:✗ L:1.000(✓) R:0.022(✗) -> FAIL: S2
+step: [92m67 / 1500[0m[Step   67] S1:✓ S2:✗ L:1.000(✓) R:0.022(✗) -> FAIL: S2
+step: [92m68 / 1500[0m[Step   68] S1:✓ S2:✗ L:1.000(✓) R:0.032(✗) -> FAIL: S2
+step: [92m69 / 1500[0m[Step   69] S1:✓ S2:✗ L:1.000(✓) R:0.032(✗) -> FAIL: S2
+step: [92m70 / 1500[0m[Step   70] S1:✓ S2:✗ L:1.000(✓) R:0.034(✗) -> FAIL: S2
+[Step 70] Instruction='Stamp seal' step_time=1.20s
+step: [92m71 / 1500[0m[Step   71] S1:✓ S2:✗ L:1.000(✓) R:0.036(✗) -> FAIL: S2
+step: [92m72 / 1500[0m[Step   72] S1:✓ S2:✗ L:0.996(✓) R:0.029(✗) -> FAIL: S2
+step: [92m73 / 1500[0m[Step   73] S1:✓ S2:✗ L:1.000(✓) R:0.033(✗) -> FAIL: S2
+step: [92m74 / 1500[0m[Step   74] S1:✓ S2:✗ L:1.000(✓) R:0.032(✗) -> FAIL: S2
+step: [92m75 / 1500[0m[Step   75] S1:✓ S2:✗ L:1.000(✓) R:0.025(✗) -> FAIL: S2
+step: [92m76 / 1500[0m[Step   76] S1:✓ S2:✗ L:0.996(✓) R:0.023(✗) -> FAIL: S2
+step: [92m77 / 1500[0m[Step   77] S1:✓ S2:✗ L:0.996(✓) R:0.028(✗) -> FAIL: S2
+step: [92m78 / 1500[0m[Step   78] S1:✓ S2:✗ L:1.000(✓) R:0.028(✗) -> FAIL: S2
+step: [92m79 / 1500[0m[Step   79] S1:✓ S2:✗ L:0.996(✓) R:0.029(✗) -> FAIL: S2
+step: [92m80 / 1500[0m[Step   80] S1:✓ S2:✗ L:1.000(✓) R:0.027(✗) -> FAIL: S2
+[Step 80] Instruction='Stamp seal' step_time=1.03s
+step: [92m81 / 1500[0m[Step   81] S1:✓ S2:✗ L:0.992(✓) R:0.030(✗) -> FAIL: S2
+step: [92m82 / 1500[0m[Step   82] S1:✓ S2:✗ L:0.729(✗) R:0.157(✗) -> FAIL: S2
+step: [92m83 / 1500[0m[Step   83] S1:✓ S2:✗ L:0.490(✗) R:0.071(✗) -> FAIL: S2
+step: [92m84 / 1500[0m[Step   84] S1:✓ S2:✗ L:0.266(✗) R:0.000(✗) -> FAIL: S2
+step: [92m85 / 1500[0m[Step   85] S1:✓ S2:✗ L:0.045(✗) R:0.000(✗) -> FAIL: S2
+step: [92m86 / 1500[0m[Step   86] S1:✓ S2:✗ L:0.011(✗) R:0.000(✗) -> FAIL: S2
+step: [92m87 / 1500[0m[Step   87] S1:✓ S2:✗ L:0.010(✗) R:0.000(✗) -> FAIL: S2
+step: [92m88 / 1500[0m[Step   88] S1:✓ S2:✗ L:0.016(✗) R:0.000(✗) -> FAIL: S2
+step: [92m89 / 1500[0m[Step   89] S1:✓ S2:✗ L:0.018(✗) R:0.000(✗) -> FAIL: S2
+step: [92m90 / 1500[0m[Step   90] S1:✓ S2:✗ L:0.016(✗) R:0.000(✗) -> FAIL: S2
+[Step 90] Instruction='Stamp seal' step_time=1.26s
+step: [92m91 / 1500[0m[Step   91] S1:✓ S2:✗ L:0.015(✗) R:0.000(✗) -> FAIL: S2
+step: [92m92 / 1500[0m[Step   92] S1:✓ S2:✗ L:0.014(✗) R:0.000(✗) -> FAIL: S2
+step: [92m93 / 1500[0m[Step   93] S1:✓ S2:✗ L:0.015(✗) R:0.000(✗) -> FAIL: S2
+step: [92m94 / 1500[0m[Step   94] S1:✓ S2:✗ L:0.015(✗) R:0.000(✗) -> FAIL: S2
+step: [92m95 / 1500[0m[Step   95] S1:✓ S2:✗ L:0.017(✗) R:0.000(✗) -> FAIL: S2
+step: [92m96 / 1500[0m[Step   96] S1:✓ S2:✗ L:0.019(✗) R:0.000(✗) -> FAIL: S2
+step: [92m97 / 1500[0m[Step   97] S1:✓ S2:✗ L:0.015(✗) R:0.000(✗) -> FAIL: S2
+  Subtask 2 completed: Seal stamped on target
+step: [92m98 / 1500[0m[Step   98] S1:✓ S2:✓ L:0.029(✗) R:0.019(✗) -> FAIL: L<0.8,R<0.8
+step: [92m99 / 1500[0m[Step   99] S1:✓ S2:✓ L:0.034(✗) R:0.020(✗) -> FAIL: L<0.8,R<0.8
+step: [92m100 / 1500[0m[Step  100] S1:✓ S2:✓ L:0.035(✗) R:0.021(✗) -> FAIL: L<0.8,R<0.8
+[Step 100] Instruction='Stamp seal' step_time=0.36s
+step: [92m101 / 1500[0m[Step  101] S1:✓ S2:✓ L:0.031(✗) R:0.027(✗) -> FAIL: L<0.8,R<0.8
+step: [92m102 / 1500[0m[Step  102] S1:✓ S2:✓ L:0.025(✗) R:0.026(✗) -> FAIL: L<0.8,R<0.8
+step: [92m103 / 1500[0m[Step  103] S1:✓ S2:✓ L:0.023(✗) R:0.027(✗) -> FAIL: L<0.8,R<0.8
+step: [92m104 / 1500[0m[Step  104] S1:✓ S2:✓ L:0.023(✗) R:0.024(✗) -> FAIL: L<0.8,R<0.8
+step: [92m105 / 1500[0m[Step  105] S1:✓ S2:✓ L:0.085(✗) R:0.082(✗) -> FAIL: L<0.8,R<0.8
+step: [92m106 / 1500[0m[Step  106] S1:✓ S2:✓ L:0.267(✗) R:0.263(✗) -> FAIL: L<0.8,R<0.8
+step: [92m107 / 1500[0m[Step  107] S1:✓ S2:✓ L:0.505(✗) R:0.486(✗) -> FAIL: L<0.8,R<0.8
+step: [92m108 / 1500[0m[Step  108] S1:✓ S2:✓ L:0.668(✗) R:0.719(✗) -> FAIL: L<0.8,R<0.8
+scripts/run_phase3_office_tail.sh: line 35: 45670 Segmentation fault      SHB_TRACE_JSONL="$P3/trace/office_organize.jsonl" timeout --signal=TERM 2100 "$PY" script/eval_policy.py --config "$RC/policy/Motus/deploy_policy.yml" --overrides --task_name office_organize_2tasks --task_config robocombine_eval --policy_name Motus --seed 42 --episode_num 2 --ckpt_setting "$SHB_ROOT/assets/models/Motus_robotwin2" --ckpt_setting_label motus_robotwin2_official --save_dir "$D" --log_dir "$D" --hse_variant oracle_hse --clear_cache false --max_steps_per_episode 1500 --wan_path "$SHB_ROOT/assets/models/Wan2.2-TI2V-5B" --vlm_path "$SHB_ROOT/assets/models/Qwen3-VL-2B-Instruct" --priority_seeds_file "$SEEDS"
