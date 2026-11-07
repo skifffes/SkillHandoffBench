@@ -1,0 +1,3 @@
+task,episodes,ordered_success,stage1_success,stage2_success,transition_conversion,switch_episodes,first_failure,steps_mean,steps_max,cue_to_switch_mean,seeds
+living_room_tidy_2tasks,5,1/5,5/5,1/5,0/0,0,"{""stage2"": 4}",1423.0,1500,,4300000 4300001 4300002 4300003 4300004
+office_desk_2tasks,5,1/5,3/5,1/5,0/0,0,"{""stage2"": 2, ""stage1"": 2}",1347.2,1500,,4300000 4300001 4300002 4300003 4300004

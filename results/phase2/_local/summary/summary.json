@@ -1,0 +1,188 @@
+{
+  "label": "gateB_full_inst",
+  "run_root": [
+    "/scratch/lijh/SkillHandoffBench/results/phase2/gateB_full_inst",
+    "/scratch/lijh/SkillHandoffBench/results/phase2/gateB_office"
+  ],
+  "tasks": 2,
+  "overall": {
+    "ordered_success": {
+      "numerator": 2,
+      "denominator": 10,
+      "rate": 0.2,
+      "wilson95": [
+        0.0567,
+        0.5098
+      ]
+    },
+    "stage1_success": {
+      "numerator": 8,
+      "denominator": 10,
+      "rate": 0.8,
+      "wilson95": [
+        0.4902,
+        0.9433
+      ]
+    },
+    "stage2_success": {
+      "numerator": 2,
+      "denominator": 10,
+      "rate": 0.2,
+      "wilson95": [
+        0.0567,
+        0.5098
+      ]
+    },
+    "transition_conversion": {
+      "numerator": 2,
+      "denominator": 8,
+      "rate": 0.25,
+      "wilson95": [
+        0.0715,
+        0.5907
+      ]
+    },
+    "downstream_success_among_switched": {
+      "numerator": 2,
+      "denominator": 0,
+      "rate": null,
+      "wilson95": null
+    },
+    "switch_episodes": 0
+  },
+  "per_task": {
+    "living_room_tidy_2tasks": {
+      "episodes": 5,
+      "ordered_success": {
+        "numerator": 1,
+        "denominator": 5,
+        "rate": 0.2,
+        "wilson95": [
+          0.0362,
+          0.6245
+        ]
+      },
+      "stage1_success": {
+        "numerator": 5,
+        "denominator": 5,
+        "rate": 1.0,
+        "wilson95": [
+          0.5655,
+          1.0
+        ]
+      },
+      "stage2_success": {
+        "numerator": 1,
+        "denominator": 5,
+        "rate": 0.2,
+        "wilson95": [
+          0.0362,
+          0.6245
+        ]
+      },
+      "transition_conversion": {
+        "numerator": 1,
+        "denominator": 5,
+        "rate": 0.2,
+        "wilson95": [
+          0.0362,
+          0.6245
+        ]
+      },
+      "downstream_success_among_switched": {
+        "numerator": 0,
+        "denominator": 0,
+        "rate": null,
+        "wilson95": null
+      },
+      "switch_episodes": 0,
+      "first_failure_position": {
+        "stage2": 4
+      },
+      "steps": {
+        "mean": 1423.0,
+        "min": 1115,
+        "max": 1500
+      },
+      "cue_to_switch_steps": {
+        "values": [],
+        "mean": null
+      },
+      "seeds": [
+        4300000,
+        4300001,
+        4300002,
+        4300003,
+        4300004
+      ],
+      "stats_path": "/scratch/lijh/SkillHandoffBench/results/phase2/gateB_full_inst/robocombine/full_inst/Motus/20261107_103004_robocombine_full_inst_motus/tasks/living_room_tidy_2tasks/evaluation_statistics.json"
+    },
+    "office_desk_2tasks": {
+      "episodes": 5,
+      "ordered_success": {
+        "numerator": 1,
+        "denominator": 5,
+        "rate": 0.2,
+        "wilson95": [
+          0.0362,
+          0.6245
+        ]
+      },
+      "stage1_success": {
+        "numerator": 3,
+        "denominator": 5,
+        "rate": 0.6,
+        "wilson95": [
+          0.2307,
+          0.8824
+        ]
+      },
+      "stage2_success": {
+        "numerator": 1,
+        "denominator": 5,
+        "rate": 0.2,
+        "wilson95": [
+          0.0362,
+          0.6245
+        ]
+      },
+      "transition_conversion": {
+        "numerator": 1,
+        "denominator": 3,
+        "rate": 0.3333333333333333,
+        "wilson95": [
+          0.0615,
+          0.7923
+        ]
+      },
+      "downstream_success_among_switched": {
+        "numerator": 0,
+        "denominator": 0,
+        "rate": null,
+        "wilson95": null
+      },
+      "switch_episodes": 0,
+      "first_failure_position": {
+        "stage2": 2,
+        "stage1": 2
+      },
+      "steps": {
+        "mean": 1347.2,
+        "min": 736,
+        "max": 1500
+      },
+      "cue_to_switch_steps": {
+        "values": [],
+        "mean": null
+      },
+      "seeds": [
+        4300000,
+        4300001,
+        4300002,
+        4300003,
+        4300004
+      ],
+      "stats_path": "/scratch/lijh/SkillHandoffBench/results/phase2/gateB_office/robocombine/full_inst/Motus/20261107_112938_robocombine_full_inst_motus/tasks/office_desk_2tasks/evaluation_statistics.json"
+    }
+  }
+}

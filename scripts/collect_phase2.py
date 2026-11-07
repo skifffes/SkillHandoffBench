@@ -37,17 +37,15 @@ def rate(k, n):
 
 def main() -> int:
     ap = argparse.ArgumentParser()
-    ap.add_argument("--run-root", required=True)
+    ap.add_argument("--run-root", required=True, action="append", help="可重复：多个 run 根目录合并统计")
     ap.add_argument("--out", required=True)
     ap.add_argument("--label", default=None)
     args = ap.parse_args()
 
-    patterns = [
-        # run_split 的 output-root 布局
-        os.path.join(args.run_root, "robocombine", "*", "Motus", "*", "tasks", "*", "evaluation_statistics.json"),
-        # 直接给到某个 run 目录（例如 results/<run>/official）
-        os.path.join(args.run_root, "tasks", "*", "evaluation_statistics.json"),
-    ]
+    patterns = []
+    for root in args.run_root:
+        patterns.append(os.path.join(root, "robocombine", "*", "Motus", "*", "tasks", "*", "evaluation_statistics.json"))
+        patterns.append(os.path.join(root, "tasks", "*", "evaluation_statistics.json"))
     files = sorted({p for pat in patterns for p in glob.glob(pat)})
     if not files:
         print(f"no evaluation_statistics.json under {args.run_root} (tried {len(patterns)} layouts)")
@@ -148,7 +146,7 @@ def main() -> int:
 
     summary = {
         "label": args.label or os.path.basename(args.run_root.rstrip(os.sep)),
-        "run_root": args.run_root,
+        "run_root": args.run_root if len(args.run_root) > 1 else args.run_root[0],
         "tasks": len(per_task_metrics),
         "overall": {
             "ordered_success": rate(total_succ, total_ep),

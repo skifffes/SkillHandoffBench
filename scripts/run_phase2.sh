@@ -118,11 +118,18 @@ main() {
       write_seed_plan gateB_full_inst full_inst 5 living_room_tidy_2tasks office_desk_2tasks
       run_set gateB_full_inst full_inst 5 living_room_tidy_2tasks office_desk_2tasks
       ;;
+    b2)
+      # Gate B 的第二段：只跑 office_desk（与 b 完全相同的参数，仅任务不同）
+      write_seed_plan gateB_office full_inst 5 office_desk_2tasks
+      run_set gateB_office full_inst 5 office_desk_2tasks
+      ;;
     c)
-      write_seed_plan gateC_screening oracle_hse 3 \
-        arrange_sign_2tasks breakfast_prep_2tasks desk_arrange_2tasks office_organize_2tasks bakery_close_2tasks
-      run_set gateC_screening oracle_hse 3 \
-        arrange_sign_2tasks breakfast_prep_2tasks desk_arrange_2tasks office_organize_2tasks bakery_close_2tasks
+      # Gate C：5 个新任务 × 3 episodes。**逐任务独立跑**，每个任务有自己的 output-root 和
+      # wall-clock 上限 —— 避免一个慢任务把后面任务饿死（Phase 1 已经吃过一次 30 分钟总上限的亏）。
+      for t in arrange_sign_2tasks breakfast_prep_2tasks desk_arrange_2tasks office_organize_2tasks bakery_close_2tasks; do
+        write_seed_plan "gateC_$t" oracle_hse 3 "$t"
+        run_set "gateC_$t" oracle_hse 3 "$t" || say "WARN: $t 运行失败/超时，继续下一个"
+      done
       ;;
     *) echo "usage: $0 {b|c}"; exit 2 ;;
   esac

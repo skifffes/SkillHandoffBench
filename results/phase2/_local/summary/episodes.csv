@@ -1,0 +1,11 @@
+task,seed,success,s1_completed,s2_completed,total_steps,s1_step,s2_step,switch_step,cue_step,cue_to_switch,cache_cleared,mechanism,n_switch_events
+living_room_tidy_2tasks,4300000,False,True,False,1500,48,,,,,,,0
+living_room_tidy_2tasks,4300001,False,True,False,1500,111,,,,,,,0
+living_room_tidy_2tasks,4300002,True,True,True,1115,49,158,,,,,,0
+living_room_tidy_2tasks,4300003,False,True,False,1500,47,,,,,,,0
+living_room_tidy_2tasks,4300004,False,True,False,1500,50,,,,,,,0
+office_desk_2tasks,4300000,False,True,False,1500,41,,,,,,,0
+office_desk_2tasks,4300001,True,True,True,736,655,359,,,,,,0
+office_desk_2tasks,4300002,False,False,False,1500,,,,,,,,0
+office_desk_2tasks,4300003,False,False,False,1500,,,,,,,,0
+office_desk_2tasks,4300004,False,True,False,1500,56,,,,,,,0
