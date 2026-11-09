@@ -1,0 +1,143 @@
+{
+  "task_name": "office_desk_2tasks",
+  "episodes": [
+    {
+      "seed": 4300000,
+      "task_name": "office_desk_2tasks",
+      "success": false,
+      "episode_success": false,
+      "total_steps": 1500,
+      "subtask_completion_steps": [
+        41,
+        null
+      ],
+      "env_subtask_completion_steps": [
+        41,
+        null
+      ],
+      "predictor_switch_steps": [
+        null
+      ],
+      "predictor_switch_step": null,
+      "switch_step": null,
+      "s1_completed": true,
+      "s2_completed": false,
+      "gripper_check_mode": "full",
+      "switch_events": [],
+      "gripper_status": {
+        "gripper_check_mode": "full",
+        "left_gripper_val": 0.78125,
+        "right_gripper_val": 1.0,
+        "left_open": false,
+        "right_open": true,
+        "gripper_open": false
+      },
+      "cache_len_before_switch": null,
+      "prev_action_before_switch": null,
+      "s1_step": 41,
+      "s2_step": null,
+      "s1_predictor_switch_step": null,
+      "pattern": "1",
+      "sequential_pattern": "1",
+      "subtask_completed": [
+        true,
+        false
+      ],
+      "gripper_open": false
+    },
+    {
+      "seed": 4300001,
+      "task_name": "office_desk_2tasks",
+      "success": true,
+      "episode_success": true,
+      "total_steps": 736,
+      "subtask_completion_steps": [
+        655,
+        359
+      ],
+      "env_subtask_completion_steps": [
+        655,
+        359
+      ],
+      "predictor_switch_steps": [
+        null
+      ],
+      "predictor_switch_step": null,
+      "switch_step": null,
+      "s1_completed": true,
+      "s2_completed": true,
+      "gripper_check_mode": "full",
+      "switch_events": [],
+      "gripper_status": {
+        "gripper_check_mode": "full",
+        "left_gripper_val": 0.953125,
+        "right_gripper_val": 0.8002485795454546,
+        "left_open": true,
+        "right_open": true,
+        "gripper_open": true
+      },
+      "cache_len_before_switch": null,
+      "prev_action_before_switch": null,
+      "s1_step": 655,
+      "s2_step": 359,
+      "s1_predictor_switch_step": null,
+      "pattern": "21",
+      "sequential_pattern": "1",
+      "subtask_completed": [
+        true,
+        true
+      ],
+      "gripper_open": true
+    },
+    {
+      "seed": 4300002,
+      "task_name": "office_desk_2tasks",
+      "success": false,
+      "episode_success": false,
+      "total_steps": 1500,
+      "subtask_completion_steps": [
+        null,
+        null
+      ],
+      "env_subtask_completion_steps": [
+        null,
+        null
+      ],
+      "predictor_switch_steps": [
+        null
+      ],
+      "predictor_switch_step": null,
+      "switch_step": null,
+      "s1_completed": false,
+      "s2_completed": false,
+      "gripper_check_mode": "full",
+      "switch_events": [],
+      "gripper_status": {
+        "gripper_check_mode": "full",
+        "left_gripper_val": 0.296875,
+        "right_gripper_val": 1.0,
+        "left_open": false,
+        "right_open": true,
+        "gripper_open": false
+      },
+      "cache_len_before_switch": null,
+      "prev_action_before_switch": null,
+      "s1_step": null,
+      "s2_step": null,
+      "s1_predictor_switch_step": null,
+      "pattern": "",
+      "sequential_pattern": "",
+      "subtask_completed": [
+        false,
+        false
+      ],
+      "gripper_open": false
+    }
+  ],
+  "patterns": {
+    "1": 1,
+    "21": 1,
+    "": 1
+  },
+  "last_updated": "2026-11-09 19:39:23"
+}

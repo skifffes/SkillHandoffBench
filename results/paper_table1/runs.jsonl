@@ -1,0 +1,2 @@
+{"label":"gateD_oracle_hse","track":"oracle_hse","episodes":3,"output":"/scratch/lijh/SkillHandoffBench/results/paper_table1/gateD/oracle_hse","exit":1,"ts":"2026-11-09T18:34:24+0800"}
+{"label":"gateD_full_inst","track":"full_inst","episodes":3,"output":"/scratch/lijh/SkillHandoffBench/results/paper_table1/gateD/full_inst","exit":1,"ts":"2026-11-09T19:39:25+0800"}

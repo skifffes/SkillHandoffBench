@@ -1,0 +1,244 @@
+{
+  "metadata": {
+    "eval_topic": null,
+    "task_name": "living_room_tidy_2tasks",
+    "policy_name": "Motus",
+    "task_config": "robocombine_eval",
+    "ckpt_setting": "/scratch/lijh/SkillHandoffBench/assets/models/Motus_robotwin2",
+    "timestamp": "2026-11-09 18:37:55",
+    "total_episodes": 3,
+    "num_subtasks": 2,
+    "total_successes": 1,
+    "overall_success_rate": 0.3333333333333333,
+    "last_updated": "2026-11-09 19:08:59",
+    "run_metadata": {
+      "hse_variant": "full_inst",
+      "full_inst_mode": true,
+      "oracle_hse_mode": false,
+      "ordered_hse_mode": false,
+      "real_decision_rule": null,
+      "real_switch_mode": null,
+      "real_camera_key": null,
+      "real_predictor_bundle_dir": null,
+      "real_xvla_model_dir": null,
+      "gripper_check_mode": "full",
+      "max_steps_per_episode": 1500,
+      "switch_cache_reset": false
+    }
+  },
+  "subtask_completion": {
+    "any_order": {
+      "subtask_1": {
+        "count": 3,
+        "rate": 1.0,
+        "avg_steps": 69.33333333333333,
+        "min_steps": 48,
+        "max_steps": 111
+      },
+      "subtask_2": {
+        "count": 1,
+        "rate": 0.3333333333333333,
+        "avg_steps": 158.0,
+        "min_steps": 158,
+        "max_steps": 158
+      },
+      "all_subtasks": {
+        "count": 1,
+        "rate": 0.3333333333333333
+      }
+    },
+    "sequential": {
+      "subtask_1": {
+        "count": 3,
+        "rate": 1.0
+      },
+      "subtask_1_to_2": {
+        "count": 1,
+        "rate": 0.3333333333333333,
+        "conversion_from_prev": 0.3333333333333333
+      }
+    }
+  },
+  "funnel_analysis": {
+    "all_to_s1": {
+      "count": 3,
+      "total": 3,
+      "rate": 1.0
+    },
+    "s1_to_s2": {
+      "count": 1,
+      "total": 3,
+      "rate": 0.3333333333333333
+    },
+    "s2_to_success": {
+      "count": 1,
+      "total": 1,
+      "rate": 1.0
+    }
+  },
+  "failure_analysis": {
+    "by_stage": {
+      "failed_at_s1": {
+        "count": 0,
+        "rate": 0.0
+      },
+      "failed_at_s2": {
+        "count": 2,
+        "rate": 0.6666666666666666
+      },
+      "failed_after_s2": {
+        "count": 0,
+        "rate": 0.0
+      }
+    },
+    "by_type": {
+      "timeout": {
+        "count": 2,
+        "rate": 1.0
+      },
+      "gripper_not_open": {
+        "count": 0,
+        "rate": 0.0
+      },
+      "subtask_incomplete": {
+        "count": 0,
+        "rate": 0.0
+      }
+    }
+  },
+  "out_of_order": {
+    "count": 0,
+    "rate": 0.0
+  },
+  "episode_details": [
+    {
+      "seed": 4300000,
+      "task_name": "living_room_tidy_2tasks",
+      "success": false,
+      "episode_success": false,
+      "total_steps": 1500,
+      "subtask_completion_steps": [
+        48,
+        null
+      ],
+      "env_subtask_completion_steps": [
+        48,
+        null
+      ],
+      "predictor_switch_steps": [
+        null
+      ],
+      "predictor_switch_step": null,
+      "switch_step": null,
+      "s1_completed": true,
+      "s2_completed": false,
+      "gripper_check_mode": "full",
+      "switch_events": [],
+      "gripper_status": {
+        "gripper_check_mode": "full",
+        "left_gripper_val": 0.9921875,
+        "right_gripper_val": 1.0,
+        "left_open": true,
+        "right_open": true,
+        "gripper_open": true
+      },
+      "cache_len_before_switch": null,
+      "prev_action_before_switch": null,
+      "s1_step": 48,
+      "s2_step": null,
+      "s1_predictor_switch_step": null,
+      "sequential": true
+    },
+    {
+      "seed": 4300001,
+      "task_name": "living_room_tidy_2tasks",
+      "success": false,
+      "episode_success": false,
+      "total_steps": 1500,
+      "subtask_completion_steps": [
+        111,
+        null
+      ],
+      "env_subtask_completion_steps": [
+        111,
+        null
+      ],
+      "predictor_switch_steps": [
+        null
+      ],
+      "predictor_switch_step": null,
+      "switch_step": null,
+      "s1_completed": true,
+      "s2_completed": false,
+      "gripper_check_mode": "full",
+      "switch_events": [],
+      "gripper_status": {
+        "gripper_check_mode": "full",
+        "left_gripper_val": 0.98828125,
+        "right_gripper_val": 0.0,
+        "left_open": true,
+        "right_open": false,
+        "gripper_open": false
+      },
+      "cache_len_before_switch": null,
+      "prev_action_before_switch": null,
+      "s1_step": 111,
+      "s2_step": null,
+      "s1_predictor_switch_step": null,
+      "sequential": true
+    },
+    {
+      "seed": 4300002,
+      "task_name": "living_room_tidy_2tasks",
+      "success": true,
+      "episode_success": true,
+      "total_steps": 1115,
+      "subtask_completion_steps": [
+        49,
+        158
+      ],
+      "env_subtask_completion_steps": [
+        49,
+        158
+      ],
+      "predictor_switch_steps": [
+        null
+      ],
+      "predictor_switch_step": null,
+      "switch_step": null,
+      "s1_completed": true,
+      "s2_completed": true,
+      "gripper_check_mode": "full",
+      "switch_events": [],
+      "gripper_status": {
+        "gripper_check_mode": "full",
+        "left_gripper_val": 0.9921875,
+        "right_gripper_val": 0.8010475852272727,
+        "left_open": true,
+        "right_open": true,
+        "gripper_open": true
+      },
+      "cache_len_before_switch": null,
+      "prev_action_before_switch": null,
+      "s1_step": 49,
+      "s2_step": 158,
+      "s1_predictor_switch_step": null,
+      "sequential": true
+    }
+  ],
+  "timing": {
+    "avg_episode_time": 621.228033622106,
+    "avg_setup_time": 15.179905652999878,
+    "avg_inference_time": 605.4657754898071,
+    "total_evaluation_time": 1863.6841008663177
+  },
+  "episode_steps": {
+    "avg": 1371.6666666666667,
+    "min": 1115,
+    "max": 1500
+  },
+  "key_findings": {
+    "biggest_bottleneck": "subtask_2",
+    "bottleneck_rate": 0.6666666666666666
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "task_name": "living_room_tidy_2tasks",
+  "expert_demo_seeds": [
+    4300000,
+    4300001,
+    4300002
+  ],
+  "total_seeds": 3,
+  "last_updated": "2026-11-09 19:00:07"
+}
