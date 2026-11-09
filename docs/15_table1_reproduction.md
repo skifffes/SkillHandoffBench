@@ -12,7 +12,7 @@
 | Gate D 预检 | office_desk_2tasks | oracle_hse | 3 | **3/3** | |
 | Gate D 预检 | living_room_tidy_2tasks | full_inst | 3 | **1/3** | seed 4300002 成功 |
 | Gate D 预检 | office_desk_2tasks | full_inst | 3 | **1/3** | |
-| Gate E 深跑 | living_room_tidy_2tasks | oracle_hse | 20 | **4/10（跑到第 10 个 episode）** | 截止 21:30 未跑满 20，记 `INCOMPLETE` |
+| Gate E 深跑 | living_room_tidy_2tasks | oracle_hse | 20 | **4/12（跑到第 12 个 episode）** | 截止 21:30 未跑满 20，记 `INCOMPLETE` |
 | Gate E 深跑 | office_desk_tasks | oracle_hse / full_inst | 20 | **未开始** | 时间不够 |
 
 本轮新增 rollout = 预检 12 + 深跑 10 = **22 次**（不含 Phase 0–3A 历史运行）。
@@ -49,7 +49,7 @@
 
 | Task | Track | 请求 N | 实际 N | env success | sr_ordered | ours % | paper % |
 | --- | --- | ---: | ---: | --- | --- | ---: | ---: |
-| living_room_tidy_2tasks | oracle_hse | 20 | **10**（INCOMPLETE） | 4/10 | 4/10 | **40.0** | 10.0 |
+| living_room_tidy_2tasks | oracle_hse | 20 | **12**（INCOMPLETE） | 4/12 | 4/12 | **33.3** | 10.0 |
 | office_desk_2tasks | oracle_hse | 20 | **0**（未开始） | — | — | — | 15.0 |
 | living_room_tidy_2tasks | full_inst | 20 | **3**（仅预检那 3 次） | 1/3 | 1/3 | 33.3 | 5.0 |
 | office_desk_2tasks | full_inst | 20 | **3**（仅预检那 3 次） | 1/3 | **0/3** | **0.0** | 10.0 |
@@ -68,6 +68,8 @@
 | 4300008 | ❌ | 1500 | 77 | — |
 | 4300009 | ❌ | 1500 | 48 | — |
 | 4300010 | ❌ | 1500 | 110 | — |
+| 4300011 | ❌ | 1500 | — | — |
+| 4300013 | ❌ | 1500 | — | — |
 
 （4300004 被官方专家筛选跳过。）
 
@@ -94,7 +96,7 @@
 | Counter Cleanup | 15.0 | not run | 15.0 | not run | — |
 | Desk Arrange | 5.0 | not run | 10.0 | not run | — |
 | Hobby Desk | 15.0 | not run | 35.0 | not run | — |
-| Living Room Tidy | 5.0 | 1/3 (n=3) | 10.0 | **4/10** (INCOMPLETE) | **+30.0** |
+| Living Room Tidy | 5.0 | 1/3 (n=3) | 10.0 | **4/12** (INCOMPLETE) | **+23.3** |
 | Office Desk | 10.0 | **0/3**（1 次环境成功但乱序） | 15.0 | 3/3 (n=3, 预检) | +85.0 |
 | Office Organize | 15.0 | not run | 15.0 | not run | — |
 | Reception Desk | 5.0 | not run | 15.0 | not run | — |
