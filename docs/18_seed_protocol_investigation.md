@@ -139,7 +139,7 @@
 | breakfast_prep_2tasks | oracle_hse | **5/5** | 5 | **5 (100%)** | 75% | seed `4600000,2,3,4,5`（4600001 被专家跳过） |
 | workspace_setup_2tasks | oracle_hse | **5/5** | 5 | **5 (100%)** | 50% | seed `4600001,2,5,6,7`（3,4 被跳过） |
 | bakery_close_2tasks | oracle_hse | **1/5** | 0 | **1** | 35% | **55 分钟超时被中断**；该 episode 两子任务按序完成、但终局夹爪未达标（env=0, ordered=1） |
-| breakfast_prep_2tasks | full_inst | **3/5** | 0 | **0 (0%)** | 20% | 运行中，11:26 超时截止 |
+| breakfast_prep_2tasks | full_inst | **4/5** | 0 | **0 (0%)** | 20% | 55 分钟超时中断（11:26:41，exit=124） |
 | workspace_setup_2tasks | full_inst | 0/5 | — | — | 15% | 未开始 |
 | bakery_close_2tasks | full_inst | 0/5 | — | — | 5% | 未开始 |
 
@@ -150,7 +150,7 @@
 | oracle | breakfast_prep | 4600000, 4600002, 4600003, 4600004, 4600005 |
 | oracle | workspace_setup | 4600001, 4600002, 4600005, 4600006, 4600007 |
 | oracle | bakery_close | 4600001（仅 1 个） |
-| full_inst | breakfast_prep | 4600000, 4600002, 4600003 |
+| full_inst | breakfast_prep | 4600000, 4600002, 4600003, 4600004 |
 
 **配对情况**：breakfast 的两轨道前 3 个 seed 相同（4600000/2/3）→ 这 3 个是**真配对**；
 workspace / bakery 的 full_inst 未跑 → 无配对。**再次出现同一 seed 在不同轨道专家校验结果不同的现象**。
@@ -159,7 +159,7 @@ workspace / bakery 的 full_inst 未跑 → 无配对。**再次出现同一 see
 
 | Task | 论文 Oracle | 我们 Oracle | 差 | 论文 Full | 我们 Full | 差 |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: |
-| breakfast_prep | 75% | **100% (5/5)** | **+25** | 20% | **0% (0/3)** | −20 |
+| breakfast_prep | 75% | **100% (5/5)** | **+25** | 20% | **0% (0/4)** | −20 |
 | workspace_setup | 50% | **100% (5/5)** | **+50** | 15% | 未跑 | — |
 | bakery_close | 35% | 0/1（超时中断，无效） | — | 5% | 未跑 | — |
 | living_room（N=20） | 10% | 35% | +25 | 5% | 10% | +5 |
