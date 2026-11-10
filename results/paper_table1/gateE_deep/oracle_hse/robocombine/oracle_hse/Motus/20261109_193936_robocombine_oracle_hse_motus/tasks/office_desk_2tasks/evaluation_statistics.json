@@ -1,0 +1,1196 @@
+{
+  "metadata": {
+    "eval_topic": null,
+    "task_name": "office_desk_2tasks",
+    "policy_name": "Motus",
+    "task_config": "robocombine_eval",
+    "ckpt_setting": "/scratch/lijh/SkillHandoffBench/assets/models/Motus_robotwin2",
+    "timestamp": "2026-11-09 22:23:03",
+    "total_episodes": 20,
+    "num_subtasks": 2,
+    "total_successes": 9,
+    "overall_success_rate": 0.45,
+    "last_updated": "2026-11-10 00:53:54",
+    "run_metadata": {
+      "hse_variant": "oracle_hse",
+      "full_inst_mode": false,
+      "oracle_hse_mode": true,
+      "ordered_hse_mode": false,
+      "real_decision_rule": null,
+      "real_switch_mode": null,
+      "real_camera_key": null,
+      "real_predictor_bundle_dir": null,
+      "real_xvla_model_dir": null,
+      "gripper_check_mode": "full",
+      "max_steps_per_episode": 1500,
+      "switch_cache_reset": false
+    }
+  },
+  "subtask_completion": {
+    "any_order": {
+      "subtask_1": {
+        "count": 19,
+        "rate": 0.95,
+        "avg_steps": 71.10526315789474,
+        "min_steps": 35,
+        "max_steps": 177
+      },
+      "subtask_2": {
+        "count": 9,
+        "rate": 0.45,
+        "avg_steps": 346.0,
+        "min_steps": 155,
+        "max_steps": 1055
+      },
+      "all_subtasks": {
+        "count": 9,
+        "rate": 0.45
+      }
+    },
+    "sequential": {
+      "subtask_1": {
+        "count": 19,
+        "rate": 0.95
+      },
+      "subtask_1_to_2": {
+        "count": 9,
+        "rate": 0.45,
+        "conversion_from_prev": 0.47368421052631576
+      }
+    }
+  },
+  "funnel_analysis": {
+    "all_to_s1": {
+      "count": 19,
+      "total": 20,
+      "rate": 0.95
+    },
+    "s1_to_s2": {
+      "count": 9,
+      "total": 19,
+      "rate": 0.47368421052631576
+    },
+    "s2_to_success": {
+      "count": 9,
+      "total": 9,
+      "rate": 1.0
+    }
+  },
+  "failure_analysis": {
+    "by_stage": {
+      "failed_at_s1": {
+        "count": 1,
+        "rate": 0.05
+      },
+      "failed_at_s2": {
+        "count": 10,
+        "rate": 0.5
+      },
+      "failed_after_s2": {
+        "count": 0,
+        "rate": 0.0
+      }
+    },
+    "by_type": {
+      "timeout": {
+        "count": 11,
+        "rate": 1.0
+      },
+      "gripper_not_open": {
+        "count": 0,
+        "rate": 0.0
+      },
+      "subtask_incomplete": {
+        "count": 0,
+        "rate": 0.0
+      }
+    }
+  },
+  "out_of_order": {
+    "count": 0,
+    "rate": 0.0
+  },
+  "episode_details": [
+    {
+      "seed": 4300000,
+      "task_name": "office_desk_2tasks",
+      "success": true,
+      "episode_success": true,
+      "total_steps": 172,
+      "subtask_completion_steps": [
+        43,
+        168
+      ],
+      "env_subtask_completion_steps": [
+        43,
+        168
+      ],
+      "predictor_switch_steps": [
+        null,
+        null
+      ],
+      "predictor_switch_step": null,
+      "switch_step": 48,
+      "s1_completed": true,
+      "s2_completed": true,
+      "gripper_check_mode": "full",
+      "switch_events": [
+        {
+          "source": "gt",
+          "switch_source": "gt",
+          "from_subtask_idx": 0,
+          "to_subtask_idx": 1,
+          "completed_subtask_idx": 0,
+          "completed_subtask_name": "Place mouse on pad",
+          "new_instruction": "Move pill bottle to pad",
+          "switch_step": 48,
+          "cache_len_before_switch": 0,
+          "cache_cleared": false,
+          "cue_step": 43
+        }
+      ],
+      "gripper_status": {
+        "gripper_check_mode": "full",
+        "left_gripper_val": 0.80078125,
+        "right_gripper_val": 0.9921875,
+        "left_open": true,
+        "right_open": true,
+        "gripper_open": true
+      },
+      "cache_len_before_switch": 0,
+      "prev_action_before_switch": null,
+      "s1_step": 43,
+      "s2_step": 168,
+      "s1_predictor_switch_step": null,
+      "s2_predictor_switch_step": null,
+      "sequential": true
+    },
+    {
+      "seed": 4300001,
+      "task_name": "office_desk_2tasks",
+      "success": true,
+      "episode_success": true,
+      "total_steps": 285,
+      "subtask_completion_steps": [
+        79,
+        246
+      ],
+      "env_subtask_completion_steps": [
+        79,
+        246
+      ],
+      "predictor_switch_steps": [
+        null,
+        null
+      ],
+      "predictor_switch_step": null,
+      "switch_step": 80,
+      "s1_completed": true,
+      "s2_completed": true,
+      "gripper_check_mode": "full",
+      "switch_events": [
+        {
+          "source": "gt",
+          "switch_source": "gt",
+          "from_subtask_idx": 0,
+          "to_subtask_idx": 1,
+          "completed_subtask_idx": 0,
+          "completed_subtask_name": "Place mouse on pad",
+          "new_instruction": "Move pill bottle to pad",
+          "switch_step": 80,
+          "cache_len_before_switch": 0,
+          "cache_cleared": false,
+          "cue_step": 79
+        }
+      ],
+      "gripper_status": {
+        "gripper_check_mode": "full",
+        "left_gripper_val": 0.8022017045454546,
+        "right_gripper_val": 0.953125,
+        "left_open": true,
+        "right_open": true,
+        "gripper_open": true
+      },
+      "cache_len_before_switch": 0,
+      "prev_action_before_switch": null,
+      "s1_step": 79,
+      "s2_step": 246,
+      "s1_predictor_switch_step": null,
+      "s2_predictor_switch_step": null,
+      "sequential": true
+    },
+    {
+      "seed": 4300002,
+      "task_name": "office_desk_2tasks",
+      "success": true,
+      "episode_success": true,
+      "total_steps": 423,
+      "subtask_completion_steps": [
+        44,
+        400
+      ],
+      "env_subtask_completion_steps": [
+        44,
+        400
+      ],
+      "predictor_switch_steps": [
+        null,
+        null
+      ],
+      "predictor_switch_step": null,
+      "switch_step": 48,
+      "s1_completed": true,
+      "s2_completed": true,
+      "gripper_check_mode": "full",
+      "switch_events": [
+        {
+          "source": "gt",
+          "switch_source": "gt",
+          "from_subtask_idx": 0,
+          "to_subtask_idx": 1,
+          "completed_subtask_idx": 0,
+          "completed_subtask_name": "Place mouse on pad",
+          "new_instruction": "Move pill bottle to pad",
+          "switch_step": 48,
+          "cache_len_before_switch": 0,
+          "cache_cleared": false,
+          "cue_step": 44
+        }
+      ],
+      "gripper_status": {
+        "gripper_check_mode": "full",
+        "left_gripper_val": 0.9275568181818182,
+        "right_gripper_val": 0.8000225981404959,
+        "left_open": true,
+        "right_open": true,
+        "gripper_open": true
+      },
+      "cache_len_before_switch": 0,
+      "prev_action_before_switch": null,
+      "s1_step": 44,
+      "s2_step": 400,
+      "s1_predictor_switch_step": null,
+      "s2_predictor_switch_step": null,
+      "sequential": true
+    },
+    {
+      "seed": 4300003,
+      "task_name": "office_desk_2tasks",
+      "success": false,
+      "episode_success": false,
+      "total_steps": 1500,
+      "subtask_completion_steps": [
+        177,
+        null
+      ],
+      "env_subtask_completion_steps": [
+        177,
+        null
+      ],
+      "predictor_switch_steps": [
+        null,
+        null
+      ],
+      "predictor_switch_step": null,
+      "switch_step": 192,
+      "s1_completed": true,
+      "s2_completed": false,
+      "gripper_check_mode": "full",
+      "switch_events": [
+        {
+          "source": "gt",
+          "switch_source": "gt",
+          "from_subtask_idx": 0,
+          "to_subtask_idx": 1,
+          "completed_subtask_idx": 0,
+          "completed_subtask_name": "Place mouse on pad",
+          "new_instruction": "Move pill bottle to pad",
+          "switch_step": 192,
+          "cache_len_before_switch": 0,
+          "cache_cleared": false,
+          "cue_step": 177
+        }
+      ],
+      "gripper_status": {
+        "gripper_check_mode": "full",
+        "left_gripper_val": 0.9765625,
+        "right_gripper_val": 1.0,
+        "left_open": true,
+        "right_open": true,
+        "gripper_open": true
+      },
+      "cache_len_before_switch": 0,
+      "prev_action_before_switch": null,
+      "s1_step": 177,
+      "s2_step": null,
+      "s1_predictor_switch_step": null,
+      "s2_predictor_switch_step": null,
+      "sequential": true
+    },
+    {
+      "seed": 4300004,
+      "task_name": "office_desk_2tasks",
+      "success": true,
+      "episode_success": true,
+      "total_steps": 206,
+      "subtask_completion_steps": [
+        49,
+        201
+      ],
+      "env_subtask_completion_steps": [
+        49,
+        201
+      ],
+      "predictor_switch_steps": [
+        null,
+        null
+      ],
+      "predictor_switch_step": null,
+      "switch_step": 64,
+      "s1_completed": true,
+      "s2_completed": true,
+      "gripper_check_mode": "full",
+      "switch_events": [
+        {
+          "source": "gt",
+          "switch_source": "gt",
+          "from_subtask_idx": 0,
+          "to_subtask_idx": 1,
+          "completed_subtask_idx": 0,
+          "completed_subtask_name": "Place mouse on pad",
+          "new_instruction": "Move pill bottle to pad",
+          "switch_step": 64,
+          "cache_len_before_switch": 0,
+          "cache_cleared": false,
+          "cue_step": 49
+        }
+      ],
+      "gripper_status": {
+        "gripper_check_mode": "full",
+        "left_gripper_val": 0.8021364795918368,
+        "right_gripper_val": 1.0,
+        "left_open": true,
+        "right_open": true,
+        "gripper_open": true
+      },
+      "cache_len_before_switch": 0,
+      "prev_action_before_switch": null,
+      "s1_step": 49,
+      "s2_step": 201,
+      "s1_predictor_switch_step": null,
+      "s2_predictor_switch_step": null,
+      "sequential": true
+    },
+    {
+      "seed": 4300006,
+      "task_name": "office_desk_2tasks",
+      "success": true,
+      "episode_success": true,
+      "total_steps": 287,
+      "subtask_completion_steps": [
+        38,
+        287
+      ],
+      "env_subtask_completion_steps": [
+        38,
+        287
+      ],
+      "predictor_switch_steps": [
+        null,
+        null
+      ],
+      "predictor_switch_step": null,
+      "switch_step": 48,
+      "s1_completed": true,
+      "s2_completed": true,
+      "gripper_check_mode": "full",
+      "switch_events": [
+        {
+          "source": "gt",
+          "switch_source": "gt",
+          "from_subtask_idx": 0,
+          "to_subtask_idx": 1,
+          "completed_subtask_idx": 0,
+          "completed_subtask_name": "Place mouse on pad",
+          "new_instruction": "Move pill bottle to pad",
+          "switch_step": 48,
+          "cache_len_before_switch": 0,
+          "cache_cleared": false,
+          "cue_step": 38
+        }
+      ],
+      "gripper_status": {
+        "gripper_check_mode": "full",
+        "left_gripper_val": 0.9044744318181819,
+        "right_gripper_val": 0.953125,
+        "left_open": true,
+        "right_open": true,
+        "gripper_open": true
+      },
+      "cache_len_before_switch": 0,
+      "prev_action_before_switch": null,
+      "s1_step": 38,
+      "s2_step": 287,
+      "s1_predictor_switch_step": null,
+      "s2_predictor_switch_step": null,
+      "sequential": true
+    },
+    {
+      "seed": 4300008,
+      "task_name": "office_desk_2tasks",
+      "success": true,
+      "episode_success": true,
+      "total_steps": 188,
+      "subtask_completion_steps": [
+        68,
+        155
+      ],
+      "env_subtask_completion_steps": [
+        68,
+        155
+      ],
+      "predictor_switch_steps": [
+        null,
+        null
+      ],
+      "predictor_switch_step": null,
+      "switch_step": 80,
+      "s1_completed": true,
+      "s2_completed": true,
+      "gripper_check_mode": "full",
+      "switch_events": [
+        {
+          "source": "gt",
+          "switch_source": "gt",
+          "from_subtask_idx": 0,
+          "to_subtask_idx": 1,
+          "completed_subtask_idx": 0,
+          "completed_subtask_name": "Place mouse on pad",
+          "new_instruction": "Move pill bottle to pad",
+          "switch_step": 80,
+          "cache_len_before_switch": 0,
+          "cache_cleared": false,
+          "cue_step": 68
+        }
+      ],
+      "gripper_status": {
+        "gripper_check_mode": "full",
+        "left_gripper_val": 0.8046875,
+        "right_gripper_val": 0.85546875,
+        "left_open": true,
+        "right_open": true,
+        "gripper_open": true
+      },
+      "cache_len_before_switch": 0,
+      "prev_action_before_switch": null,
+      "s1_step": 68,
+      "s2_step": 155,
+      "s1_predictor_switch_step": null,
+      "s2_predictor_switch_step": null,
+      "sequential": true
+    },
+    {
+      "seed": 4300010,
+      "task_name": "office_desk_2tasks",
+      "success": false,
+      "episode_success": false,
+      "total_steps": 1500,
+      "subtask_completion_steps": [
+        39,
+        null
+      ],
+      "env_subtask_completion_steps": [
+        39,
+        null
+      ],
+      "predictor_switch_steps": [
+        null,
+        null
+      ],
+      "predictor_switch_step": null,
+      "switch_step": 48,
+      "s1_completed": true,
+      "s2_completed": false,
+      "gripper_check_mode": "full",
+      "switch_events": [
+        {
+          "source": "gt",
+          "switch_source": "gt",
+          "from_subtask_idx": 0,
+          "to_subtask_idx": 1,
+          "completed_subtask_idx": 0,
+          "completed_subtask_name": "Place mouse on pad",
+          "new_instruction": "Move pill bottle to pad",
+          "switch_step": 48,
+          "cache_len_before_switch": 0,
+          "cache_cleared": false,
+          "cue_step": 39
+        }
+      ],
+      "gripper_status": {
+        "gripper_check_mode": "full",
+        "left_gripper_val": 0.65234375,
+        "right_gripper_val": 1.0,
+        "left_open": false,
+        "right_open": true,
+        "gripper_open": false
+      },
+      "cache_len_before_switch": 0,
+      "prev_action_before_switch": null,
+      "s1_step": 39,
+      "s2_step": null,
+      "s1_predictor_switch_step": null,
+      "s2_predictor_switch_step": null,
+      "sequential": true
+    },
+    {
+      "seed": 4300014,
+      "task_name": "office_desk_2tasks",
+      "success": false,
+      "episode_success": false,
+      "total_steps": 1500,
+      "subtask_completion_steps": [
+        137,
+        null
+      ],
+      "env_subtask_completion_steps": [
+        137,
+        null
+      ],
+      "predictor_switch_steps": [
+        null,
+        null
+      ],
+      "predictor_switch_step": null,
+      "switch_step": 144,
+      "s1_completed": true,
+      "s2_completed": false,
+      "gripper_check_mode": "full",
+      "switch_events": [
+        {
+          "source": "gt",
+          "switch_source": "gt",
+          "from_subtask_idx": 0,
+          "to_subtask_idx": 1,
+          "completed_subtask_idx": 0,
+          "completed_subtask_name": "Place mouse on pad",
+          "new_instruction": "Move pill bottle to pad",
+          "switch_step": 144,
+          "cache_len_before_switch": 0,
+          "cache_cleared": false,
+          "cue_step": 137
+        }
+      ],
+      "gripper_status": {
+        "gripper_check_mode": "full",
+        "left_gripper_val": 0.984375,
+        "right_gripper_val": 0.00946044921875,
+        "left_open": true,
+        "right_open": false,
+        "gripper_open": false
+      },
+      "cache_len_before_switch": 0,
+      "prev_action_before_switch": null,
+      "s1_step": 137,
+      "s2_step": null,
+      "s1_predictor_switch_step": null,
+      "s2_predictor_switch_step": null,
+      "sequential": true
+    },
+    {
+      "seed": 4300015,
+      "task_name": "office_desk_2tasks",
+      "success": false,
+      "episode_success": false,
+      "total_steps": 1500,
+      "subtask_completion_steps": [
+        60,
+        null
+      ],
+      "env_subtask_completion_steps": [
+        60,
+        null
+      ],
+      "predictor_switch_steps": [
+        null,
+        null
+      ],
+      "predictor_switch_step": null,
+      "switch_step": 64,
+      "s1_completed": true,
+      "s2_completed": false,
+      "gripper_check_mode": "full",
+      "switch_events": [
+        {
+          "source": "gt",
+          "switch_source": "gt",
+          "from_subtask_idx": 0,
+          "to_subtask_idx": 1,
+          "completed_subtask_idx": 0,
+          "completed_subtask_name": "Place mouse on pad",
+          "new_instruction": "Move pill bottle to pad",
+          "switch_step": 64,
+          "cache_len_before_switch": 0,
+          "cache_cleared": false,
+          "cue_step": 60
+        }
+      ],
+      "gripper_status": {
+        "gripper_check_mode": "full",
+        "left_gripper_val": 0.0093994140625,
+        "right_gripper_val": 1.0,
+        "left_open": false,
+        "right_open": true,
+        "gripper_open": false
+      },
+      "cache_len_before_switch": 0,
+      "prev_action_before_switch": null,
+      "s1_step": 60,
+      "s2_step": null,
+      "s1_predictor_switch_step": null,
+      "s2_predictor_switch_step": null,
+      "sequential": true
+    },
+    {
+      "seed": 4300017,
+      "task_name": "office_desk_2tasks",
+      "success": true,
+      "episode_success": true,
+      "total_steps": 397,
+      "subtask_completion_steps": [
+        37,
+        397
+      ],
+      "env_subtask_completion_steps": [
+        37,
+        397
+      ],
+      "predictor_switch_steps": [
+        null,
+        null
+      ],
+      "predictor_switch_step": null,
+      "switch_step": 48,
+      "s1_completed": true,
+      "s2_completed": true,
+      "gripper_check_mode": "full",
+      "switch_events": [
+        {
+          "source": "gt",
+          "switch_source": "gt",
+          "from_subtask_idx": 0,
+          "to_subtask_idx": 1,
+          "completed_subtask_idx": 0,
+          "completed_subtask_name": "Place mouse on pad",
+          "new_instruction": "Move pill bottle to pad",
+          "switch_step": 48,
+          "cache_len_before_switch": 0,
+          "cache_cleared": false,
+          "cue_step": 37
+        }
+      ],
+      "gripper_status": {
+        "gripper_check_mode": "full",
+        "left_gripper_val": 0.8346058238636364,
+        "right_gripper_val": 0.99609375,
+        "left_open": true,
+        "right_open": true,
+        "gripper_open": true
+      },
+      "cache_len_before_switch": 0,
+      "prev_action_before_switch": null,
+      "s1_step": 37,
+      "s2_step": 397,
+      "s1_predictor_switch_step": null,
+      "s2_predictor_switch_step": null,
+      "sequential": true
+    },
+    {
+      "seed": 4300018,
+      "task_name": "office_desk_2tasks",
+      "success": false,
+      "episode_success": false,
+      "total_steps": 1500,
+      "subtask_completion_steps": [
+        38,
+        null
+      ],
+      "env_subtask_completion_steps": [
+        38,
+        null
+      ],
+      "predictor_switch_steps": [
+        null,
+        null
+      ],
+      "predictor_switch_step": null,
+      "switch_step": 48,
+      "s1_completed": true,
+      "s2_completed": false,
+      "gripper_check_mode": "full",
+      "switch_events": [
+        {
+          "source": "gt",
+          "switch_source": "gt",
+          "from_subtask_idx": 0,
+          "to_subtask_idx": 1,
+          "completed_subtask_idx": 0,
+          "completed_subtask_name": "Place mouse on pad",
+          "new_instruction": "Move pill bottle to pad",
+          "switch_step": 48,
+          "cache_len_before_switch": 0,
+          "cache_cleared": false,
+          "cue_step": 38
+        }
+      ],
+      "gripper_status": {
+        "gripper_check_mode": "full",
+        "left_gripper_val": 0.98828125,
+        "right_gripper_val": 0.0,
+        "left_open": true,
+        "right_open": false,
+        "gripper_open": false
+      },
+      "cache_len_before_switch": 0,
+      "prev_action_before_switch": null,
+      "s1_step": 38,
+      "s2_step": null,
+      "s1_predictor_switch_step": null,
+      "s2_predictor_switch_step": null,
+      "sequential": true
+    },
+    {
+      "seed": 4300020,
+      "task_name": "office_desk_2tasks",
+      "success": false,
+      "episode_success": false,
+      "total_steps": 1500,
+      "subtask_completion_steps": [
+        45,
+        null
+      ],
+      "env_subtask_completion_steps": [
+        45,
+        null
+      ],
+      "predictor_switch_steps": [
+        null,
+        null
+      ],
+      "predictor_switch_step": null,
+      "switch_step": 48,
+      "s1_completed": true,
+      "s2_completed": false,
+      "gripper_check_mode": "full",
+      "switch_events": [
+        {
+          "source": "gt",
+          "switch_source": "gt",
+          "from_subtask_idx": 0,
+          "to_subtask_idx": 1,
+          "completed_subtask_idx": 0,
+          "completed_subtask_name": "Place mouse on pad",
+          "new_instruction": "Move pill bottle to pad",
+          "switch_step": 48,
+          "cache_len_before_switch": 0,
+          "cache_cleared": false,
+          "cue_step": 45
+        }
+      ],
+      "gripper_status": {
+        "gripper_check_mode": "full",
+        "left_gripper_val": 0.99609375,
+        "right_gripper_val": 0.0,
+        "left_open": true,
+        "right_open": false,
+        "gripper_open": false
+      },
+      "cache_len_before_switch": 0,
+      "prev_action_before_switch": null,
+      "s1_step": 45,
+      "s2_step": null,
+      "s1_predictor_switch_step": null,
+      "s2_predictor_switch_step": null,
+      "sequential": true
+    },
+    {
+      "seed": 4300023,
+      "task_name": "office_desk_2tasks",
+      "success": false,
+      "episode_success": false,
+      "total_steps": 1500,
+      "subtask_completion_steps": [
+        40,
+        null
+      ],
+      "env_subtask_completion_steps": [
+        40,
+        null
+      ],
+      "predictor_switch_steps": [
+        null,
+        null
+      ],
+      "predictor_switch_step": null,
+      "switch_step": 48,
+      "s1_completed": true,
+      "s2_completed": false,
+      "gripper_check_mode": "full",
+      "switch_events": [
+        {
+          "source": "gt",
+          "switch_source": "gt",
+          "from_subtask_idx": 0,
+          "to_subtask_idx": 1,
+          "completed_subtask_idx": 0,
+          "completed_subtask_name": "Place mouse on pad",
+          "new_instruction": "Move pill bottle to pad",
+          "switch_step": 48,
+          "cache_len_before_switch": 0,
+          "cache_cleared": false,
+          "cue_step": 40
+        }
+      ],
+      "gripper_status": {
+        "gripper_check_mode": "full",
+        "left_gripper_val": 0.98828125,
+        "right_gripper_val": 0.020263671875,
+        "left_open": true,
+        "right_open": false,
+        "gripper_open": false
+      },
+      "cache_len_before_switch": 0,
+      "prev_action_before_switch": null,
+      "s1_step": 40,
+      "s2_step": null,
+      "s1_predictor_switch_step": null,
+      "s2_predictor_switch_step": null,
+      "sequential": true
+    },
+    {
+      "seed": 4300024,
+      "task_name": "office_desk_2tasks",
+      "success": true,
+      "episode_success": true,
+      "total_steps": 205,
+      "subtask_completion_steps": [
+        124,
+        205
+      ],
+      "env_subtask_completion_steps": [
+        124,
+        205
+      ],
+      "predictor_switch_steps": [
+        null,
+        null
+      ],
+      "predictor_switch_step": null,
+      "switch_step": 128,
+      "s1_completed": true,
+      "s2_completed": true,
+      "gripper_check_mode": "full",
+      "switch_events": [
+        {
+          "source": "gt",
+          "switch_source": "gt",
+          "from_subtask_idx": 0,
+          "to_subtask_idx": 1,
+          "completed_subtask_idx": 0,
+          "completed_subtask_name": "Place mouse on pad",
+          "new_instruction": "Move pill bottle to pad",
+          "switch_step": 128,
+          "cache_len_before_switch": 0,
+          "cache_cleared": false,
+          "cue_step": 124
+        }
+      ],
+      "gripper_status": {
+        "gripper_check_mode": "full",
+        "left_gripper_val": 0.8530745967741935,
+        "right_gripper_val": 0.9921875,
+        "left_open": true,
+        "right_open": true,
+        "gripper_open": true
+      },
+      "cache_len_before_switch": 0,
+      "prev_action_before_switch": null,
+      "s1_step": 124,
+      "s2_step": 205,
+      "s1_predictor_switch_step": null,
+      "s2_predictor_switch_step": null,
+      "sequential": true
+    },
+    {
+      "seed": 4300026,
+      "task_name": "office_desk_2tasks",
+      "success": false,
+      "episode_success": false,
+      "total_steps": 1500,
+      "subtask_completion_steps": [
+        95,
+        null
+      ],
+      "env_subtask_completion_steps": [
+        95,
+        null
+      ],
+      "predictor_switch_steps": [
+        null,
+        null
+      ],
+      "predictor_switch_step": null,
+      "switch_step": 96,
+      "s1_completed": true,
+      "s2_completed": false,
+      "gripper_check_mode": "full",
+      "switch_events": [
+        {
+          "source": "gt",
+          "switch_source": "gt",
+          "from_subtask_idx": 0,
+          "to_subtask_idx": 1,
+          "completed_subtask_idx": 0,
+          "completed_subtask_name": "Place mouse on pad",
+          "new_instruction": "Move pill bottle to pad",
+          "switch_step": 96,
+          "cache_len_before_switch": 0,
+          "cache_cleared": false,
+          "cue_step": 95
+        }
+      ],
+      "gripper_status": {
+        "gripper_check_mode": "full",
+        "left_gripper_val": 0.9921875,
+        "right_gripper_val": 0.0009765625,
+        "left_open": true,
+        "right_open": false,
+        "gripper_open": false
+      },
+      "cache_len_before_switch": 0,
+      "prev_action_before_switch": null,
+      "s1_step": 95,
+      "s2_step": null,
+      "s1_predictor_switch_step": null,
+      "s2_predictor_switch_step": null,
+      "sequential": true
+    },
+    {
+      "seed": 4300028,
+      "task_name": "office_desk_2tasks",
+      "success": false,
+      "episode_success": false,
+      "total_steps": 1500,
+      "subtask_completion_steps": [
+        null,
+        null
+      ],
+      "env_subtask_completion_steps": [
+        null,
+        null
+      ],
+      "predictor_switch_steps": [
+        null,
+        null
+      ],
+      "predictor_switch_step": null,
+      "switch_step": null,
+      "s1_completed": false,
+      "s2_completed": false,
+      "gripper_check_mode": "full",
+      "switch_events": [],
+      "gripper_status": {
+        "gripper_check_mode": "full",
+        "left_gripper_val": 0.98828125,
+        "right_gripper_val": 1.0,
+        "left_open": true,
+        "right_open": true,
+        "gripper_open": true
+      },
+      "cache_len_before_switch": null,
+      "prev_action_before_switch": null,
+      "s1_step": null,
+      "s2_step": null,
+      "s1_predictor_switch_step": null,
+      "s2_predictor_switch_step": null,
+      "sequential": true
+    },
+    {
+      "seed": 4300029,
+      "task_name": "office_desk_2tasks",
+      "success": false,
+      "episode_success": false,
+      "total_steps": 1500,
+      "subtask_completion_steps": [
+        161,
+        null
+      ],
+      "env_subtask_completion_steps": [
+        161,
+        null
+      ],
+      "predictor_switch_steps": [
+        null,
+        null
+      ],
+      "predictor_switch_step": null,
+      "switch_step": 176,
+      "s1_completed": true,
+      "s2_completed": false,
+      "gripper_check_mode": "full",
+      "switch_events": [
+        {
+          "source": "gt",
+          "switch_source": "gt",
+          "from_subtask_idx": 0,
+          "to_subtask_idx": 1,
+          "completed_subtask_idx": 0,
+          "completed_subtask_name": "Place mouse on pad",
+          "new_instruction": "Move pill bottle to pad",
+          "switch_step": 176,
+          "cache_len_before_switch": 0,
+          "cache_cleared": false,
+          "cue_step": 161
+        }
+      ],
+      "gripper_status": {
+        "gripper_check_mode": "full",
+        "left_gripper_val": 0.9296875,
+        "right_gripper_val": 0.027587890625,
+        "left_open": true,
+        "right_open": false,
+        "gripper_open": false
+      },
+      "cache_len_before_switch": 0,
+      "prev_action_before_switch": null,
+      "s1_step": 161,
+      "s2_step": null,
+      "s1_predictor_switch_step": null,
+      "s2_predictor_switch_step": null,
+      "sequential": true
+    },
+    {
+      "seed": 4300031,
+      "task_name": "office_desk_2tasks",
+      "success": false,
+      "episode_success": false,
+      "total_steps": 1500,
+      "subtask_completion_steps": [
+        35,
+        null
+      ],
+      "env_subtask_completion_steps": [
+        35,
+        null
+      ],
+      "predictor_switch_steps": [
+        null,
+        null
+      ],
+      "predictor_switch_step": null,
+      "switch_step": 48,
+      "s1_completed": true,
+      "s2_completed": false,
+      "gripper_check_mode": "full",
+      "switch_events": [
+        {
+          "source": "gt",
+          "switch_source": "gt",
+          "from_subtask_idx": 0,
+          "to_subtask_idx": 1,
+          "completed_subtask_idx": 0,
+          "completed_subtask_name": "Place mouse on pad",
+          "new_instruction": "Move pill bottle to pad",
+          "switch_step": 48,
+          "cache_len_before_switch": 0,
+          "cache_cleared": false,
+          "cue_step": 35
+        }
+      ],
+      "gripper_status": {
+        "gripper_check_mode": "full",
+        "left_gripper_val": 0.01123046875,
+        "right_gripper_val": 0.9296875,
+        "left_open": false,
+        "right_open": true,
+        "gripper_open": false
+      },
+      "cache_len_before_switch": 0,
+      "prev_action_before_switch": null,
+      "s1_step": 35,
+      "s2_step": null,
+      "s1_predictor_switch_step": null,
+      "s2_predictor_switch_step": null,
+      "sequential": true
+    },
+    {
+      "seed": 4300034,
+      "task_name": "office_desk_2tasks",
+      "success": true,
+      "episode_success": true,
+      "total_steps": 1104,
+      "subtask_completion_steps": [
+        42,
+        1055
+      ],
+      "env_subtask_completion_steps": [
+        42,
+        1055
+      ],
+      "predictor_switch_steps": [
+        null,
+        null
+      ],
+      "predictor_switch_step": null,
+      "switch_step": 48,
+      "s1_completed": true,
+      "s2_completed": true,
+      "gripper_check_mode": "full",
+      "switch_events": [
+        {
+          "source": "gt",
+          "switch_source": "gt",
+          "from_subtask_idx": 0,
+          "to_subtask_idx": 1,
+          "completed_subtask_idx": 0,
+          "completed_subtask_name": "Place mouse on pad",
+          "new_instruction": "Move pill bottle to pad",
+          "switch_step": 48,
+          "cache_len_before_switch": 0,
+          "cache_cleared": false,
+          "cue_step": 42
+        }
+      ],
+      "gripper_status": {
+        "gripper_check_mode": "full",
+        "left_gripper_val": 0.8013139204545454,
+        "right_gripper_val": 1.0,
+        "left_open": true,
+        "right_open": true,
+        "gripper_open": true
+      },
+      "cache_len_before_switch": 0,
+      "prev_action_before_switch": null,
+      "s1_step": 42,
+      "s2_step": 1055,
+      "s1_predictor_switch_step": null,
+      "s2_predictor_switch_step": null,
+      "sequential": true
+    }
+  ],
+  "timing": {
+    "avg_episode_time": 442.93915220499036,
+    "avg_setup_time": 13.852302837371827,
+    "avg_inference_time": 427.964618229866,
+    "total_evaluation_time": 8858.783044099808
+  },
+  "episode_steps": {
+    "avg": 988.35,
+    "min": 172,
+    "max": 1500
+  },
+  "key_findings": {
+    "biggest_bottleneck": "subtask_2",
+    "bottleneck_rate": 0.5
+  }
+}

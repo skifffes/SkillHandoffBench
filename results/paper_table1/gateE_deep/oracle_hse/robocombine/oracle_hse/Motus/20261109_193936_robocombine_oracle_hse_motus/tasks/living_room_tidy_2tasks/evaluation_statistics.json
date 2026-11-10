@@ -6,11 +6,11 @@
     "task_config": "robocombine_eval",
     "ckpt_setting": "/scratch/lijh/SkillHandoffBench/assets/models/Motus_robotwin2",
     "timestamp": "2026-11-09 19:43:11",
-    "total_episodes": 10,
+    "total_episodes": 20,
     "num_subtasks": 2,
-    "total_successes": 4,
-    "overall_success_rate": 0.4,
-    "last_updated": "2026-11-09 20:58:16",
+    "total_successes": 7,
+    "overall_success_rate": 0.35,
+    "last_updated": "2026-11-09 22:19:23",
     "run_metadata": {
       "hse_variant": "oracle_hse",
       "full_inst_mode": false,
@@ -29,61 +29,61 @@
   "subtask_completion": {
     "any_order": {
       "subtask_1": {
-        "count": 10,
-        "rate": 1.0,
-        "avg_steps": 58.7,
+        "count": 19,
+        "rate": 0.95,
+        "avg_steps": 57.1578947368421,
         "min_steps": 47,
         "max_steps": 110
       },
       "subtask_2": {
-        "count": 4,
-        "rate": 0.4,
-        "avg_steps": 122.25,
+        "count": 7,
+        "rate": 0.35,
+        "avg_steps": 127.71428571428571,
         "min_steps": 102,
-        "max_steps": 160
+        "max_steps": 174
       },
       "all_subtasks": {
-        "count": 4,
-        "rate": 0.4
+        "count": 7,
+        "rate": 0.35
       }
     },
     "sequential": {
       "subtask_1": {
-        "count": 10,
-        "rate": 1.0
+        "count": 19,
+        "rate": 0.95
       },
       "subtask_1_to_2": {
-        "count": 4,
-        "rate": 0.4,
-        "conversion_from_prev": 0.4
+        "count": 7,
+        "rate": 0.35,
+        "conversion_from_prev": 0.3684210526315789
       }
     }
   },
   "funnel_analysis": {
     "all_to_s1": {
-      "count": 10,
-      "total": 10,
-      "rate": 1.0
+      "count": 19,
+      "total": 20,
+      "rate": 0.95
     },
     "s1_to_s2": {
-      "count": 4,
-      "total": 10,
-      "rate": 0.4
+      "count": 7,
+      "total": 19,
+      "rate": 0.3684210526315789
     },
     "s2_to_success": {
-      "count": 4,
-      "total": 4,
+      "count": 7,
+      "total": 7,
       "rate": 1.0
     }
   },
   "failure_analysis": {
     "by_stage": {
       "failed_at_s1": {
-        "count": 0,
-        "rate": 0.0
+        "count": 1,
+        "rate": 0.05
       },
       "failed_at_s2": {
-        "count": 6,
+        "count": 12,
         "rate": 0.6
       },
       "failed_after_s2": {
@@ -93,7 +93,7 @@
     },
     "by_type": {
       "timeout": {
-        "count": 6,
+        "count": 13,
         "rate": 1.0
       },
       "gripper_not_open": {
@@ -649,17 +649,540 @@
       "s1_predictor_switch_step": null,
       "s2_predictor_switch_step": null,
       "sequential": true
+    },
+    {
+      "seed": 4300011,
+      "task_name": "living_room_tidy_2tasks",
+      "success": false,
+      "episode_success": false,
+      "total_steps": 1500,
+      "subtask_completion_steps": [
+        79,
+        null
+      ],
+      "env_subtask_completion_steps": [
+        79,
+        null
+      ],
+      "predictor_switch_steps": [
+        null,
+        null
+      ],
+      "predictor_switch_step": null,
+      "switch_step": 80,
+      "s1_completed": true,
+      "s2_completed": false,
+      "gripper_check_mode": "full",
+      "switch_events": [
+        {
+          "source": "gt",
+          "switch_source": "gt",
+          "from_subtask_idx": 0,
+          "to_subtask_idx": 1,
+          "completed_subtask_idx": 0,
+          "completed_subtask_name": "Place cup on coaster",
+          "new_instruction": "Place fan on pad",
+          "switch_step": 80,
+          "cache_len_before_switch": 0,
+          "cache_cleared": false,
+          "cue_step": 79
+        }
+      ],
+      "gripper_status": {
+        "gripper_check_mode": "full",
+        "left_gripper_val": 1.0,
+        "right_gripper_val": 1.0,
+        "left_open": true,
+        "right_open": true,
+        "gripper_open": true
+      },
+      "cache_len_before_switch": 0,
+      "prev_action_before_switch": null,
+      "s1_step": 79,
+      "s2_step": null,
+      "s1_predictor_switch_step": null,
+      "s2_predictor_switch_step": null,
+      "sequential": true
+    },
+    {
+      "seed": 4300013,
+      "task_name": "living_room_tidy_2tasks",
+      "success": false,
+      "episode_success": false,
+      "total_steps": 1500,
+      "subtask_completion_steps": [
+        63,
+        null
+      ],
+      "env_subtask_completion_steps": [
+        63,
+        null
+      ],
+      "predictor_switch_steps": [
+        null,
+        null
+      ],
+      "predictor_switch_step": null,
+      "switch_step": 64,
+      "s1_completed": true,
+      "s2_completed": false,
+      "gripper_check_mode": "full",
+      "switch_events": [
+        {
+          "source": "gt",
+          "switch_source": "gt",
+          "from_subtask_idx": 0,
+          "to_subtask_idx": 1,
+          "completed_subtask_idx": 0,
+          "completed_subtask_name": "Place cup on coaster",
+          "new_instruction": "Place fan on pad",
+          "switch_step": 64,
+          "cache_len_before_switch": 0,
+          "cache_cleared": false,
+          "cue_step": 63
+        }
+      ],
+      "gripper_status": {
+        "gripper_check_mode": "full",
+        "left_gripper_val": 0.640625,
+        "right_gripper_val": 0.02978515625,
+        "left_open": false,
+        "right_open": false,
+        "gripper_open": false
+      },
+      "cache_len_before_switch": 0,
+      "prev_action_before_switch": null,
+      "s1_step": 63,
+      "s2_step": null,
+      "s1_predictor_switch_step": null,
+      "s2_predictor_switch_step": null,
+      "sequential": true
+    },
+    {
+      "seed": 4300014,
+      "task_name": "living_room_tidy_2tasks",
+      "success": false,
+      "episode_success": false,
+      "total_steps": 1500,
+      "subtask_completion_steps": [
+        48,
+        null
+      ],
+      "env_subtask_completion_steps": [
+        48,
+        null
+      ],
+      "predictor_switch_steps": [
+        null,
+        null
+      ],
+      "predictor_switch_step": null,
+      "switch_step": 48,
+      "s1_completed": true,
+      "s2_completed": false,
+      "gripper_check_mode": "full",
+      "switch_events": [
+        {
+          "source": "gt",
+          "switch_source": "gt",
+          "from_subtask_idx": 0,
+          "to_subtask_idx": 1,
+          "completed_subtask_idx": 0,
+          "completed_subtask_name": "Place cup on coaster",
+          "new_instruction": "Place fan on pad",
+          "switch_step": 48,
+          "cache_len_before_switch": 0,
+          "cache_cleared": false
+        }
+      ],
+      "gripper_status": {
+        "gripper_check_mode": "full",
+        "left_gripper_val": 0.984375,
+        "right_gripper_val": 0.96875,
+        "left_open": true,
+        "right_open": true,
+        "gripper_open": true
+      },
+      "cache_len_before_switch": 0,
+      "prev_action_before_switch": null,
+      "s1_step": 48,
+      "s2_step": null,
+      "s1_predictor_switch_step": null,
+      "s2_predictor_switch_step": null,
+      "sequential": true
+    },
+    {
+      "seed": 4300015,
+      "task_name": "living_room_tidy_2tasks",
+      "success": false,
+      "episode_success": false,
+      "total_steps": 1500,
+      "subtask_completion_steps": [
+        49,
+        null
+      ],
+      "env_subtask_completion_steps": [
+        49,
+        null
+      ],
+      "predictor_switch_steps": [
+        null,
+        null
+      ],
+      "predictor_switch_step": null,
+      "switch_step": 64,
+      "s1_completed": true,
+      "s2_completed": false,
+      "gripper_check_mode": "full",
+      "switch_events": [
+        {
+          "source": "gt",
+          "switch_source": "gt",
+          "from_subtask_idx": 0,
+          "to_subtask_idx": 1,
+          "completed_subtask_idx": 0,
+          "completed_subtask_name": "Place cup on coaster",
+          "new_instruction": "Place fan on pad",
+          "switch_step": 64,
+          "cache_len_before_switch": 0,
+          "cache_cleared": false,
+          "cue_step": 49
+        }
+      ],
+      "gripper_status": {
+        "gripper_check_mode": "full",
+        "left_gripper_val": 0.0211181640625,
+        "right_gripper_val": 0.037109375,
+        "left_open": false,
+        "right_open": false,
+        "gripper_open": false
+      },
+      "cache_len_before_switch": 0,
+      "prev_action_before_switch": null,
+      "s1_step": 49,
+      "s2_step": null,
+      "s1_predictor_switch_step": null,
+      "s2_predictor_switch_step": null,
+      "sequential": true
+    },
+    {
+      "seed": 4300016,
+      "task_name": "living_room_tidy_2tasks",
+      "success": true,
+      "episode_success": true,
+      "total_steps": 221,
+      "subtask_completion_steps": [
+        50,
+        174
+      ],
+      "env_subtask_completion_steps": [
+        50,
+        174
+      ],
+      "predictor_switch_steps": [
+        null,
+        null
+      ],
+      "predictor_switch_step": null,
+      "switch_step": 64,
+      "s1_completed": true,
+      "s2_completed": true,
+      "gripper_check_mode": "full",
+      "switch_events": [
+        {
+          "source": "gt",
+          "switch_source": "gt",
+          "from_subtask_idx": 0,
+          "to_subtask_idx": 1,
+          "completed_subtask_idx": 0,
+          "completed_subtask_name": "Place cup on coaster",
+          "new_instruction": "Place fan on pad",
+          "switch_step": 64,
+          "cache_len_before_switch": 0,
+          "cache_cleared": false,
+          "cue_step": 50
+        }
+      ],
+      "gripper_status": {
+        "gripper_check_mode": "full",
+        "left_gripper_val": 0.8029233870967742,
+        "right_gripper_val": 0.9343039772727273,
+        "left_open": true,
+        "right_open": true,
+        "gripper_open": true
+      },
+      "cache_len_before_switch": 0,
+      "prev_action_before_switch": null,
+      "s1_step": 50,
+      "s2_step": 174,
+      "s1_predictor_switch_step": null,
+      "s2_predictor_switch_step": null,
+      "sequential": true
+    },
+    {
+      "seed": 4300017,
+      "task_name": "living_room_tidy_2tasks",
+      "success": false,
+      "episode_success": false,
+      "total_steps": 1500,
+      "subtask_completion_steps": [
+        null,
+        null
+      ],
+      "env_subtask_completion_steps": [
+        null,
+        null
+      ],
+      "predictor_switch_steps": [
+        null,
+        null
+      ],
+      "predictor_switch_step": null,
+      "switch_step": null,
+      "s1_completed": false,
+      "s2_completed": false,
+      "gripper_check_mode": "full",
+      "switch_events": [],
+      "gripper_status": {
+        "gripper_check_mode": "full",
+        "left_gripper_val": 0.98828125,
+        "right_gripper_val": 1.0,
+        "left_open": true,
+        "right_open": true,
+        "gripper_open": true
+      },
+      "cache_len_before_switch": null,
+      "prev_action_before_switch": null,
+      "s1_step": null,
+      "s2_step": null,
+      "s1_predictor_switch_step": null,
+      "s2_predictor_switch_step": null,
+      "sequential": true
+    },
+    {
+      "seed": 4300018,
+      "task_name": "living_room_tidy_2tasks",
+      "success": false,
+      "episode_success": false,
+      "total_steps": 1500,
+      "subtask_completion_steps": [
+        48,
+        null
+      ],
+      "env_subtask_completion_steps": [
+        48,
+        null
+      ],
+      "predictor_switch_steps": [
+        null,
+        null
+      ],
+      "predictor_switch_step": null,
+      "switch_step": 48,
+      "s1_completed": true,
+      "s2_completed": false,
+      "gripper_check_mode": "full",
+      "switch_events": [
+        {
+          "source": "gt",
+          "switch_source": "gt",
+          "from_subtask_idx": 0,
+          "to_subtask_idx": 1,
+          "completed_subtask_idx": 0,
+          "completed_subtask_name": "Place cup on coaster",
+          "new_instruction": "Place fan on pad",
+          "switch_step": 48,
+          "cache_len_before_switch": 0,
+          "cache_cleared": false
+        }
+      ],
+      "gripper_status": {
+        "gripper_check_mode": "full",
+        "left_gripper_val": 0.9921875,
+        "right_gripper_val": 0.9140625,
+        "left_open": true,
+        "right_open": true,
+        "gripper_open": true
+      },
+      "cache_len_before_switch": 0,
+      "prev_action_before_switch": null,
+      "s1_step": 48,
+      "s2_step": null,
+      "s1_predictor_switch_step": null,
+      "s2_predictor_switch_step": null,
+      "sequential": true
+    },
+    {
+      "seed": 4300019,
+      "task_name": "living_room_tidy_2tasks",
+      "success": true,
+      "episode_success": true,
+      "total_steps": 175,
+      "subtask_completion_steps": [
+        48,
+        120
+      ],
+      "env_subtask_completion_steps": [
+        48,
+        120
+      ],
+      "predictor_switch_steps": [
+        null,
+        null
+      ],
+      "predictor_switch_step": null,
+      "switch_step": 48,
+      "s1_completed": true,
+      "s2_completed": true,
+      "gripper_check_mode": "full",
+      "switch_events": [
+        {
+          "source": "gt",
+          "switch_source": "gt",
+          "from_subtask_idx": 0,
+          "to_subtask_idx": 1,
+          "completed_subtask_idx": 0,
+          "completed_subtask_name": "Place cup on coaster",
+          "new_instruction": "Place fan on pad",
+          "switch_step": 48,
+          "cache_len_before_switch": 0,
+          "cache_cleared": false
+        }
+      ],
+      "gripper_status": {
+        "gripper_check_mode": "full",
+        "left_gripper_val": 0.9855720766129032,
+        "right_gripper_val": 0.801726310483871,
+        "left_open": true,
+        "right_open": true,
+        "gripper_open": true
+      },
+      "cache_len_before_switch": 0,
+      "prev_action_before_switch": null,
+      "s1_step": 48,
+      "s2_step": 120,
+      "s1_predictor_switch_step": null,
+      "s2_predictor_switch_step": null,
+      "sequential": true
+    },
+    {
+      "seed": 4300020,
+      "task_name": "living_room_tidy_2tasks",
+      "success": false,
+      "episode_success": false,
+      "total_steps": 1500,
+      "subtask_completion_steps": [
+        63,
+        null
+      ],
+      "env_subtask_completion_steps": [
+        63,
+        null
+      ],
+      "predictor_switch_steps": [
+        null,
+        null
+      ],
+      "predictor_switch_step": null,
+      "switch_step": 64,
+      "s1_completed": true,
+      "s2_completed": false,
+      "gripper_check_mode": "full",
+      "switch_events": [
+        {
+          "source": "gt",
+          "switch_source": "gt",
+          "from_subtask_idx": 0,
+          "to_subtask_idx": 1,
+          "completed_subtask_idx": 0,
+          "completed_subtask_name": "Place cup on coaster",
+          "new_instruction": "Place fan on pad",
+          "switch_step": 64,
+          "cache_len_before_switch": 0,
+          "cache_cleared": false,
+          "cue_step": 63
+        }
+      ],
+      "gripper_status": {
+        "gripper_check_mode": "full",
+        "left_gripper_val": 0.984375,
+        "right_gripper_val": 0.94140625,
+        "left_open": true,
+        "right_open": true,
+        "gripper_open": true
+      },
+      "cache_len_before_switch": 0,
+      "prev_action_before_switch": null,
+      "s1_step": 63,
+      "s2_step": null,
+      "s1_predictor_switch_step": null,
+      "s2_predictor_switch_step": null,
+      "sequential": true
+    },
+    {
+      "seed": 4300021,
+      "task_name": "living_room_tidy_2tasks",
+      "success": true,
+      "episode_success": true,
+      "total_steps": 124,
+      "subtask_completion_steps": [
+        51,
+        111
+      ],
+      "env_subtask_completion_steps": [
+        51,
+        111
+      ],
+      "predictor_switch_steps": [
+        null,
+        null
+      ],
+      "predictor_switch_step": null,
+      "switch_step": 64,
+      "s1_completed": true,
+      "s2_completed": true,
+      "gripper_check_mode": "full",
+      "switch_events": [
+        {
+          "source": "gt",
+          "switch_source": "gt",
+          "from_subtask_idx": 0,
+          "to_subtask_idx": 1,
+          "completed_subtask_idx": 0,
+          "completed_subtask_name": "Place cup on coaster",
+          "new_instruction": "Place fan on pad",
+          "switch_step": 64,
+          "cache_len_before_switch": 0,
+          "cache_cleared": false,
+          "cue_step": 51
+        }
+      ],
+      "gripper_status": {
+        "gripper_check_mode": "full",
+        "left_gripper_val": 0.8018465909090909,
+        "right_gripper_val": 1.0,
+        "left_open": true,
+        "right_open": true,
+        "gripper_open": true
+      },
+      "cache_len_before_switch": 0,
+      "prev_action_before_switch": null,
+      "s1_step": 51,
+      "s2_step": 111,
+      "s1_predictor_switch_step": null,
+      "s2_predictor_switch_step": null,
+      "sequential": true
     }
   ],
   "timing": {
-    "avg_episode_time": 449.94238357543946,
-    "avg_setup_time": 7.608554406599565,
-    "avg_inference_time": 441.54774301052095,
-    "total_evaluation_time": 4499.4238357543945
+    "avg_episode_time": 468.1253801703453,
+    "avg_setup_time": 6.202447251840071,
+    "avg_inference_time": 461.16729937791825,
+    "total_evaluation_time": 9362.507603406906
   },
   "episode_steps": {
-    "avg": 1006.5,
-    "min": 173,
+    "avg": 1054.25,
+    "min": 124,
     "max": 1500
   },
   "key_findings": {

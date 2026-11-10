@@ -1,0 +1,58 @@
+{
+  "spec": "robocombine",
+  "track": "full_inst",
+  "track_tag": "full_inst",
+  "ordered_hse_profile": null,
+  "policy": "Motus",
+  "checkpoint": "/scratch/lijh/SkillHandoffBench/assets/models/Motus_robotwin2",
+  "checkpoint_label": "motus_robotwin2_official",
+  "ordered_hse": null,
+  "run_dir": "/scratch/lijh/SkillHandoffBench/results/paper_table1/gateE_deep/full_inst/robocombine/full_inst/Motus/20261110_005357_robocombine_full_inst_motus",
+  "aggregate": {
+    "task_count": 2,
+    "completed_task_count": 2,
+    "mean_episode_success_rate": 0.1,
+    "mean_sr_ordered": 0.05,
+    "mean_all_subtasks_rate": 0.1,
+    "mean_predictor_switch_episode_rate": null,
+    "mean_premature_switch_rate": null
+  },
+  "tasks": [
+    {
+      "task_name": "living_room_tidy_2tasks",
+      "stage_count": 2,
+      "status": "ok",
+      "result_dir": "/scratch/lijh/SkillHandoffBench/results/paper_table1/gateE_deep/full_inst/robocombine/full_inst/Motus/20261110_005357_robocombine_full_inst_motus/tasks/living_room_tidy_2tasks",
+      "stats_path": "/scratch/lijh/SkillHandoffBench/results/paper_table1/gateE_deep/full_inst/robocombine/full_inst/Motus/20261110_005357_robocombine_full_inst_motus/tasks/living_room_tidy_2tasks/evaluation_statistics.json",
+      "episode_success_rate": 0.1,
+      "sr_ordered": 0.1,
+      "all_subtasks_rate": 0.1,
+      "success_count": 2,
+      "total_episodes": 20,
+      "stage_conversions": {
+        "s1_to_s2": 0.11764705882352941
+      },
+      "predictor_switch_episode_rate": null,
+      "premature_switch_rate": null,
+      "real_switch_analysis": null
+    },
+    {
+      "task_name": "office_desk_2tasks",
+      "stage_count": 2,
+      "status": "ok",
+      "result_dir": "/scratch/lijh/SkillHandoffBench/results/paper_table1/gateE_deep/full_inst/robocombine/full_inst/Motus/20261110_005357_robocombine_full_inst_motus/tasks/office_desk_2tasks",
+      "stats_path": "/scratch/lijh/SkillHandoffBench/results/paper_table1/gateE_deep/full_inst/robocombine/full_inst/Motus/20261110_005357_robocombine_full_inst_motus/tasks/office_desk_2tasks/evaluation_statistics.json",
+      "episode_success_rate": 0.1,
+      "sr_ordered": 0.0,
+      "all_subtasks_rate": 0.1,
+      "success_count": 2,
+      "total_episodes": 20,
+      "stage_conversions": {
+        "s1_to_s2": 0.0
+      },
+      "predictor_switch_episode_rate": null,
+      "premature_switch_rate": null,
+      "real_switch_analysis": null
+    }
+  ]
+}

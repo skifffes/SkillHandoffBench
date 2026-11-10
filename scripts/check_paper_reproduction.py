@@ -85,7 +85,14 @@ def main() -> int:
 
     rows = []
     pattern = os.path.join(args.root, "**", f"*{args.track}*", "**", "tasks", "*", "evaluation_statistics.json")
+    seen, files = set(), []
     for stats in sorted(glob.glob(pattern, recursive=True)):
+        real = os.path.realpath(stats)
+        if real in seen:
+            continue
+        seen.add(real)
+        files.append(stats)
+    for stats in files:
         task_dir = os.path.dirname(stats)
         task = os.path.basename(task_dir)
         problems = []

@@ -1,0 +1,10 @@
+{
+  "task_name": "living_room_tidy_2tasks",
+  "successful_seeds": [
+    4300002,
+    4300016
+  ],
+  "total_tested": 16,
+  "success_rate": 0.125,
+  "last_updated": "2026-11-10 03:52:39"
+}

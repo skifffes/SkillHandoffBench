@@ -1,0 +1,891 @@
+{
+  "task_name": "living_room_tidy_2tasks",
+  "episodes": [
+    {
+      "seed": 4300000,
+      "task_name": "living_room_tidy_2tasks",
+      "success": false,
+      "episode_success": false,
+      "total_steps": 1500,
+      "subtask_completion_steps": [
+        48,
+        null
+      ],
+      "env_subtask_completion_steps": [
+        48,
+        null
+      ],
+      "predictor_switch_steps": [
+        null
+      ],
+      "predictor_switch_step": null,
+      "switch_step": null,
+      "s1_completed": true,
+      "s2_completed": false,
+      "gripper_check_mode": "full",
+      "switch_events": [],
+      "gripper_status": {
+        "gripper_check_mode": "full",
+        "left_gripper_val": 0.9921875,
+        "right_gripper_val": 1.0,
+        "left_open": true,
+        "right_open": true,
+        "gripper_open": true
+      },
+      "cache_len_before_switch": null,
+      "prev_action_before_switch": null,
+      "s1_step": 48,
+      "s2_step": null,
+      "s1_predictor_switch_step": null,
+      "pattern": "1",
+      "sequential_pattern": "1",
+      "subtask_completed": [
+        true,
+        false
+      ],
+      "gripper_open": true
+    },
+    {
+      "seed": 4300001,
+      "task_name": "living_room_tidy_2tasks",
+      "success": false,
+      "episode_success": false,
+      "total_steps": 1500,
+      "subtask_completion_steps": [
+        111,
+        null
+      ],
+      "env_subtask_completion_steps": [
+        111,
+        null
+      ],
+      "predictor_switch_steps": [
+        null
+      ],
+      "predictor_switch_step": null,
+      "switch_step": null,
+      "s1_completed": true,
+      "s2_completed": false,
+      "gripper_check_mode": "full",
+      "switch_events": [],
+      "gripper_status": {
+        "gripper_check_mode": "full",
+        "left_gripper_val": 0.98828125,
+        "right_gripper_val": 0.0,
+        "left_open": true,
+        "right_open": false,
+        "gripper_open": false
+      },
+      "cache_len_before_switch": null,
+      "prev_action_before_switch": null,
+      "s1_step": 111,
+      "s2_step": null,
+      "s1_predictor_switch_step": null,
+      "pattern": "1",
+      "sequential_pattern": "1",
+      "subtask_completed": [
+        true,
+        false
+      ],
+      "gripper_open": false
+    },
+    {
+      "seed": 4300002,
+      "task_name": "living_room_tidy_2tasks",
+      "success": true,
+      "episode_success": true,
+      "total_steps": 1115,
+      "subtask_completion_steps": [
+        49,
+        158
+      ],
+      "env_subtask_completion_steps": [
+        49,
+        158
+      ],
+      "predictor_switch_steps": [
+        null
+      ],
+      "predictor_switch_step": null,
+      "switch_step": null,
+      "s1_completed": true,
+      "s2_completed": true,
+      "gripper_check_mode": "full",
+      "switch_events": [],
+      "gripper_status": {
+        "gripper_check_mode": "full",
+        "left_gripper_val": 0.9921875,
+        "right_gripper_val": 0.8010475852272727,
+        "left_open": true,
+        "right_open": true,
+        "gripper_open": true
+      },
+      "cache_len_before_switch": null,
+      "prev_action_before_switch": null,
+      "s1_step": 49,
+      "s2_step": 158,
+      "s1_predictor_switch_step": null,
+      "pattern": "12",
+      "sequential_pattern": "12",
+      "subtask_completed": [
+        true,
+        true
+      ],
+      "gripper_open": true
+    },
+    {
+      "seed": 4300003,
+      "task_name": "living_room_tidy_2tasks",
+      "success": false,
+      "episode_success": false,
+      "total_steps": 1500,
+      "subtask_completion_steps": [
+        47,
+        null
+      ],
+      "env_subtask_completion_steps": [
+        47,
+        null
+      ],
+      "predictor_switch_steps": [
+        null
+      ],
+      "predictor_switch_step": null,
+      "switch_step": null,
+      "s1_completed": true,
+      "s2_completed": false,
+      "gripper_check_mode": "full",
+      "switch_events": [],
+      "gripper_status": {
+        "gripper_check_mode": "full",
+        "left_gripper_val": 0.99609375,
+        "right_gripper_val": 0.01513671875,
+        "left_open": true,
+        "right_open": false,
+        "gripper_open": false
+      },
+      "cache_len_before_switch": null,
+      "prev_action_before_switch": null,
+      "s1_step": 47,
+      "s2_step": null,
+      "s1_predictor_switch_step": null,
+      "pattern": "1",
+      "sequential_pattern": "1",
+      "subtask_completed": [
+        true,
+        false
+      ],
+      "gripper_open": false
+    },
+    {
+      "seed": 4300004,
+      "task_name": "living_room_tidy_2tasks",
+      "success": false,
+      "episode_success": false,
+      "total_steps": 1500,
+      "subtask_completion_steps": [
+        50,
+        null
+      ],
+      "env_subtask_completion_steps": [
+        50,
+        null
+      ],
+      "predictor_switch_steps": [
+        null
+      ],
+      "predictor_switch_step": null,
+      "switch_step": null,
+      "s1_completed": true,
+      "s2_completed": false,
+      "gripper_check_mode": "full",
+      "switch_events": [],
+      "gripper_status": {
+        "gripper_check_mode": "full",
+        "left_gripper_val": 1.0,
+        "right_gripper_val": 0.64453125,
+        "left_open": true,
+        "right_open": false,
+        "gripper_open": false
+      },
+      "cache_len_before_switch": null,
+      "prev_action_before_switch": null,
+      "s1_step": 50,
+      "s2_step": null,
+      "s1_predictor_switch_step": null,
+      "pattern": "1",
+      "sequential_pattern": "1",
+      "subtask_completed": [
+        true,
+        false
+      ],
+      "gripper_open": false
+    },
+    {
+      "seed": 4300005,
+      "task_name": "living_room_tidy_2tasks",
+      "success": false,
+      "episode_success": false,
+      "total_steps": 1500,
+      "subtask_completion_steps": [
+        47,
+        null
+      ],
+      "env_subtask_completion_steps": [
+        47,
+        null
+      ],
+      "predictor_switch_steps": [
+        null
+      ],
+      "predictor_switch_step": null,
+      "switch_step": null,
+      "s1_completed": true,
+      "s2_completed": false,
+      "gripper_check_mode": "full",
+      "switch_events": [],
+      "gripper_status": {
+        "gripper_check_mode": "full",
+        "left_gripper_val": 0.98828125,
+        "right_gripper_val": 1.0,
+        "left_open": true,
+        "right_open": true,
+        "gripper_open": true
+      },
+      "cache_len_before_switch": null,
+      "prev_action_before_switch": null,
+      "s1_step": 47,
+      "s2_step": null,
+      "s1_predictor_switch_step": null,
+      "pattern": "1",
+      "sequential_pattern": "1",
+      "subtask_completed": [
+        true,
+        false
+      ],
+      "gripper_open": true
+    },
+    {
+      "seed": 4300006,
+      "task_name": "living_room_tidy_2tasks",
+      "success": false,
+      "episode_success": false,
+      "total_steps": 1500,
+      "subtask_completion_steps": [
+        95,
+        null
+      ],
+      "env_subtask_completion_steps": [
+        95,
+        null
+      ],
+      "predictor_switch_steps": [
+        null
+      ],
+      "predictor_switch_step": null,
+      "switch_step": null,
+      "s1_completed": true,
+      "s2_completed": false,
+      "gripper_check_mode": "full",
+      "switch_events": [],
+      "gripper_status": {
+        "gripper_check_mode": "full",
+        "left_gripper_val": 1.0,
+        "right_gripper_val": 0.99609375,
+        "left_open": true,
+        "right_open": true,
+        "gripper_open": true
+      },
+      "cache_len_before_switch": null,
+      "prev_action_before_switch": null,
+      "s1_step": 95,
+      "s2_step": null,
+      "s1_predictor_switch_step": null,
+      "pattern": "1",
+      "sequential_pattern": "1",
+      "subtask_completed": [
+        true,
+        false
+      ],
+      "gripper_open": true
+    },
+    {
+      "seed": 4300007,
+      "task_name": "living_room_tidy_2tasks",
+      "success": false,
+      "episode_success": false,
+      "total_steps": 1500,
+      "subtask_completion_steps": [
+        null,
+        null
+      ],
+      "env_subtask_completion_steps": [
+        null,
+        null
+      ],
+      "predictor_switch_steps": [
+        null
+      ],
+      "predictor_switch_step": null,
+      "switch_step": null,
+      "s1_completed": false,
+      "s2_completed": false,
+      "gripper_check_mode": "full",
+      "switch_events": [],
+      "gripper_status": {
+        "gripper_check_mode": "full",
+        "left_gripper_val": 0.9921875,
+        "right_gripper_val": 0.002197265625,
+        "left_open": true,
+        "right_open": false,
+        "gripper_open": false
+      },
+      "cache_len_before_switch": null,
+      "prev_action_before_switch": null,
+      "s1_step": null,
+      "s2_step": null,
+      "s1_predictor_switch_step": null,
+      "pattern": "",
+      "sequential_pattern": "",
+      "subtask_completed": [
+        false,
+        false
+      ],
+      "gripper_open": false
+    },
+    {
+      "seed": 4300008,
+      "task_name": "living_room_tidy_2tasks",
+      "success": false,
+      "episode_success": false,
+      "total_steps": 1500,
+      "subtask_completion_steps": [
+        null,
+        null
+      ],
+      "env_subtask_completion_steps": [
+        null,
+        null
+      ],
+      "predictor_switch_steps": [
+        null
+      ],
+      "predictor_switch_step": null,
+      "switch_step": null,
+      "s1_completed": false,
+      "s2_completed": false,
+      "gripper_check_mode": "full",
+      "switch_events": [],
+      "gripper_status": {
+        "gripper_check_mode": "full",
+        "left_gripper_val": 0.9921875,
+        "right_gripper_val": 0.00390625,
+        "left_open": true,
+        "right_open": false,
+        "gripper_open": false
+      },
+      "cache_len_before_switch": null,
+      "prev_action_before_switch": null,
+      "s1_step": null,
+      "s2_step": null,
+      "s1_predictor_switch_step": null,
+      "pattern": "",
+      "sequential_pattern": "",
+      "subtask_completed": [
+        false,
+        false
+      ],
+      "gripper_open": false
+    },
+    {
+      "seed": 4300009,
+      "task_name": "living_room_tidy_2tasks",
+      "success": false,
+      "episode_success": false,
+      "total_steps": 1500,
+      "subtask_completion_steps": [
+        48,
+        null
+      ],
+      "env_subtask_completion_steps": [
+        48,
+        null
+      ],
+      "predictor_switch_steps": [
+        null
+      ],
+      "predictor_switch_step": null,
+      "switch_step": null,
+      "s1_completed": true,
+      "s2_completed": false,
+      "gripper_check_mode": "full",
+      "switch_events": [],
+      "gripper_status": {
+        "gripper_check_mode": "full",
+        "left_gripper_val": 0.9921875,
+        "right_gripper_val": 0.0283203125,
+        "left_open": true,
+        "right_open": false,
+        "gripper_open": false
+      },
+      "cache_len_before_switch": null,
+      "prev_action_before_switch": null,
+      "s1_step": 48,
+      "s2_step": null,
+      "s1_predictor_switch_step": null,
+      "pattern": "1",
+      "sequential_pattern": "1",
+      "subtask_completed": [
+        true,
+        false
+      ],
+      "gripper_open": false
+    },
+    {
+      "seed": 4300010,
+      "task_name": "living_room_tidy_2tasks",
+      "success": false,
+      "episode_success": false,
+      "total_steps": 1500,
+      "subtask_completion_steps": [
+        80,
+        null
+      ],
+      "env_subtask_completion_steps": [
+        80,
+        null
+      ],
+      "predictor_switch_steps": [
+        null
+      ],
+      "predictor_switch_step": null,
+      "switch_step": null,
+      "s1_completed": true,
+      "s2_completed": false,
+      "gripper_check_mode": "full",
+      "switch_events": [],
+      "gripper_status": {
+        "gripper_check_mode": "full",
+        "left_gripper_val": 0.014892578125,
+        "right_gripper_val": 0.1318359375,
+        "left_open": false,
+        "right_open": false,
+        "gripper_open": false
+      },
+      "cache_len_before_switch": null,
+      "prev_action_before_switch": null,
+      "s1_step": 80,
+      "s2_step": null,
+      "s1_predictor_switch_step": null,
+      "pattern": "1",
+      "sequential_pattern": "1",
+      "subtask_completed": [
+        true,
+        false
+      ],
+      "gripper_open": false
+    },
+    {
+      "seed": 4300011,
+      "task_name": "living_room_tidy_2tasks",
+      "success": false,
+      "episode_success": false,
+      "total_steps": 1500,
+      "subtask_completion_steps": [
+        45,
+        null
+      ],
+      "env_subtask_completion_steps": [
+        45,
+        null
+      ],
+      "predictor_switch_steps": [
+        null
+      ],
+      "predictor_switch_step": null,
+      "switch_step": null,
+      "s1_completed": true,
+      "s2_completed": false,
+      "gripper_check_mode": "full",
+      "switch_events": [],
+      "gripper_status": {
+        "gripper_check_mode": "full",
+        "left_gripper_val": 0.9921875,
+        "right_gripper_val": 0.00927734375,
+        "left_open": true,
+        "right_open": false,
+        "gripper_open": false
+      },
+      "cache_len_before_switch": null,
+      "prev_action_before_switch": null,
+      "s1_step": 45,
+      "s2_step": null,
+      "s1_predictor_switch_step": null,
+      "pattern": "1",
+      "sequential_pattern": "1",
+      "subtask_completed": [
+        true,
+        false
+      ],
+      "gripper_open": false
+    },
+    {
+      "seed": 4300012,
+      "task_name": "living_room_tidy_2tasks",
+      "success": false,
+      "episode_success": false,
+      "total_steps": 1500,
+      "subtask_completion_steps": [
+        77,
+        null
+      ],
+      "env_subtask_completion_steps": [
+        77,
+        null
+      ],
+      "predictor_switch_steps": [
+        null
+      ],
+      "predictor_switch_step": null,
+      "switch_step": null,
+      "s1_completed": true,
+      "s2_completed": false,
+      "gripper_check_mode": "full",
+      "switch_events": [],
+      "gripper_status": {
+        "gripper_check_mode": "full",
+        "left_gripper_val": 1.0,
+        "right_gripper_val": 0.0201416015625,
+        "left_open": true,
+        "right_open": false,
+        "gripper_open": false
+      },
+      "cache_len_before_switch": null,
+      "prev_action_before_switch": null,
+      "s1_step": 77,
+      "s2_step": null,
+      "s1_predictor_switch_step": null,
+      "pattern": "1",
+      "sequential_pattern": "1",
+      "subtask_completed": [
+        true,
+        false
+      ],
+      "gripper_open": false
+    },
+    {
+      "seed": 4300013,
+      "task_name": "living_room_tidy_2tasks",
+      "success": false,
+      "episode_success": false,
+      "total_steps": 1500,
+      "subtask_completion_steps": [
+        79,
+        null
+      ],
+      "env_subtask_completion_steps": [
+        79,
+        null
+      ],
+      "predictor_switch_steps": [
+        null
+      ],
+      "predictor_switch_step": null,
+      "switch_step": null,
+      "s1_completed": true,
+      "s2_completed": false,
+      "gripper_check_mode": "full",
+      "switch_events": [],
+      "gripper_status": {
+        "gripper_check_mode": "full",
+        "left_gripper_val": 0.9921875,
+        "right_gripper_val": 0.02001953125,
+        "left_open": true,
+        "right_open": false,
+        "gripper_open": false
+      },
+      "cache_len_before_switch": null,
+      "prev_action_before_switch": null,
+      "s1_step": 79,
+      "s2_step": null,
+      "s1_predictor_switch_step": null,
+      "pattern": "1",
+      "sequential_pattern": "1",
+      "subtask_completed": [
+        true,
+        false
+      ],
+      "gripper_open": false
+    },
+    {
+      "seed": 4300014,
+      "task_name": "living_room_tidy_2tasks",
+      "success": false,
+      "episode_success": false,
+      "total_steps": 1500,
+      "subtask_completion_steps": [
+        79,
+        null
+      ],
+      "env_subtask_completion_steps": [
+        79,
+        null
+      ],
+      "predictor_switch_steps": [
+        null
+      ],
+      "predictor_switch_step": null,
+      "switch_step": null,
+      "s1_completed": true,
+      "s2_completed": false,
+      "gripper_check_mode": "full",
+      "switch_events": [],
+      "gripper_status": {
+        "gripper_check_mode": "full",
+        "left_gripper_val": 0.984375,
+        "right_gripper_val": 0.00775146484375,
+        "left_open": true,
+        "right_open": false,
+        "gripper_open": false
+      },
+      "cache_len_before_switch": null,
+      "prev_action_before_switch": null,
+      "s1_step": 79,
+      "s2_step": null,
+      "s1_predictor_switch_step": null,
+      "pattern": "1",
+      "sequential_pattern": "1",
+      "subtask_completed": [
+        true,
+        false
+      ],
+      "gripper_open": false
+    },
+    {
+      "seed": 4300015,
+      "task_name": "living_room_tidy_2tasks",
+      "success": false,
+      "episode_success": false,
+      "total_steps": 1500,
+      "subtask_completion_steps": [
+        48,
+        null
+      ],
+      "env_subtask_completion_steps": [
+        48,
+        null
+      ],
+      "predictor_switch_steps": [
+        null
+      ],
+      "predictor_switch_step": null,
+      "switch_step": null,
+      "s1_completed": true,
+      "s2_completed": false,
+      "gripper_check_mode": "full",
+      "switch_events": [],
+      "gripper_status": {
+        "gripper_check_mode": "full",
+        "left_gripper_val": 0.98828125,
+        "right_gripper_val": 0.83984375,
+        "left_open": true,
+        "right_open": true,
+        "gripper_open": true
+      },
+      "cache_len_before_switch": null,
+      "prev_action_before_switch": null,
+      "s1_step": 48,
+      "s2_step": null,
+      "s1_predictor_switch_step": null,
+      "pattern": "1",
+      "sequential_pattern": "1",
+      "subtask_completed": [
+        true,
+        false
+      ],
+      "gripper_open": true
+    },
+    {
+      "seed": 4300016,
+      "task_name": "living_room_tidy_2tasks",
+      "success": true,
+      "episode_success": true,
+      "total_steps": 237,
+      "subtask_completion_steps": [
+        48,
+        139
+      ],
+      "env_subtask_completion_steps": [
+        48,
+        139
+      ],
+      "predictor_switch_steps": [
+        null
+      ],
+      "predictor_switch_step": null,
+      "switch_step": null,
+      "s1_completed": true,
+      "s2_completed": true,
+      "gripper_check_mode": "full",
+      "switch_events": [],
+      "gripper_status": {
+        "gripper_check_mode": "full",
+        "left_gripper_val": 0.8270089285714286,
+        "right_gripper_val": 1.0,
+        "left_open": true,
+        "right_open": true,
+        "gripper_open": true
+      },
+      "cache_len_before_switch": null,
+      "prev_action_before_switch": null,
+      "s1_step": 48,
+      "s2_step": 139,
+      "s1_predictor_switch_step": null,
+      "pattern": "12",
+      "sequential_pattern": "12",
+      "subtask_completed": [
+        true,
+        true
+      ],
+      "gripper_open": true
+    },
+    {
+      "seed": 4300017,
+      "task_name": "living_room_tidy_2tasks",
+      "success": false,
+      "episode_success": false,
+      "total_steps": 1500,
+      "subtask_completion_steps": [
+        null,
+        null
+      ],
+      "env_subtask_completion_steps": [
+        null,
+        null
+      ],
+      "predictor_switch_steps": [
+        null
+      ],
+      "predictor_switch_step": null,
+      "switch_step": null,
+      "s1_completed": false,
+      "s2_completed": false,
+      "gripper_check_mode": "full",
+      "switch_events": [],
+      "gripper_status": {
+        "gripper_check_mode": "full",
+        "left_gripper_val": 0.984375,
+        "right_gripper_val": 0.16015625,
+        "left_open": true,
+        "right_open": false,
+        "gripper_open": false
+      },
+      "cache_len_before_switch": null,
+      "prev_action_before_switch": null,
+      "s1_step": null,
+      "s2_step": null,
+      "s1_predictor_switch_step": null,
+      "pattern": "",
+      "sequential_pattern": "",
+      "subtask_completed": [
+        false,
+        false
+      ],
+      "gripper_open": false
+    },
+    {
+      "seed": 4300018,
+      "task_name": "living_room_tidy_2tasks",
+      "success": false,
+      "episode_success": false,
+      "total_steps": 1500,
+      "subtask_completion_steps": [
+        67,
+        null
+      ],
+      "env_subtask_completion_steps": [
+        67,
+        null
+      ],
+      "predictor_switch_steps": [
+        null
+      ],
+      "predictor_switch_step": null,
+      "switch_step": null,
+      "s1_completed": true,
+      "s2_completed": false,
+      "gripper_check_mode": "full",
+      "switch_events": [],
+      "gripper_status": {
+        "gripper_check_mode": "full",
+        "left_gripper_val": 0.9921875,
+        "right_gripper_val": 0.00439453125,
+        "left_open": true,
+        "right_open": false,
+        "gripper_open": false
+      },
+      "cache_len_before_switch": null,
+      "prev_action_before_switch": null,
+      "s1_step": 67,
+      "s2_step": null,
+      "s1_predictor_switch_step": null,
+      "pattern": "1",
+      "sequential_pattern": "1",
+      "subtask_completed": [
+        true,
+        false
+      ],
+      "gripper_open": false
+    },
+    {
+      "seed": 4300019,
+      "task_name": "living_room_tidy_2tasks",
+      "success": false,
+      "episode_success": false,
+      "total_steps": 1500,
+      "subtask_completion_steps": [
+        63,
+        null
+      ],
+      "env_subtask_completion_steps": [
+        63,
+        null
+      ],
+      "predictor_switch_steps": [
+        null
+      ],
+      "predictor_switch_step": null,
+      "switch_step": null,
+      "s1_completed": true,
+      "s2_completed": false,
+      "gripper_check_mode": "full",
+      "switch_events": [],
+      "gripper_status": {
+        "gripper_check_mode": "full",
+        "left_gripper_val": 0.9921875,
+        "right_gripper_val": 1.0,
+        "left_open": true,
+        "right_open": true,
+        "gripper_open": true
+      },
+      "cache_len_before_switch": null,
+      "prev_action_before_switch": null,
+      "s1_step": 63,
+      "s2_step": null,
+      "s1_predictor_switch_step": null,
+      "pattern": "1",
+      "sequential_pattern": "1",
+      "subtask_completed": [
+        true,
+        false
+      ],
+      "gripper_open": true
+    }
+  ],
+  "patterns": {
+    "1": 15,
+    "12": 2,
+    "": 3
+  },
+  "last_updated": "2026-11-10 04:24:18"
+}

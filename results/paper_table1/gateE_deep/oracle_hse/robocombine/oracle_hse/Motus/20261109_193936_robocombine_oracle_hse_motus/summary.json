@@ -1,0 +1,58 @@
+{
+  "spec": "robocombine",
+  "track": "oracle_hse",
+  "track_tag": "oracle_hse",
+  "ordered_hse_profile": null,
+  "policy": "Motus",
+  "checkpoint": "/scratch/lijh/SkillHandoffBench/assets/models/Motus_robotwin2",
+  "checkpoint_label": "motus_robotwin2_official",
+  "ordered_hse": null,
+  "run_dir": "/scratch/lijh/SkillHandoffBench/results/paper_table1/gateE_deep/oracle_hse/robocombine/oracle_hse/Motus/20261109_193936_robocombine_oracle_hse_motus",
+  "aggregate": {
+    "task_count": 2,
+    "completed_task_count": 2,
+    "mean_episode_success_rate": 0.4,
+    "mean_sr_ordered": 0.4,
+    "mean_all_subtasks_rate": 0.4,
+    "mean_predictor_switch_episode_rate": null,
+    "mean_premature_switch_rate": null
+  },
+  "tasks": [
+    {
+      "task_name": "living_room_tidy_2tasks",
+      "stage_count": 2,
+      "status": "ok",
+      "result_dir": "/scratch/lijh/SkillHandoffBench/results/paper_table1/gateE_deep/oracle_hse/robocombine/oracle_hse/Motus/20261109_193936_robocombine_oracle_hse_motus/tasks/living_room_tidy_2tasks",
+      "stats_path": "/scratch/lijh/SkillHandoffBench/results/paper_table1/gateE_deep/oracle_hse/robocombine/oracle_hse/Motus/20261109_193936_robocombine_oracle_hse_motus/tasks/living_room_tidy_2tasks/evaluation_statistics.json",
+      "episode_success_rate": 0.35,
+      "sr_ordered": 0.35,
+      "all_subtasks_rate": 0.35,
+      "success_count": 7,
+      "total_episodes": 20,
+      "stage_conversions": {
+        "s1_to_s2": 0.3684210526315789
+      },
+      "predictor_switch_episode_rate": null,
+      "premature_switch_rate": null,
+      "real_switch_analysis": null
+    },
+    {
+      "task_name": "office_desk_2tasks",
+      "stage_count": 2,
+      "status": "ok",
+      "result_dir": "/scratch/lijh/SkillHandoffBench/results/paper_table1/gateE_deep/oracle_hse/robocombine/oracle_hse/Motus/20261109_193936_robocombine_oracle_hse_motus/tasks/office_desk_2tasks",
+      "stats_path": "/scratch/lijh/SkillHandoffBench/results/paper_table1/gateE_deep/oracle_hse/robocombine/oracle_hse/Motus/20261109_193936_robocombine_oracle_hse_motus/tasks/office_desk_2tasks/evaluation_statistics.json",
+      "episode_success_rate": 0.45,
+      "sr_ordered": 0.45,
+      "all_subtasks_rate": 0.45,
+      "success_count": 9,
+      "total_episodes": 20,
+      "stage_conversions": {
+        "s1_to_s2": 0.47368421052631576
+      },
+      "predictor_switch_episode_rate": null,
+      "premature_switch_rate": null,
+      "real_switch_analysis": null
+    }
+  ]
+}
