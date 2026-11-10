@@ -1,0 +1,9 @@
+{
+  "task_name": "bakery_close_2tasks",
+  "expert_demo_seeds": [
+    4600001,
+    4600002
+  ],
+  "total_seeds": 2,
+  "last_updated": "2026-11-10 10:30:47"
+}

@@ -1,0 +1,13 @@
+{
+  "task_name": "breakfast_prep_2tasks",
+  "successful_seeds": [
+    4600000,
+    4600002,
+    4600003,
+    4600004,
+    4600005
+  ],
+  "total_tested": 4,
+  "success_rate": 1.25,
+  "last_updated": "2026-11-10 09:50:46"
+}

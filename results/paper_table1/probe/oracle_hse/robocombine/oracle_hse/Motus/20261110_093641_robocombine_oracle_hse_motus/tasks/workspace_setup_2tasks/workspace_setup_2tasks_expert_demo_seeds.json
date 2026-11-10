@@ -1,0 +1,12 @@
+{
+  "task_name": "workspace_setup_2tasks",
+  "expert_demo_seeds": [
+    4600001,
+    4600002,
+    4600005,
+    4600006,
+    4600007
+  ],
+  "total_seeds": 5,
+  "last_updated": "2026-11-10 10:07:56"
+}

@@ -1,0 +1,309 @@
+{
+  "task_name": "workspace_setup_2tasks",
+  "episodes": [
+    {
+      "seed": 4600001,
+      "task_name": "workspace_setup_2tasks",
+      "success": true,
+      "episode_success": true,
+      "total_steps": 639,
+      "subtask_completion_steps": [
+        181,
+        624
+      ],
+      "env_subtask_completion_steps": [
+        181,
+        624
+      ],
+      "predictor_switch_steps": [
+        null,
+        null
+      ],
+      "predictor_switch_step": null,
+      "switch_step": 192,
+      "s1_completed": true,
+      "s2_completed": true,
+      "gripper_check_mode": "full",
+      "switch_events": [
+        {
+          "source": "gt",
+          "switch_source": "gt",
+          "from_subtask_idx": 0,
+          "to_subtask_idx": 1,
+          "completed_subtask_idx": 0,
+          "completed_subtask_name": "Place mouse on pad",
+          "new_instruction": "Place phone on stand",
+          "switch_step": 192,
+          "cache_len_before_switch": 0,
+          "cache_cleared": false,
+          "cue_step": 181
+        }
+      ],
+      "gripper_status": {
+        "gripper_check_mode": "full",
+        "left_gripper_val": 0.8020413306451613,
+        "right_gripper_val": 0.9608191287878788,
+        "left_open": true,
+        "right_open": true,
+        "gripper_open": true
+      },
+      "cache_len_before_switch": 0,
+      "prev_action_before_switch": null,
+      "s1_step": 181,
+      "s2_step": 624,
+      "s1_predictor_switch_step": null,
+      "s2_predictor_switch_step": null,
+      "pattern": "12",
+      "sequential_pattern": "12",
+      "subtask_completed": [
+        true,
+        true
+      ],
+      "gripper_open": true
+    },
+    {
+      "seed": 4600002,
+      "task_name": "workspace_setup_2tasks",
+      "success": true,
+      "episode_success": true,
+      "total_steps": 429,
+      "subtask_completion_steps": [
+        37,
+        422
+      ],
+      "env_subtask_completion_steps": [
+        37,
+        422
+      ],
+      "predictor_switch_steps": [
+        null,
+        null
+      ],
+      "predictor_switch_step": null,
+      "switch_step": 48,
+      "s1_completed": true,
+      "s2_completed": true,
+      "gripper_check_mode": "full",
+      "switch_events": [
+        {
+          "source": "gt",
+          "switch_source": "gt",
+          "from_subtask_idx": 0,
+          "to_subtask_idx": 1,
+          "completed_subtask_idx": 0,
+          "completed_subtask_name": "Place mouse on pad",
+          "new_instruction": "Place phone on stand",
+          "switch_step": 48,
+          "cache_len_before_switch": 0,
+          "cache_cleared": false,
+          "cue_step": 37
+        }
+      ],
+      "gripper_status": {
+        "gripper_check_mode": "full",
+        "left_gripper_val": 0.8021673387096775,
+        "right_gripper_val": 0.9986979166666666,
+        "left_open": true,
+        "right_open": true,
+        "gripper_open": true
+      },
+      "cache_len_before_switch": 0,
+      "prev_action_before_switch": null,
+      "s1_step": 37,
+      "s2_step": 422,
+      "s1_predictor_switch_step": null,
+      "s2_predictor_switch_step": null,
+      "pattern": "12",
+      "sequential_pattern": "12",
+      "subtask_completed": [
+        true,
+        true
+      ],
+      "gripper_open": true
+    },
+    {
+      "seed": 4600005,
+      "task_name": "workspace_setup_2tasks",
+      "success": true,
+      "episode_success": true,
+      "total_steps": 397,
+      "subtask_completion_steps": [
+        68,
+        143
+      ],
+      "env_subtask_completion_steps": [
+        68,
+        143
+      ],
+      "predictor_switch_steps": [
+        null,
+        null
+      ],
+      "predictor_switch_step": null,
+      "switch_step": 80,
+      "s1_completed": true,
+      "s2_completed": true,
+      "gripper_check_mode": "full",
+      "switch_events": [
+        {
+          "source": "gt",
+          "switch_source": "gt",
+          "from_subtask_idx": 0,
+          "to_subtask_idx": 1,
+          "completed_subtask_idx": 0,
+          "completed_subtask_name": "Place mouse on pad",
+          "new_instruction": "Place phone on stand",
+          "switch_step": 80,
+          "cache_len_before_switch": 0,
+          "cache_cleared": false,
+          "cue_step": 68
+        }
+      ],
+      "gripper_status": {
+        "gripper_check_mode": "full",
+        "left_gripper_val": 1.0,
+        "right_gripper_val": 0.803248355263158,
+        "left_open": true,
+        "right_open": true,
+        "gripper_open": true
+      },
+      "cache_len_before_switch": 0,
+      "prev_action_before_switch": null,
+      "s1_step": 68,
+      "s2_step": 143,
+      "s1_predictor_switch_step": null,
+      "s2_predictor_switch_step": null,
+      "pattern": "12",
+      "sequential_pattern": "12",
+      "subtask_completed": [
+        true,
+        true
+      ],
+      "gripper_open": true
+    },
+    {
+      "seed": 4600006,
+      "task_name": "workspace_setup_2tasks",
+      "success": true,
+      "episode_success": true,
+      "total_steps": 190,
+      "subtask_completion_steps": [
+        71,
+        93
+      ],
+      "env_subtask_completion_steps": [
+        71,
+        93
+      ],
+      "predictor_switch_steps": [
+        null,
+        null
+      ],
+      "predictor_switch_step": null,
+      "switch_step": 80,
+      "s1_completed": true,
+      "s2_completed": true,
+      "gripper_check_mode": "full",
+      "switch_events": [
+        {
+          "source": "gt",
+          "switch_source": "gt",
+          "from_subtask_idx": 0,
+          "to_subtask_idx": 1,
+          "completed_subtask_idx": 0,
+          "completed_subtask_name": "Place mouse on pad",
+          "new_instruction": "Place phone on stand",
+          "switch_step": 80,
+          "cache_len_before_switch": 0,
+          "cache_cleared": false,
+          "cue_step": 71
+        }
+      ],
+      "gripper_status": {
+        "gripper_check_mode": "full",
+        "left_gripper_val": 0.8820153061224489,
+        "right_gripper_val": 0.8043323863636364,
+        "left_open": true,
+        "right_open": true,
+        "gripper_open": true
+      },
+      "cache_len_before_switch": 0,
+      "prev_action_before_switch": null,
+      "s1_step": 71,
+      "s2_step": 93,
+      "s1_predictor_switch_step": null,
+      "s2_predictor_switch_step": null,
+      "pattern": "12",
+      "sequential_pattern": "12",
+      "subtask_completed": [
+        true,
+        true
+      ],
+      "gripper_open": true
+    },
+    {
+      "seed": 4600007,
+      "task_name": "workspace_setup_2tasks",
+      "success": true,
+      "episode_success": true,
+      "total_steps": 1068,
+      "subtask_completion_steps": [
+        65,
+        1008
+      ],
+      "env_subtask_completion_steps": [
+        65,
+        1008
+      ],
+      "predictor_switch_steps": [
+        null,
+        null
+      ],
+      "predictor_switch_step": null,
+      "switch_step": 80,
+      "s1_completed": true,
+      "s2_completed": true,
+      "gripper_check_mode": "full",
+      "switch_events": [
+        {
+          "source": "gt",
+          "switch_source": "gt",
+          "from_subtask_idx": 0,
+          "to_subtask_idx": 1,
+          "completed_subtask_idx": 0,
+          "completed_subtask_name": "Place mouse on pad",
+          "new_instruction": "Place phone on stand",
+          "switch_step": 80,
+          "cache_len_before_switch": 0,
+          "cache_cleared": false,
+          "cue_step": 65
+        }
+      ],
+      "gripper_status": {
+        "gripper_check_mode": "full",
+        "left_gripper_val": 0.8038054435483871,
+        "right_gripper_val": 1.0,
+        "left_open": true,
+        "right_open": true,
+        "gripper_open": true
+      },
+      "cache_len_before_switch": 0,
+      "prev_action_before_switch": null,
+      "s1_step": 65,
+      "s2_step": 1008,
+      "s1_predictor_switch_step": null,
+      "s2_predictor_switch_step": null,
+      "pattern": "12",
+      "sequential_pattern": "12",
+      "subtask_completed": [
+        true,
+        true
+      ],
+      "gripper_open": true
+    }
+  ],
+  "patterns": {
+    "12": 5
+  },
+  "last_updated": "2026-11-10 10:15:44"
+}

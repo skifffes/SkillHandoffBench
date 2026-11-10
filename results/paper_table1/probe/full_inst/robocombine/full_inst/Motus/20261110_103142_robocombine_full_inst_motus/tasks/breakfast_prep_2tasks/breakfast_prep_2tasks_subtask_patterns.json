@@ -1,0 +1,141 @@
+{
+  "task_name": "breakfast_prep_2tasks",
+  "episodes": [
+    {
+      "seed": 4600000,
+      "task_name": "breakfast_prep_2tasks",
+      "success": false,
+      "episode_success": false,
+      "total_steps": 1500,
+      "subtask_completion_steps": [
+        45,
+        null
+      ],
+      "env_subtask_completion_steps": [
+        45,
+        null
+      ],
+      "predictor_switch_steps": [
+        null
+      ],
+      "predictor_switch_step": null,
+      "switch_step": null,
+      "s1_completed": true,
+      "s2_completed": false,
+      "gripper_check_mode": "full",
+      "switch_events": [],
+      "gripper_status": {
+        "gripper_check_mode": "full",
+        "left_gripper_val": 0.0,
+        "right_gripper_val": 1.0,
+        "left_open": false,
+        "right_open": true,
+        "gripper_open": false
+      },
+      "cache_len_before_switch": null,
+      "prev_action_before_switch": null,
+      "s1_step": 45,
+      "s2_step": null,
+      "s1_predictor_switch_step": null,
+      "pattern": "1",
+      "sequential_pattern": "1",
+      "subtask_completed": [
+        true,
+        false
+      ],
+      "gripper_open": false
+    },
+    {
+      "seed": 4600002,
+      "task_name": "breakfast_prep_2tasks",
+      "success": false,
+      "episode_success": false,
+      "total_steps": 1500,
+      "subtask_completion_steps": [
+        74,
+        null
+      ],
+      "env_subtask_completion_steps": [
+        74,
+        null
+      ],
+      "predictor_switch_steps": [
+        null
+      ],
+      "predictor_switch_step": null,
+      "switch_step": null,
+      "s1_completed": true,
+      "s2_completed": false,
+      "gripper_check_mode": "full",
+      "switch_events": [],
+      "gripper_status": {
+        "gripper_check_mode": "full",
+        "left_gripper_val": 0.99609375,
+        "right_gripper_val": 0.01123046875,
+        "left_open": true,
+        "right_open": false,
+        "gripper_open": false
+      },
+      "cache_len_before_switch": null,
+      "prev_action_before_switch": null,
+      "s1_step": 74,
+      "s2_step": null,
+      "s1_predictor_switch_step": null,
+      "pattern": "1",
+      "sequential_pattern": "1",
+      "subtask_completed": [
+        true,
+        false
+      ],
+      "gripper_open": false
+    },
+    {
+      "seed": 4600003,
+      "task_name": "breakfast_prep_2tasks",
+      "success": false,
+      "episode_success": false,
+      "total_steps": 1500,
+      "subtask_completion_steps": [
+        43,
+        null
+      ],
+      "env_subtask_completion_steps": [
+        43,
+        null
+      ],
+      "predictor_switch_steps": [
+        null
+      ],
+      "predictor_switch_step": null,
+      "switch_step": null,
+      "s1_completed": true,
+      "s2_completed": false,
+      "gripper_check_mode": "full",
+      "switch_events": [],
+      "gripper_status": {
+        "gripper_check_mode": "full",
+        "left_gripper_val": 0.984375,
+        "right_gripper_val": 0.99609375,
+        "left_open": true,
+        "right_open": true,
+        "gripper_open": true
+      },
+      "cache_len_before_switch": null,
+      "prev_action_before_switch": null,
+      "s1_step": 43,
+      "s2_step": null,
+      "s1_predictor_switch_step": null,
+      "pattern": "1",
+      "sequential_pattern": "1",
+      "subtask_completed": [
+        true,
+        false
+      ],
+      "gripper_open": true
+    }
+  ],
+  "patterns": {
+    "1": 3
+  },
+  "last_updated": "2026-11-10 11:10:16"
+}

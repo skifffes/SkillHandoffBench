@@ -1,0 +1,69 @@
+{
+  "task_name": "bakery_close_2tasks",
+  "episodes": [
+    {
+      "seed": 4600001,
+      "task_name": "bakery_close_2tasks",
+      "success": false,
+      "episode_success": false,
+      "total_steps": 1500,
+      "subtask_completion_steps": [
+        38,
+        135
+      ],
+      "env_subtask_completion_steps": [
+        38,
+        135
+      ],
+      "predictor_switch_steps": [
+        null,
+        null
+      ],
+      "predictor_switch_step": null,
+      "switch_step": 48,
+      "s1_completed": true,
+      "s2_completed": true,
+      "gripper_check_mode": "full",
+      "switch_events": [
+        {
+          "source": "gt",
+          "switch_source": "gt",
+          "from_subtask_idx": 0,
+          "to_subtask_idx": 1,
+          "completed_subtask_idx": 0,
+          "completed_subtask_name": "Place bread in basket",
+          "new_instruction": "Turn switch",
+          "switch_step": 48,
+          "cache_len_before_switch": 0,
+          "cache_cleared": false,
+          "cue_step": 38
+        }
+      ],
+      "gripper_status": {
+        "gripper_check_mode": "full",
+        "left_gripper_val": 0.0,
+        "right_gripper_val": 1.0,
+        "left_open": false,
+        "right_open": true,
+        "gripper_open": false
+      },
+      "cache_len_before_switch": 0,
+      "prev_action_before_switch": null,
+      "s1_step": 38,
+      "s2_step": 135,
+      "s1_predictor_switch_step": null,
+      "s2_predictor_switch_step": null,
+      "pattern": "12",
+      "sequential_pattern": "12",
+      "subtask_completed": [
+        true,
+        true
+      ],
+      "gripper_open": false
+    }
+  ],
+  "patterns": {
+    "12": 1
+  },
+  "last_updated": "2026-11-10 10:30:41"
+}
