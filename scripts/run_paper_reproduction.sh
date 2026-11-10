@@ -74,6 +74,17 @@ main() {
       local track="${2:-oracle_hse}"
       run_split "gateD_${track}" "$track" 3 "gateD/$track" "${PREFLIGHT_TASKS[@]}"
       ;;
+    probe)
+      # Phase 4 第二阶段：3 个新任务 × 5 episodes，**预注册 priority seeds**（两轨道同一份，保证可配对）
+      local track="${2:-oracle_hse}"
+      # run_split 不支持 --priority_seeds_file（只有 eval_policy 支持），因此用 --base-seed 45
+      # 把 st_seed 推到 4600000，避开 Phase 0–4 用过的 43xxxxx/44xxxxx/53xxxxx。
+      run_split "probe_${track}" "$track" 5 "probe/$track" \
+        --base-seed 45 \
+        --task-filter breakfast_prep_2tasks \
+        --task-filter workspace_setup_2tasks \
+        --task-filter bakery_close_2tasks
+      ;;
     deep)
       # 与论文 N=20 对齐，但只跑两个预检任务（资源受限时的分批策略；任务固定、不按成绩挑选）
       local track="${2:-oracle_hse}"
