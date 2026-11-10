@@ -126,3 +126,60 @@
 
 **因此第二阶段（3 个新任务）必须**：用 `--base-seed 45` 的新 seed、逐条记录实际 seed、
 并把"两轨道 seed 是否一致"作为验收项；不一致就报 `MISMATCH` 而不是硬凑配对。
+
+---
+
+## 8. 第二阶段：3 个新任务的小规模验证（截至 11:14）
+
+配置：`--base-seed 45`（st_seed=**4600000**，此前从未用过）、`--episodes 5`、`--clear-cache false`、
+`--max-steps-per-episode 1500`、clean 场景、冻结 Motus。**每轨道一次 invocation（55 分钟上限）**。
+
+| Task | Track | 实际 N / 请求 | env 成功 | **ordered** | 论文 | 备注 |
+| --- | --- | ---: | ---: | ---: | ---: | --- |
+| breakfast_prep_2tasks | oracle_hse | **5/5** | 5 | **5 (100%)** | 75% | seed `4600000,2,3,4,5`（4600001 被专家跳过） |
+| workspace_setup_2tasks | oracle_hse | **5/5** | 5 | **5 (100%)** | 50% | seed `4600001,2,5,6,7`（3,4 被跳过） |
+| bakery_close_2tasks | oracle_hse | **1/5** | 0 | **1** | 35% | **55 分钟超时被中断**；该 episode 两子任务按序完成、但终局夹爪未达标（env=0, ordered=1） |
+| breakfast_prep_2tasks | full_inst | **3/5** | 0 | **0 (0%)** | 20% | 运行中，11:26 超时截止 |
+| workspace_setup_2tasks | full_inst | 0/5 | — | — | 15% | 未开始 |
+| bakery_close_2tasks | full_inst | 0/5 | — | — | 5% | 未开始 |
+
+**实际 seed 记录**
+
+| Track | Task | seeds |
+| --- | --- | --- |
+| oracle | breakfast_prep | 4600000, 4600002, 4600003, 4600004, 4600005 |
+| oracle | workspace_setup | 4600001, 4600002, 4600005, 4600006, 4600007 |
+| oracle | bakery_close | 4600001（仅 1 个） |
+| full_inst | breakfast_prep | 4600000, 4600002, 4600003 |
+
+**配对情况**：breakfast 的两轨道前 3 个 seed 相同（4600000/2/3）→ 这 3 个是**真配对**；
+workspace / bakery 的 full_inst 未跑 → 无配对。**再次出现同一 seed 在不同轨道专家校验结果不同的现象**。
+
+### 8.1 三个新任务是否也存在系统性偏高？
+
+| Task | 论文 Oracle | 我们 Oracle | 差 | 论文 Full | 我们 Full | 差 |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: |
+| breakfast_prep | 75% | **100% (5/5)** | **+25** | 20% | **0% (0/3)** | −20 |
+| workspace_setup | 50% | **100% (5/5)** | **+50** | 15% | 未跑 | — |
+| bakery_close | 35% | 0/1（超时中断，无效） | — | 5% | 未跑 | — |
+| living_room（N=20） | 10% | 35% | +25 | 5% | 10% | +5 |
+| office_desk（N=20） | 15% | 45% | +30 | 10% | 0% | −10 |
+
+**结论：偏差是系统性的，且方向不对称**——
+- **oracle_hse 一律偏高**（+25 ~ +50 pp，5 个任务全部为正）；
+- **full_inst 一律偏低或持平**（−20 ~ +5 pp）。
+
+这与"checkpoint 不同"一致：`Motus_robotwin2` 是 RoboTwin2 **原子任务**微调版，
+原子执行力强（oracle 高），但长指令跟随弱（full 低）。**不是**"我们的模型全面更强"。
+
+### 8.2 全量复现条件评估
+
+| 条件 | 状态 |
+| --- | --- |
+| 官方代码可复现 | ✅ 能跑通、指标可算、退出码/产物完整 |
+| 与论文原始协议一致 | ❌ seed 分布、专家筛选、checkpoint 三项 `UNVERIFIED`；轨道配对 `MISMATCH` |
+| 论文协议仍无法核实 | ✅ `SEED_PROTOCOL_PARITY_UNVERIFIED`、`CHECKPOINT_PARITY_UNVERIFIED` |
+
+**目前不具备"严格复现 Table 1"的条件**，具备的是"**可重复的协议化测量 + 可解释的系统偏差**"。
+建议的下一步（未执行）：直接调 `eval_policy.py --priority_seeds_file` 固定两轨道同 seed（真配对），
+再对 3 个新任务补满 20 episodes；同时向作者索取 checkpoint 与 seed 生成方式。
