@@ -1,0 +1,143 @@
+# RoboCombine 公开代码协议锁定快照（Phase 4B Gate E）
+#
+# 这个文件锁的是 **官方公开仓库 + 官方公开 checkpoint** 的可复现配置，
+# 不是"论文原始实验配置"（论文未公开 seed / checkpoint revision）。
+# 由 scripts/check_protocol_lock.py 校验；任何一条对不上就报 FAIL。
+
+meta:
+  created_utc: "2026-11-10"
+  purpose: "PUBLIC_CODE_PROTOCOL_LOCK"
+  paper: "arXiv:2610.15425v1 (2026-10-11)"
+  caveat: >
+    本快照只证明"按官方公开代码与公开权重可复现地运行"；
+    不证明与论文 Table 1 使用同一 seed 分布或同一 checkpoint revision。
+
+official_repo:
+  url: "https://github.com/AutoLab-SAI-SJTU/RoboCombine"
+  head_commit: "df237b22bd5c39d705b103daf2b9a8a168c9d453"
+  head_date: "2026-10-15"
+  head_verified_via: "GitHub API /repos/AutoLab-SAI-SJTU/RoboCombine/commits (2026-11-10)"
+  local_path: "third_party/RoboCombine"
+  local_matches_head: true          # git diff --ignore-cr-at-eol --numstat 全 0
+  upstream_changed_since_head: false
+
+local_patches:
+  applied_on_server_worktree: true
+  files:
+    - path: "envs/camera/camera.py"
+      change: "open3d import 改 try/except（缺库不崩）"
+      affects_behavior: false
+    - path: "policy/Motus/deploy_policy.py"
+      change: "保留 sys.stdout/stderr 引用，避免 GC 后 print 抛 OSError"
+      affects_behavior: false
+    - path: "script/eval_policy.py"
+      change: "8 处 shb_trace.hook(...) 调用；未设 SHB_TRACE_JSONL 时立即 return"
+      affects_behavior: false
+      evidence: "docs/08 §5 三跑动作逐位一致 (max_abs_diff=0.0)"
+  untracked_added:
+    - "envs/place_phone_stand.py"   # Phase 3 原子任务，不在 19-task spec
+    - "envs/stamp_seal.py"
+
+model:
+  hf_repo: "motus-robotics/Motus_robotwin2"
+  hf_repo_sha: "ab74bc214f7fc5952c85198e062c5f8bf1dc47a7"
+  hf_last_modified: "2025-12-19T18:00:16.000Z"
+  file: "mp_rank_00_model_states.pt"
+  size_bytes: 16046580367
+  sha256: "70bc1741b45db5e3eae86510ad3bb1bd1aef04f10b17d8c1ff4dbe099300eb65"
+  local_path: "/scratch/lijh/SkillHandoffBench/assets/models/Motus_robotwin2"
+  parity: "PUBLIC_CHECKPOINT_PARITY_VERIFIED"     # HF LFS oid == 本地 sha256
+  paper_revision: "PAPER_CHECKPOINT_REVISION_UNVERIFIED"
+
+companion_assets:
+  wan_dir: "/scratch/lijh/SkillHandoffBench/assets/models/Wan2.2-TI2V-5B"
+  wan_vae: { file: "Wan2.2_VAE.pth", size_bytes: 2818839170 }
+  wan_t5: { file: "models_t5_umt5-xxl-enc-bf16.pth", size_bytes: 11361920418 }
+  vlm_dir: "/scratch/lijh/SkillHandoffBench/assets/models/Qwen3-VL-2B-Instruct"
+  vlm_weights: { file: "model.safetensors", size_bytes: 4255140312,
+                 sha256: "7de1838c87a5349b016c26a1c3f7d2bc400a3d485f95ef39a7059ffd734977a0" }
+
+runtime:
+  python: "3.10.21"
+  torch: "2.4.1+cu121"
+  cuda: "12.1"
+  sapien: "3.0.0b1"
+  mplib: "0.2.1"
+  curobo: "0.7.6"
+  numpy: "1.26.4"
+  gpu: "NVIDIA A40 46068 MiB (single card, CUDA_VISIBLE_DEVICES=0)"
+  driver: "550.120"
+  assets: "RoboTwin 2.0 objects/embodiments/background_texture (本地 assets/)"
+
+task_split:
+  spec: "handoff_eval/specs/robocombine.json"
+  sha256_16: "7998f1850bccbb6e"
+  task_count: 19
+  stage_count: 2
+  track: ["full_inst", "oracle_hse", "ordered_hse"]
+
+scene:
+  task_config: "task_config/robocombine_eval.yml"
+  sha256_16: "e5210bbb89fb5f40"
+  random_background: false
+  cluttered_table: false
+  clean_background_rate: 1
+  random_head_camera_dis: 0
+  random_table_height: 0
+  random_light: false
+  crazy_random_light_rate: 0
+  eval_video_log: false
+  domain_randomization: "OFF（clean 场景）"
+
+protocol:
+  episodes_per_task: 20
+  episodes_source: "PAPER_SPECIFIED (380 = 19 x 20); spec default is 5"
+  max_steps_per_episode: 1500
+  max_steps_source: "OFFICIAL_CODE_SPECIFIED (spec default_max_steps_per_episode); 论文未写 → UNVERIFIED"
+  clear_cache: false
+  clear_cache_source: "PAPER_SPECIFIED (chunk-preserving, Eq.4-5) + README L288-292; runner default is true"
+  base_seed: 42
+  base_seed_source: "OFFICIAL_CODE_SPECIFIED default; 论文未公开 → UNVERIFIED"
+  seed_formula: "st_seed = 100000 * (1 + base_seed)  =>  42 -> 4300000, 45 -> 4600000"
+  seed_sampling: "priority_seeds_file (eval_policy only) 后接 range(st_seed, st_seed + test_num*20)"
+  expert_screening: "ON by default: eval_policy.py:775-790, 专家失败则 continue 且不计数"
+  skip_successful: true
+  skip_successful_note: "复用 save_dir 会排除已成功 seed 并补新 seed；必须每次独立目录"
+  paired_tracks: "NOT GUARANTEED at N>3 (MISMATCH): 两轨道 accepted seeds 不同"
+
+metrics:
+  primary: "sr_ordered"
+  sr_ordered_def: "subtask_completion.sequential['subtask_1_to_2'].rate; eval_policy.py:576-593 判定 s1_step <= s2_step"
+  env_success_def: "episode success（check_success + 终局夹爪）— 与 sr_ordered 不同量"
+  also_report: ["episode_success_rate", "stage_conversions", "SR1", "SR2"]
+  note: >
+    ordered success 不要求终局夹爪条件，因此会出现 env=0 但 ordered=1
+    （Phase 4 probe: bakery_close seed 4600001）。
+
+commands:
+  oracle_hse: >-
+    "$MOTUS_PYTHON_BIN" handoff_eval/runner/run_split.py --spec robocombine --track oracle_hse
+    --policy Motus --checkpoint "$MOTUS_CKPT" --motus-wan-dir "$MOTUS_WAN_DIR"
+    --motus-vlm-dir "$MOTUS_VLM_DIR" --task-config robocombine_eval --episodes 20
+    --max-steps-per-episode 1500 --clear-cache false --base-seed 42 --output-root "$ORACLE_OUTPUT"
+  full_inst: "同上，仅 --track full_inst 且独立 --output-root"
+  note: "run_split 不支持 --priority_seeds_file（实测 exit=2）；要固定 seed 只能直调 eval_policy.py"
+
+outputs:
+  root: "results/paper_table1/"
+  per_run_artifacts:
+    - "run_manifest.json"
+    - "summary.json / summary.md"
+    - "used_seed_receipts/<task>.txt"
+    - "tasks/<task>/evaluation_statistics.json"
+    - "tasks/<task>/task.log"
+    - "tasks/<task>/_result.txt"
+    - "tasks/<task>/<task>_expert_demo_seeds.json"
+    - "tasks/<task>/<task>_successful_seeds.json"
+  rule: "每个 invocation 独立目录；不覆盖、不续跑同一目录（避免 successful_seeds 累计）"
+
+known_gaps:
+  - "PAPER base seed / accepted seed receipts 未公开 → SEED_PROTOCOL_PARITY_UNVERIFIED"
+  - "论文 checkpoint revision 未声明 → PAPER_CHECKPOINT_REVISION_UNVERIFIED"
+  - "论文未写 max steps / RoboTwin 版本 / 训练数据 → UNVERIFIED"
+  - "ordered_hse 需要 Florence/X-VLA progress predictor，资源未公开 → ORDERED_HSE_BLOCKED"
