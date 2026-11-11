@@ -33,10 +33,12 @@ MAX_ATTEMPTS="${MAX_ATTEMPTS:-2}"
 
 DRY=0
 TRACKS=()
+TASK_FILTER=()
 while [ $# -gt 0 ]; do
   case "$1" in
     --dry-run) DRY=1 ;;
     --tracks) shift; IFS=',' read -r -a TRACKS <<< "${1:-}" ;;
+    --tasks) shift; IFS=',' read -r -a TASK_FILTER <<< "${1:-}" ;;
     --episodes) shift; EPISODES="$1" ;;
     *) echo "unknown arg: $1"; exit 2 ;;
   esac
@@ -151,6 +153,16 @@ wait_gpu_free() {
 main() {
   export RC
   local tasks; tasks="$(list_tasks)"
+  if [ ${#TASK_FILTER[@]} -gt 0 ]; then
+    local keep=""
+    for t in $tasks; do
+      for want in "${TASK_FILTER[@]}"; do
+        [ "$t" = "$want" ] && keep="$keep $t"
+      done
+    done
+    tasks="$(echo $keep | tr ' ' '\n' | sed '/^$/d')"
+    say "任务过滤：$(echo "$tasks" | tr '\n' ' ')"
+  fi
   [ -z "$tasks" ] && { echo "读不到 19 任务清单"; exit 1; }
   local total=0 remain=0
   for track in "${TRACKS[@]}"; do for task in $tasks; do total=$((total+1)); done; done
