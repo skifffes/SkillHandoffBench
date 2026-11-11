@@ -34,17 +34,27 @@ MAX_ATTEMPTS="${MAX_ATTEMPTS:-2}"
 DRY=0
 TRACKS=()
 TASK_FILTER=()
+SHARD_SPEC="${SHARD_SPEC:-1/1}"   # <k>/<N>：把所有 (track,task) 组合按序切成 N 份，取第 k 份
 while [ $# -gt 0 ]; do
   case "$1" in
     --dry-run) DRY=1 ;;
     --tracks) shift; IFS=',' read -r -a TRACKS <<< "${1:-}" ;;
     --tasks) shift; IFS=',' read -r -a TASK_FILTER <<< "${1:-}" ;;
+    --gpu) shift; SHB_GPU="${1:-0}" ;;
+    --shard) shift; SHARD_SPEC="${1:-1/1}" ;;
     --episodes) shift; EPISODES="$1" ;;
     *) echo "unknown arg: $1"; exit 2 ;;
   esac
   shift
 done
 [ ${#TRACKS[@]} -eq 0 ] && TRACKS=(oracle_hse full_inst)
+
+# shard 必须在解析参数之后再算（否则 --shard 传进来的值会被默认值覆盖）
+SHARD_ID="${SHARD_SPEC%/*}"; SHARD_N="${SHARD_SPEC#*/}"
+if [ "$SHARD_N" != "1" ]; then
+  STATE="$STATE/shard${SHARD_ID}of${SHARD_N}"
+fi
+export SHARD_ID SHARD_N
 
 mkdir -p "$STATE" "$LOGD"
 
@@ -101,7 +111,8 @@ pair_done() {  # <track> <task>
       return 0
     fi
   done < <(find "$SHB_ROOT/results/paper_table1/gateE_deep/$track" -type d -path "*/tasks/$task" -name "$task" 2>/dev/null)
-  for d in "$STATE/$track/$task"/attempt*; do
+  # 也检查非 shard 的根目录（否则分片后会重跑已完成的任务，如 breakfast_prep）
+  for d in "$SHB_ROOT/results/paper_table1/full/$track/$task"/attempt* "$STATE/$track/$task"/attempt*; do
     [ -d "$d" ] || continue
     [ "$(completed_eps "$d")" -ge "$EPISODES" ] && return 0
   done
@@ -114,7 +125,8 @@ run_one() {  # <track> <task> <attempt>
   local log="$LOGD/${track}__${task}__a${attempt}.log"
   mkdir -p "$dir"
   say "START $track/$task attempt=$attempt -> $dir"
-  ( cd "$RC" && timeout --signal=TERM "$RUN_TIMEOUT_SEC" \
+  ( exec 9>&-   # 子进程不继承锁 fd
+    cd "$RC" && timeout --signal=TERM "$RUN_TIMEOUT_SEC" \
       "$PY" handoff_eval/runner/run_split.py \
         --spec robocombine --track "$track" --policy Motus \
         --checkpoint "$CKPT" --checkpoint-label motus_robotwin2_official \
@@ -142,11 +154,12 @@ PY
 # GPU 空闲检查：显存被占 >45GB 就等 60s（避免和别人撞车）
 wait_gpu_free() {
   local used
-  used=$(nvidia-smi --query-gpu=memory.used --format=csv,noheader,nounits | head -1 | tr -d ' ')
+  local dev="${CUDA_VISIBLE_DEVICES:-0}"
+  used=$(nvidia-smi -i "$dev" --query-gpu=memory.used --format=csv,noheader,nounits 2>/dev/null | head -1 | tr -d ' ')
   while [ "${used:-0}" -gt 2000 ]; do
-    say "GPU 忙（${used} MiB），等 60s"
-    sleep 60
-    used=$(nvidia-smi --query-gpu=memory.used --format=csv,noheader,nounits | head -1 | tr -d ' ')
+    say "GPU $dev 忙（${used} MiB），等 60s"
+    sleep 60 9>&-   # 关键：别让子进程继承 flock fd，否则 kill 主进程后锁仍被 sleep 持有
+    used=$(nvidia-smi -i "$dev" --query-gpu=memory.used --format=csv,noheader,nounits 2>/dev/null | head -1 | tr -d ' ')
   done
 }
 
@@ -169,8 +182,13 @@ main() {
 
   say "计划：${#TRACKS[@]} 轨道 × $(echo "$tasks" | wc -l) 任务 = $total 个 (track,task) 组合，每组合 $EPISODES eps"
 
+  local idx=0
   for track in "${TRACKS[@]}"; do
     for task in $tasks; do
+      idx=$((idx+1))
+      if [ "$SHARD_N" -gt 1 ] && [ $(( (idx - 1) % SHARD_N )) -ne $(( SHARD_ID - 1 )) ]; then
+        continue
+      fi
       if pair_done "$track" "$task"; then
         say "SKIP  $track/$task（已满 $EPISODES eps）"
         continue
