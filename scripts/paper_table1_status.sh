@@ -28,6 +28,11 @@ def eps_and_metrics(d, task=None):
             continue
         e = x.get("episode_details") or []
         eps = max(eps, int(x["metadata"].get("total_episodes", 0)))
+        seq = ((x.get("subtask_completion") or {}).get("sequential") or {}).get("subtask_1_to_2") or {}
+        if "count" in seq:
+            ordered = max(ordered, int(seq["count"]))
+            env += sum(1 for r in e if r.get("success"))
+            continue
         for r in e:
             if r.get("success"):
                 env += 1
@@ -50,7 +55,9 @@ for track in ("oracle_hse", "full_inst"):
     # 2) 全量 runner 的产物
     for t in tasks:
         best = None
-        for d in sorted(glob.glob(os.path.join(state, track, t, "attempt*"))):
+        cands = sorted(glob.glob(os.path.join(state, track, t, "attempt*")))
+        cands += sorted(glob.glob(os.path.join(state, "shard*of5", track, t, "attempt*")))
+        for d in cands:
             eps, o, e = eps_and_metrics(d, t)
             if eps and (best is None or eps > best["completed"]):
                 best = {"track": track, "task": t, "completed": eps, "ordered": o, "env": e,
