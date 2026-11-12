@@ -198,7 +198,13 @@ main() {
         say "TODO  $track/$task"
         continue
       fi
-      local attempt=1 ok=0
+      # 关键：重跑时不要复用旧 attempt 目录（避免 skip_successful 改变样本总体）
+      local attempt=1 n
+      if [ -d "$STATE/$track/$task" ]; then
+        n=$(ls -1d "$STATE/$track/$task"/attempt* 2>/dev/null | sed 's/.*attempt//' | sort -n | tail -1)
+        [ -n "${n:-}" ] && attempt=$((n + 1))
+      fi
+      local ok=0
       while [ "$attempt" -le "$MAX_ATTEMPTS" ]; do
         wait_gpu_free
         run_one "$track" "$task" "$attempt"
