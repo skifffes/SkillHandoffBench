@@ -34,13 +34,17 @@ MAX_ATTEMPTS="${MAX_ATTEMPTS:-2}"
 DRY=0
 TRACKS=()
 TASK_FILTER=()
-SHARD_SPEC="${SHARD_SPEC:-1/1}"   # <k>/<N>：把所有 (track,task) 组合按序切成 N 份，取第 k 份
+SHARD_SPEC="${SHARD_SPEC:-1/1}"
+PAIRS_SPEC="${PAIRS_SPEC:-}"
+STATE_SUFFIX="${STATE_SUFFIX:-}"   # <k>/<N>：把所有 (track,task) 组合按序切成 N 份，取第 k 份
 while [ $# -gt 0 ]; do
   case "$1" in
     --dry-run) DRY=1 ;;
     --tracks) shift; IFS=',' read -r -a TRACKS <<< "${1:-}" ;;
     --tasks) shift; IFS=',' read -r -a TASK_FILTER <<< "${1:-}" ;;
     --gpu) shift; SHB_GPU="${1:-0}" ;;
+    --pairs) shift; PAIRS_SPEC="${1:-}" ;;
+    --state-suffix) shift; STATE_SUFFIX="${1:-}" ;;
     --shard) shift; SHARD_SPEC="${1:-1/1}" ;;
     --episodes) shift; EPISODES="$1" ;;
     *) echo "unknown arg: $1"; exit 2 ;;
@@ -53,6 +57,9 @@ done
 SHARD_ID="${SHARD_SPEC%/*}"; SHARD_N="${SHARD_SPEC#*/}"
 if [ "$SHARD_N" != "1" ]; then
   STATE="$STATE/shard${SHARD_ID}of${SHARD_N}"
+fi
+if [ -n "$STATE_SUFFIX" ]; then
+  STATE="$STATE/$STATE_SUFFIX"
 fi
 export SHARD_ID SHARD_N
 
@@ -112,7 +119,9 @@ pair_done() {  # <track> <task>
     fi
   done < <(find "$SHB_ROOT/results/paper_table1/gateE_deep/$track" -type d -path "*/tasks/$task" -name "$task" 2>/dev/null)
   # 也检查非 shard 的根目录（否则分片后会重跑已完成的任务，如 breakfast_prep）
-  for d in "$SHB_ROOT/results/paper_table1/full/$track/$task"/attempt* "$STATE/$track/$task"/attempt*; do
+  for d in "$SHB_ROOT/results/paper_table1/full/$track/$task"/attempt* \
+           "$SHB_ROOT"/results/paper_table1/full/shard*of*/"$track"/"$task"/attempt* \
+           "$STATE/$track/$task"/attempt*; do
     [ -d "$d" ] || continue
     [ "$(completed_eps "$d")" -ge "$EPISODES" ] && return 0
   done
@@ -188,6 +197,12 @@ main() {
       idx=$((idx+1))
       if [ "$SHARD_N" -gt 1 ] && [ $(( (idx - 1) % SHARD_N )) -ne $(( SHARD_ID - 1 )) ]; then
         continue
+      fi
+      if [ -n "$PAIRS_SPEC" ]; then
+        case ",$PAIRS_SPEC," in
+          *",$track/$task,"*) : ;;
+          *) continue ;;
+        esac
       fi
       if pair_done "$track" "$task"; then
         say "SKIP  $track/$task（已满 $EPISODES eps）"
