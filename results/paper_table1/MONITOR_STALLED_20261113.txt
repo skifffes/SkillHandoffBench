@@ -1,0 +1,4 @@
+MONITOR_STALLED 2026-11-13 10:54 CST
+oracle  log freeze: 08:55:20, 5079 lines, task.log 2026-11-12 20:02:26, 8 eps
+full    log freeze: 09:29:54, 10039 lines, task.log 2026-11-12 23:50:37, 7 eps
+both CPU ~110%, GPU util 0%, killed pids 164816 164817
