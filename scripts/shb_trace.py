@@ -136,6 +136,34 @@ def _contacts(task_env):
         return None
 
 
+def _articulated(task_env):
+    """Phase 4D：被动记录**铰接物体**（如 switch 开关）的 qpos / qlimits。
+
+    官方任务代码里的第二子任务判据是 `switch.get_qpos()[0] >= limit[1] - 0.05`，
+    这里把 qpos、上下限、以及"是否满足该判据"一起记下来，用于判断
+    "标志触发后物理状态是否仍然成立"（瞬态 vs 持续）。
+    只读，不修改任何对象。
+    """
+    out = {}
+    for name, val in list(vars(task_env).items()):
+        if name.startswith("_"):
+            continue
+        if not (hasattr(val, "get_qpos") and hasattr(val, "get_qlimits")):
+            continue
+        try:
+            q = [float(x) for x in val.get_qpos()]
+            lim = [[float(a), float(b)] for a, b in val.get_qlimits()]
+        except Exception:
+            continue
+        item = {"qpos": q, "qlimits": lim}
+        if len(q) == 1 and lim:
+            hi = lim[0][1]
+            item["trigger_hi_minus_0.05"] = bool(q[0] >= hi - 0.05)
+            item["margin_to_hi"] = round(hi - q[0], 6)
+        out[name] = item
+    return out
+
+
 def snapshot(task_env=None, model=None, state=None, action=None, **extra):
     rec = {
         "t_wall": round(time.time(), 6),
@@ -167,6 +195,7 @@ def snapshot(task_env=None, model=None, state=None, action=None, **extra):
                     "right": float(getattr(robot, "right_gripper_val", float("nan"))),
                 }
             rec["objects"] = _object_poses(task_env)
+            rec["articulated"] = _articulated(task_env)   # Phase 4D：switch 等铰接物体的 qpos/判据
             rec["contacts"] = _contacts(task_env)
     if model is not None and not _ACTIONS_ONLY:
         cache = getattr(model, "action_cache", None)

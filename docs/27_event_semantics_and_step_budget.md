@@ -134,9 +134,12 @@ success = all(self.subtask_completed) and gripper_open
 
 ## 5. 下一步（按性价比排序，均未执行）
 
+> **2026-11-13 更新**：第 1 项已执行，结果见 `docs/28_interaction_event_trace.md`
+> （8 次 trace：TRANSIENT 2 / PERSISTENT_BUT_TERMINAL 1 / OTHER 3 / SUCCESS 2）。
+
 | 优先级 | 动作 | 成本 | 能判掉什么 |
 | --- | --- | --- | --- |
-| 1 | **给四个 interaction 任务各跑 2 个 episode 带 trace**（+ 只读记录 switch qpos） | ~40 min | "事件是瞬时的还是持续的" |
+| 1 | ~~给四个 interaction 任务各跑 2 个 episode 带 trace~~（已完成 → `docs/28`） | ~40 min | "事件是瞬时的还是持续的" |
 | 2 | **固定 seed、单进程**重跑 1 个任务（对比 5 卡并发时的跳过率） | ~2–3 h | 我的并发是否把筛选搞严了 |
 | 3 | **核对论文 max_steps**（若为 300 左右，Full 差距基本消失） | 询问作者 | Q1 的主因 |
 | 4 | 向作者索取 checkpoint revision / RoboTwin 版本 / seed 规则 | 询问作者 | 剩余系统性偏差 |

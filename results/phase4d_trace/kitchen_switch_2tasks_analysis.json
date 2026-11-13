@@ -1,0 +1,111 @@
+[
+  {
+    "task": "kitchen_switch_2tasks",
+    "seed": 4300002,
+    "n_records": 4505,
+    "first_step": 0,
+    "last_step": 1500,
+    "s1_step": 54,
+    "s1_gripper": {
+      "left": 0.9921875,
+      "right": 0.37890625
+    },
+    "s2_step": 118,
+    "s2_gripper": {
+      "left": 0.0126953125,
+      "right": 0.0118408203125
+    },
+    "end_flags": [
+      true,
+      true
+    ],
+    "end_gripper": {
+      "left": 0.0,
+      "right": 0.060546875
+    },
+    "eval_success_end": false,
+    "eval_success_first_step": null,
+    "switch_hi_limit": 0.3839724361896515,
+    "switch_threshold": 0.3339724361896515,
+    "switch_qpos_at_s2": 0.3839725852012634,
+    "switch_steps_below_after_s2": 1150,
+    "switch_records_below_after_s2": 3449,
+    "switch_rebound_first_step": 345,
+    "switch_rebound_last_step": 1500,
+    "switch_rebound_span_steps": 1156,
+    "switch_min_after_s2": -4.684266343701893e-07,
+    "switch_max_after_s2": 0.383972704410553,
+    "switch_rebound_margin": 0.334,
+    "switch_rebound_duration_steps": 3449,
+    "switch_ever_below_after_s2": true,
+    "switch_last_qpos": -4.128216062326828e-07,
+    "gripper_left_end": 0.0,
+    "gripper_right_end": 0.060546875,
+    "mechanism": "开关触发后回落到阈值以下",
+    "verdict": "TRANSIENT_EVENT_CONFIRMED",
+    "historical": {
+      "s1_step": 54,
+      "s2_step": 118,
+      "success": false,
+      "total_steps": 1500
+    },
+    "historical_total_steps": 1500,
+    "trace_last_step": 1500,
+    "steps_match": true,
+    "reproduced": true
+  },
+  {
+    "task": "kitchen_switch_2tasks",
+    "seed": 4300029,
+    "n_records": 284,
+    "first_step": 0,
+    "last_step": 93,
+    "s1_step": 46,
+    "s1_gripper": {
+      "left": 0.99609375,
+      "right": 0.00390625
+    },
+    "s2_step": 75,
+    "s2_gripper": {
+      "left": 0.99609375,
+      "right": 0.0
+    },
+    "end_flags": [
+      true,
+      true
+    ],
+    "end_gripper": {
+      "left": 0.984375,
+      "right": 0.8030007102272727
+    },
+    "eval_success_end": true,
+    "eval_success_first_step": 93,
+    "switch_hi_limit": 0.5410520434379578,
+    "switch_threshold": 0.4910520434379578,
+    "switch_qpos_at_s2": 0.5410521030426025,
+    "switch_steps_below_after_s2": 15,
+    "switch_records_below_after_s2": 44,
+    "switch_rebound_first_step": 79,
+    "switch_rebound_last_step": 93,
+    "switch_rebound_span_steps": 15,
+    "switch_min_after_s2": 0.2471851408481598,
+    "switch_max_after_s2": 0.5410521030426025,
+    "switch_rebound_margin": 0.2439,
+    "switch_rebound_duration_steps": 44,
+    "switch_ever_below_after_s2": true,
+    "switch_last_qpos": 0.3646603524684906,
+    "gripper_left_end": 0.984375,
+    "gripper_right_end": 0.8030007102272727,
+    "verdict": "SUCCESS_CONTROL",
+    "historical": {
+      "s1_step": 46,
+      "s2_step": 75,
+      "success": true,
+      "total_steps": 93
+    },
+    "historical_total_steps": 93,
+    "trace_last_step": 93,
+    "steps_match": true,
+    "reproduced": true
+  }
+]

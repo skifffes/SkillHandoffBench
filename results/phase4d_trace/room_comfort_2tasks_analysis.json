@@ -1,0 +1,98 @@
+[
+  {
+    "task": "room_comfort_2tasks",
+    "seed": 4300000,
+    "n_records": 4504,
+    "first_step": 0,
+    "last_step": 1500,
+    "s1_step": 47,
+    "s1_gripper": {
+      "left": 1.0,
+      "right": 0.005859375
+    },
+    "s2_step": null,
+    "end_flags": [
+      true,
+      false
+    ],
+    "end_gripper": {
+      "left": 0.99609375,
+      "right": 0.00244140625
+    },
+    "eval_success_end": false,
+    "eval_success_first_step": null,
+    "switch_hi_limit": null,
+    "switch_threshold": null,
+    "switch_qpos_at_s2": null,
+    "switch_steps_below_after_s2": 0,
+    "switch_records_below_after_s2": 0,
+    "switch_min_after_s2": null,
+    "switch_max_after_s2": null,
+    "switch_rebound_margin": null,
+    "switch_rebound_duration_steps": 0,
+    "switch_ever_below_after_s2": false,
+    "switch_last_qpos": 2.1983695246141632e-12,
+    "gripper_left_end": 0.99609375,
+    "gripper_right_end": 0.00244140625,
+    "mechanism": "S2 从未触发",
+    "verdict": "OTHER_FAILURE",
+    "historical": {
+      "s1_step": 47,
+      "s2_step": null,
+      "success": false,
+      "total_steps": 1500
+    },
+    "historical_total_steps": 1500,
+    "trace_last_step": 1500,
+    "steps_match": true,
+    "reproduced": true
+  },
+  {
+    "task": "room_comfort_2tasks",
+    "seed": 4300004,
+    "n_records": 4504,
+    "first_step": 0,
+    "last_step": 1500,
+    "s1_step": 36,
+    "s1_gripper": {
+      "left": 0.984375,
+      "right": 0.004150390625
+    },
+    "s2_step": null,
+    "end_flags": [
+      true,
+      false
+    ],
+    "end_gripper": {
+      "left": 0.98828125,
+      "right": 0.00830078125
+    },
+    "eval_success_end": false,
+    "eval_success_first_step": null,
+    "switch_hi_limit": null,
+    "switch_threshold": null,
+    "switch_qpos_at_s2": null,
+    "switch_steps_below_after_s2": 0,
+    "switch_records_below_after_s2": 0,
+    "switch_min_after_s2": null,
+    "switch_max_after_s2": null,
+    "switch_rebound_margin": null,
+    "switch_rebound_duration_steps": 0,
+    "switch_ever_below_after_s2": false,
+    "switch_last_qpos": 0.44403335452079773,
+    "gripper_left_end": 0.98828125,
+    "gripper_right_end": 0.00830078125,
+    "mechanism": "S2 从未触发",
+    "verdict": "OTHER_FAILURE",
+    "historical": {
+      "s1_step": 36,
+      "s2_step": null,
+      "success": false,
+      "total_steps": 1500
+    },
+    "historical_total_steps": 1500,
+    "trace_last_step": 1500,
+    "steps_match": true,
+    "reproduced": true
+  }
+]

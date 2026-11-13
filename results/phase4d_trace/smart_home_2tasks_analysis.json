@@ -1,0 +1,106 @@
+[
+  {
+    "task": "smart_home_2tasks",
+    "seed": 4300017,
+    "n_records": 4505,
+    "first_step": 0,
+    "last_step": 1500,
+    "s1_step": 35,
+    "s1_gripper": {
+      "left": 0.98828125,
+      "right": 0.0078125
+    },
+    "s2_step": 81,
+    "s2_gripper": {
+      "left": 0.9921875,
+      "right": 0.1025390625
+    },
+    "end_flags": [
+      true,
+      true
+    ],
+    "end_gripper": {
+      "left": 0.9765625,
+      "right": 0.0
+    },
+    "eval_success_end": false,
+    "eval_success_first_step": null,
+    "switch_hi_limit": 0.414690226316452,
+    "switch_threshold": 0.36469022631645204,
+    "switch_qpos_at_s2": 0.41469019651412964,
+    "switch_steps_below_after_s2": 1409,
+    "switch_records_below_after_s2": 4226,
+    "switch_rebound_first_step": 92,
+    "switch_rebound_last_step": 1500,
+    "switch_rebound_span_steps": 1409,
+    "switch_min_after_s2": 0.34728723764419556,
+    "switch_max_after_s2": 0.4146902561187744,
+    "switch_rebound_margin": 0.0174,
+    "switch_rebound_duration_steps": 4226,
+    "switch_ever_below_after_s2": true,
+    "switch_last_qpos": 0.34728723764419556,
+    "gripper_left_end": 0.9765625,
+    "gripper_right_end": 0.0,
+    "mechanism": "开关触发后回落到阈值以下",
+    "verdict": "TRANSIENT_EVENT_CONFIRMED",
+    "historical": {
+      "s1_step": 35,
+      "s2_step": 81,
+      "success": false,
+      "total_steps": 1500
+    },
+    "historical_total_steps": 1500,
+    "trace_last_step": 1500,
+    "steps_match": true,
+    "reproduced": true
+  },
+  {
+    "task": "smart_home_2tasks",
+    "seed": 4300011,
+    "n_records": 1348,
+    "first_step": 0,
+    "last_step": 448,
+    "s1_step": 36,
+    "s1_gripper": {
+      "left": 0.984375,
+      "right": 0.013671875
+    },
+    "s2_step": null,
+    "end_flags": [
+      true,
+      false
+    ],
+    "end_gripper": {
+      "left": 0.0,
+      "right": 1.0
+    },
+    "eval_success_end": false,
+    "eval_success_first_step": null,
+    "switch_hi_limit": null,
+    "switch_threshold": null,
+    "switch_qpos_at_s2": null,
+    "switch_steps_below_after_s2": 0,
+    "switch_records_below_after_s2": 0,
+    "switch_min_after_s2": null,
+    "switch_max_after_s2": null,
+    "switch_rebound_margin": null,
+    "switch_rebound_duration_steps": 0,
+    "switch_ever_below_after_s2": false,
+    "switch_last_qpos": 0.00038871195283718407,
+    "gripper_left_end": 0.0,
+    "gripper_right_end": 1.0,
+    "mechanism": "S2 从未触发",
+    "verdict": "OTHER_FAILURE",
+    "historical": {
+      "s1_step": 36,
+      "s2_step": null,
+      "success": false,
+      "total_steps": 1500
+    },
+    "historical_total_steps": 1500,
+    "trace_last_step": 448,
+    "steps_match": false,
+    "reproduced": true,
+    "aborted_early": true
+  }
+]
