@@ -1,0 +1,351 @@
+{
+  "total": 734,
+  "pairs": {
+    "full_inst/arrange_sign_2tasks": {
+      "n": 20,
+      "unique_seeds": 20,
+      "duplicate_seeds": 0,
+      "aborted": 0,
+      "other_runs": 3,
+      "path": "results/paper_table1/full/batch5/full_inst/arrange_sign_2tasks/attempt1/robocombine/full_inst/Motus/20261112_191043_robocombine_full_inst_motus/tasks/arrange_sign_2tasks/evaluation_statistics.json",
+      "sum_all_runs": 33
+    },
+    "full_inst/bakery_close_2tasks": {
+      "n": 20,
+      "unique_seeds": 20,
+      "duplicate_seeds": 0,
+      "aborted": 0,
+      "other_runs": 0,
+      "path": "results/paper_table1/full/full_inst/bakery_close_2tasks/attempt1/robocombine/full_inst/Motus/20261113_011008_robocombine_full_inst_motus/tasks/bakery_close_2tasks/evaluation_statistics.json",
+      "sum_all_runs": 20
+    },
+    "full_inst/bedside_2tasks": {
+      "n": 20,
+      "unique_seeds": 20,
+      "duplicate_seeds": 0,
+      "aborted": 0,
+      "other_runs": 0,
+      "path": "results/paper_table1/full/shard1of5/full_inst/bedside_2tasks/attempt1/robocombine/full_inst/Motus/20261112_052911_robocombine_full_inst_motus/tasks/bedside_2tasks/evaluation_statistics.json",
+      "sum_all_runs": 20
+    },
+    "full_inst/breakfast_prep_2tasks": {
+      "n": 20,
+      "unique_seeds": 20,
+      "duplicate_seeds": 0,
+      "aborted": 0,
+      "other_runs": 0,
+      "path": "results/paper_table1/full/full_inst/breakfast_prep_2tasks/attempt1/robocombine/full_inst/Motus/20261111_133417_robocombine_full_inst_motus/tasks/breakfast_prep_2tasks/evaluation_statistics.json",
+      "sum_all_runs": 20
+    },
+    "full_inst/checkout_counter_2tasks": {
+      "n": 20,
+      "unique_seeds": 20,
+      "duplicate_seeds": 0,
+      "aborted": 0,
+      "other_runs": 0,
+      "path": "results/paper_table1/full/shard3of5/full_inst/checkout_counter_2tasks/attempt1/robocombine/full_inst/Motus/20261112_001807_robocombine_full_inst_motus/tasks/checkout_counter_2tasks/evaluation_statistics.json",
+      "sum_all_runs": 20
+    },
+    "full_inst/counter_cleanup_2tasks": {
+      "n": 20,
+      "unique_seeds": 20,
+      "duplicate_seeds": 0,
+      "aborted": 0,
+      "other_runs": 0,
+      "path": "results/paper_table1/full/shard4of5/full_inst/counter_cleanup_2tasks/attempt1/robocombine/full_inst/Motus/20261112_040031_robocombine_full_inst_motus/tasks/counter_cleanup_2tasks/evaluation_statistics.json",
+      "sum_all_runs": 20
+    },
+    "full_inst/desk_arrange_2tasks": {
+      "n": 20,
+      "unique_seeds": 20,
+      "duplicate_seeds": 0,
+      "aborted": 0,
+      "other_runs": 0,
+      "path": "results/paper_table1/full/batch3/full_inst/desk_arrange_2tasks/attempt1/robocombine/full_inst/Motus/20261112_190943_robocombine_full_inst_motus/tasks/desk_arrange_2tasks/evaluation_statistics.json",
+      "sum_all_runs": 20
+    },
+    "full_inst/hobby_desk_2tasks": {
+      "n": 20,
+      "unique_seeds": 20,
+      "duplicate_seeds": 0,
+      "aborted": 0,
+      "other_runs": 0,
+      "path": "results/paper_table1/full/shard1of5/full_inst/hobby_desk_2tasks/attempt1/robocombine/full_inst/Motus/20261112_075258_robocombine_full_inst_motus/tasks/hobby_desk_2tasks/evaluation_statistics.json",
+      "sum_all_runs": 20
+    },
+    "full_inst/kitchen_switch_2tasks": {
+      "n": 20,
+      "unique_seeds": 20,
+      "duplicate_seeds": 0,
+      "aborted": 0,
+      "other_runs": 0,
+      "path": "results/paper_table1/full/shard1of5/full_inst/kitchen_switch_2tasks/attempt1/robocombine/full_inst/Motus/20261112_140518_robocombine_full_inst_motus/tasks/kitchen_switch_2tasks/evaluation_statistics.json",
+      "sum_all_runs": 20
+    },
+    "full_inst/living_room_tidy_2tasks": {
+      "n": 20,
+      "unique_seeds": 20,
+      "duplicate_seeds": 0,
+      "aborted": 0,
+      "other_runs": 0,
+      "path": "results/paper_table1/gateE_deep/full_inst/robocombine/full_inst/Motus/20261110_005357_robocombine_full_inst_motus/tasks/living_room_tidy_2tasks/evaluation_statistics.json",
+      "sum_all_runs": 20
+    },
+    "full_inst/office_desk_2tasks": {
+      "n": 20,
+      "unique_seeds": 20,
+      "duplicate_seeds": 0,
+      "aborted": 0,
+      "other_runs": 0,
+      "path": "results/paper_table1/gateE_deep/full_inst/robocombine/full_inst/Motus/20261110_005357_robocombine_full_inst_motus/tasks/office_desk_2tasks/evaluation_statistics.json",
+      "sum_all_runs": 20
+    },
+    "full_inst/office_organize_2tasks": {
+      "n": 7,
+      "unique_seeds": 7,
+      "duplicate_seeds": 0,
+      "aborted": 0,
+      "other_runs": 4,
+      "path": "results/paper_table1/full/shard4of5/full_inst/office_organize_2tasks/attempt1/robocombine/full_inst/Motus/20261112_072328_robocombine_full_inst_motus/tasks/office_organize_2tasks/evaluation_statistics.json",
+      "sum_all_runs": 28
+    },
+    "full_inst/reception_desk_2tasks": {
+      "n": 20,
+      "unique_seeds": 20,
+      "duplicate_seeds": 0,
+      "aborted": 0,
+      "other_runs": 0,
+      "path": "results/paper_table1/full/batch2/full_inst/reception_desk_2tasks/attempt1/robocombine/full_inst/Motus/20261112_213208_robocombine_full_inst_motus/tasks/reception_desk_2tasks/evaluation_statistics.json",
+      "sum_all_runs": 20
+    },
+    "full_inst/room_comfort_2tasks": {
+      "n": 20,
+      "unique_seeds": 20,
+      "duplicate_seeds": 0,
+      "aborted": 0,
+      "other_runs": 0,
+      "path": "results/paper_table1/full/shard2of5/full_inst/room_comfort_2tasks/attempt1/robocombine/full_inst/Motus/20261112_093254_robocombine_full_inst_motus/tasks/room_comfort_2tasks/evaluation_statistics.json",
+      "sum_all_runs": 20
+    },
+    "full_inst/smart_home_2tasks": {
+      "n": 20,
+      "unique_seeds": 20,
+      "duplicate_seeds": 0,
+      "aborted": 0,
+      "other_runs": 0,
+      "path": "results/paper_table1/full/shard3of5/full_inst/smart_home_2tasks/attempt1/robocombine/full_inst/Motus/20261112_064712_robocombine_full_inst_motus/tasks/smart_home_2tasks/evaluation_statistics.json",
+      "sum_all_runs": 20
+    },
+    "full_inst/stationery_sort_2tasks": {
+      "n": 20,
+      "unique_seeds": 20,
+      "duplicate_seeds": 0,
+      "aborted": 0,
+      "other_runs": 0,
+      "path": "results/paper_table1/full/shard1of5/full_inst/stationery_sort_2tasks/attempt1/robocombine/full_inst/Motus/20261112_102836_robocombine_full_inst_motus/tasks/stationery_sort_2tasks/evaluation_statistics.json",
+      "sum_all_runs": 20
+    },
+    "full_inst/store_display_2tasks": {
+      "n": 20,
+      "unique_seeds": 20,
+      "duplicate_seeds": 0,
+      "aborted": 0,
+      "other_runs": 0,
+      "path": "results/paper_table1/full/shard2of5/full_inst/store_display_2tasks/attempt1/robocombine/full_inst/Motus/20261112_060201_robocombine_full_inst_motus/tasks/store_display_2tasks/evaluation_statistics.json",
+      "sum_all_runs": 20
+    },
+    "full_inst/tabletop_arrange_2tasks": {
+      "n": 20,
+      "unique_seeds": 20,
+      "duplicate_seeds": 0,
+      "aborted": 0,
+      "other_runs": 0,
+      "path": "results/paper_table1/full/shard3of5/full_inst/tabletop_arrange_2tasks/attempt1/robocombine/full_inst/Motus/20261112_032720_robocombine_full_inst_motus/tasks/tabletop_arrange_2tasks/evaluation_statistics.json",
+      "sum_all_runs": 20
+    },
+    "full_inst/workspace_setup_2tasks": {
+      "n": 20,
+      "unique_seeds": 20,
+      "duplicate_seeds": 0,
+      "aborted": 0,
+      "other_runs": 4,
+      "path": "results/paper_table1/full/batch4/full_inst/workspace_setup_2tasks/attempt1/robocombine/full_inst/Motus/20261112_190943_robocombine_full_inst_motus/tasks/workspace_setup_2tasks/evaluation_statistics.json",
+      "sum_all_runs": 38
+    },
+    "oracle_hse/arrange_sign_2tasks": {
+      "n": 20,
+      "unique_seeds": 20,
+      "duplicate_seeds": 0,
+      "aborted": 0,
+      "other_runs": 0,
+      "path": "results/paper_table1/full/shard1of5/oracle_hse/arrange_sign_2tasks/attempt1/robocombine/oracle_hse/Motus/20261111_173158_robocombine_oracle_hse_motus/tasks/arrange_sign_2tasks/evaluation_statistics.json",
+      "sum_all_runs": 20
+    },
+    "oracle_hse/bakery_close_2tasks": {
+      "n": 20,
+      "unique_seeds": 20,
+      "duplicate_seeds": 0,
+      "aborted": 0,
+      "other_runs": 0,
+      "path": "results/paper_table1/full/shard1of5/oracle_hse/bakery_close_2tasks/attempt1/robocombine/oracle_hse/Motus/20261112_022806_robocombine_oracle_hse_motus/tasks/bakery_close_2tasks/evaluation_statistics.json",
+      "sum_all_runs": 20
+    },
+    "oracle_hse/bedside_2tasks": {
+      "n": 20,
+      "unique_seeds": 20,
+      "duplicate_seeds": 0,
+      "aborted": 0,
+      "other_runs": 0,
+      "path": "results/paper_table1/full/shard2of5/oracle_hse/bedside_2tasks/attempt1/robocombine/oracle_hse/Motus/20261111_174014_robocombine_oracle_hse_motus/tasks/bedside_2tasks/evaluation_statistics.json",
+      "sum_all_runs": 20
+    },
+    "oracle_hse/breakfast_prep_2tasks": {
+      "n": 20,
+      "unique_seeds": 20,
+      "duplicate_seeds": 0,
+      "aborted": 0,
+      "other_runs": 0,
+      "path": "results/paper_table1/full/oracle_hse/breakfast_prep_2tasks/attempt1/robocombine/oracle_hse/Motus/20261111_123553_robocombine_oracle_hse_motus/tasks/breakfast_prep_2tasks/evaluation_statistics.json",
+      "sum_all_runs": 20
+    },
+    "oracle_hse/checkout_counter_2tasks": {
+      "n": 20,
+      "unique_seeds": 20,
+      "duplicate_seeds": 0,
+      "aborted": 0,
+      "other_runs": 0,
+      "path": "results/paper_table1/full/shard4of5/oracle_hse/checkout_counter_2tasks/attempt1/robocombine/oracle_hse/Motus/20261111_174112_robocombine_oracle_hse_motus/tasks/checkout_counter_2tasks/evaluation_statistics.json",
+      "sum_all_runs": 20
+    },
+    "oracle_hse/counter_cleanup_2tasks": {
+      "n": 20,
+      "unique_seeds": 20,
+      "duplicate_seeds": 0,
+      "aborted": 0,
+      "other_runs": 0,
+      "path": "results/paper_table1/full/shard5of5/oracle_hse/counter_cleanup_2tasks/attempt1/robocombine/oracle_hse/Motus/20261111_174115_robocombine_oracle_hse_motus/tasks/counter_cleanup_2tasks/evaluation_statistics.json",
+      "sum_all_runs": 20
+    },
+    "oracle_hse/desk_arrange_2tasks": {
+      "n": 20,
+      "unique_seeds": 20,
+      "duplicate_seeds": 0,
+      "aborted": 0,
+      "other_runs": 0,
+      "path": "results/paper_table1/full/shard1of5/oracle_hse/desk_arrange_2tasks/attempt1/robocombine/oracle_hse/Motus/20261111_205930_robocombine_oracle_hse_motus/tasks/desk_arrange_2tasks/evaluation_statistics.json",
+      "sum_all_runs": 20
+    },
+    "oracle_hse/hobby_desk_2tasks": {
+      "n": 20,
+      "unique_seeds": 20,
+      "duplicate_seeds": 0,
+      "aborted": 0,
+      "other_runs": 0,
+      "path": "results/paper_table1/full/shard2of5/oracle_hse/hobby_desk_2tasks/attempt1/robocombine/oracle_hse/Motus/20261111_194701_robocombine_oracle_hse_motus/tasks/hobby_desk_2tasks/evaluation_statistics.json",
+      "sum_all_runs": 20
+    },
+    "oracle_hse/kitchen_switch_2tasks": {
+      "n": 20,
+      "unique_seeds": 20,
+      "duplicate_seeds": 0,
+      "aborted": 0,
+      "other_runs": 0,
+      "path": "results/paper_table1/full/shard2of5/oracle_hse/kitchen_switch_2tasks/attempt1/robocombine/oracle_hse/Motus/20261112_021847_robocombine_oracle_hse_motus/tasks/kitchen_switch_2tasks/evaluation_statistics.json",
+      "sum_all_runs": 20
+    },
+    "oracle_hse/living_room_tidy_2tasks": {
+      "n": 20,
+      "unique_seeds": 20,
+      "duplicate_seeds": 0,
+      "aborted": 0,
+      "other_runs": 0,
+      "path": "results/paper_table1/gateE_deep/oracle_hse/robocombine/oracle_hse/Motus/20261109_193936_robocombine_oracle_hse_motus/tasks/living_room_tidy_2tasks/evaluation_statistics.json",
+      "sum_all_runs": 20
+    },
+    "oracle_hse/office_desk_2tasks": {
+      "n": 20,
+      "unique_seeds": 20,
+      "duplicate_seeds": 0,
+      "aborted": 0,
+      "other_runs": 0,
+      "path": "results/paper_table1/gateE_deep/oracle_hse/robocombine/oracle_hse/Motus/20261109_193936_robocombine_oracle_hse_motus/tasks/office_desk_2tasks/evaluation_statistics.json",
+      "sum_all_runs": 20
+    },
+    "oracle_hse/office_organize_2tasks": {
+      "n": 7,
+      "unique_seeds": 7,
+      "duplicate_seeds": 0,
+      "aborted": 0,
+      "other_runs": 4,
+      "path": "results/paper_table1/full/shard5of5/oracle_hse/office_organize_2tasks/attempt3/robocombine/oracle_hse/Motus/20261112_094426_robocombine_oracle_hse_motus/tasks/office_organize_2tasks/evaluation_statistics.json",
+      "sum_all_runs": 31
+    },
+    "oracle_hse/reception_desk_2tasks": {
+      "n": 20,
+      "unique_seeds": 20,
+      "duplicate_seeds": 0,
+      "aborted": 0,
+      "other_runs": 0,
+      "path": "results/paper_table1/full/shard1of5/oracle_hse/reception_desk_2tasks/attempt1/robocombine/oracle_hse/Motus/20261111_231700_robocombine_oracle_hse_motus/tasks/reception_desk_2tasks/evaluation_statistics.json",
+      "sum_all_runs": 20
+    },
+    "oracle_hse/room_comfort_2tasks": {
+      "n": 20,
+      "unique_seeds": 20,
+      "duplicate_seeds": 0,
+      "aborted": 0,
+      "other_runs": 0,
+      "path": "results/paper_table1/full/shard3of5/oracle_hse/room_comfort_2tasks/attempt1/robocombine/oracle_hse/Motus/20261111_201842_robocombine_oracle_hse_motus/tasks/room_comfort_2tasks/evaluation_statistics.json",
+      "sum_all_runs": 20
+    },
+    "oracle_hse/smart_home_2tasks": {
+      "n": 20,
+      "unique_seeds": 20,
+      "duplicate_seeds": 0,
+      "aborted": 0,
+      "other_runs": 0,
+      "path": "results/paper_table1/full/shard4of5/oracle_hse/smart_home_2tasks/attempt1/robocombine/oracle_hse/Motus/20261112_000308_robocombine_oracle_hse_motus/tasks/smart_home_2tasks/evaluation_statistics.json",
+      "sum_all_runs": 20
+    },
+    "oracle_hse/stationery_sort_2tasks": {
+      "n": 20,
+      "unique_seeds": 20,
+      "duplicate_seeds": 0,
+      "aborted": 0,
+      "other_runs": 0,
+      "path": "results/paper_table1/full/shard2of5/oracle_hse/stationery_sort_2tasks/attempt1/robocombine/oracle_hse/Motus/20261111_230822_robocombine_oracle_hse_motus/tasks/stationery_sort_2tasks/evaluation_statistics.json",
+      "sum_all_runs": 20
+    },
+    "oracle_hse/store_display_2tasks": {
+      "n": 20,
+      "unique_seeds": 20,
+      "duplicate_seeds": 0,
+      "aborted": 0,
+      "other_runs": 0,
+      "path": "results/paper_table1/full/shard3of5/oracle_hse/store_display_2tasks/attempt1/robocombine/oracle_hse/Motus/20261111_174110_robocombine_oracle_hse_motus/tasks/store_display_2tasks/evaluation_statistics.json",
+      "sum_all_runs": 20
+    },
+    "oracle_hse/tabletop_arrange_2tasks": {
+      "n": 20,
+      "unique_seeds": 20,
+      "duplicate_seeds": 0,
+      "aborted": 0,
+      "other_runs": 0,
+      "path": "results/paper_table1/full/shard4of5/oracle_hse/tabletop_arrange_2tasks/attempt1/robocombine/oracle_hse/Motus/20261111_202834_robocombine_oracle_hse_motus/tasks/tabletop_arrange_2tasks/evaluation_statistics.json",
+      "sum_all_runs": 20
+    },
+    "oracle_hse/workspace_setup_2tasks": {
+      "n": 20,
+      "unique_seeds": 20,
+      "duplicate_seeds": 0,
+      "aborted": 0,
+      "other_runs": 4,
+      "path": "results/paper_table1/full/batch2/oracle_hse/workspace_setup_2tasks/attempt1/robocombine/oracle_hse/Motus/20261112_190943_robocombine_oracle_hse_motus/tasks/workspace_setup_2tasks/evaluation_statistics.json",
+      "sum_all_runs": 60
+    }
+  },
+  "short": {
+    "full_inst/office_organize_2tasks": 7,
+    "oracle_hse/office_organize_2tasks": 7
+  }
+}

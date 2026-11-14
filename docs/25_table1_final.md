@@ -4,9 +4,14 @@
 checkpoint：`Motus_robotwin2`（sha256 `70bc1741…300eb65`，与 HF LFS oid 一致，见 `docs/14`/`docs/20`）。
 代码：RoboCombine `df237b22bd5c39d705b103daf2b9a8a168c9d453`（服务器运行快照见 `docs/23`）。
 
-**完成度：669 / 760 episodes（88%）**
-- 18 个任务 × 2 轨道 = 720 eps 全部跑满 20；
-- `office_organize_2tasks`：oracle **8/20**、full **7/20**，因专家 demo 反复死循环终止（`PLANNER_HANG`，见 §4）。
+> **2026-11-14 计数更正**：上一版写的 "669/760（88%）" 是**错误的**（用了过期的中间态快照 654 再加 15）。
+> 逐 pair 审计（`docs/29_count_audit.md`）后的正确口径是：
+> **有效完整样本 720 / 760（94.7%）**，即 36 个 pair × 20 eps（全部 20 unique seeds、0 重复、0 中断）；
+> `office_organize` **没有任何有效的 20-episode 样本**（仅有 7+7 个部分记录，且续跑目录元数据与明细不一致，已排除）。
+
+**完成度：720 / 760 episodes（94.7%，18/19 任务）**
+- 18 个任务 × 2 轨道 = 720 eps 全部跑满 20（已审计）；
+- `office_organize_2tasks`：**未完成**，无有效样本（见 §4）。
 
 ---
 
@@ -26,7 +31,7 @@ checkpoint：`Motus_robotwin2`（sha256 `70bc1741…300eb65`，与 HF LFS oid �
 | hobby_desk | 15 | **0/20 (0%)** | 11/20 | 35 | **0/20 (0%)** | 7/20 |
 | living_room_tidy | 5 | 2/20 (10%) | 2/20 | 10 | 7/20 (35%) | 7/20 |
 | office_desk | 10 | 0/20 (0%) | 2/20 | 15 | 9/20 (45%) | 9/20 |
-| office_organize | 15 | 0/7* (0%) | 0/7* | 15 | 0/8* (0%) | 0/8* |
+| office_organize | 15 | **未完成**（部分 7 eps，不计入） | — | 15 | **未完成**（部分 7 eps，不计入） | — |
 | reception_desk | 5 | 2/20 (10%) | 2/20 | 15 | 11/20 (55%) | 7/20 |
 | stationery_sort | 10 | 1/20 (5%) | 3/20 | 10 | 6/20 (30%) | 7/20 |
 | store_display | 5 | 2/20 (10%) | 3/20 | 20 | 11/20 (55%) | 11/20 |
@@ -46,8 +51,8 @@ checkpoint：`Motus_robotwin2`（sha256 `70bc1741…300eb65`，与 HF LFS oid �
 | **ordered（论文口径）** | **177/360 = 49.2%** | **68/360 = 18.9%** | 19.7% / 10.0% |
 | env success | 136/360 = 37.8% | 74/360 = 20.6% | — |
 
-含 office_organize 的部分数据（368 / 367 eps）：
-Oracle ordered 48.1%（177/368）、Full ordered 18.5%（68/367）。
+`office_organize` **不进入任何平均值**：它没有有效样本，剩余 26 个 slot 未跑；
+已完成的部分记录（7+7，unique seeds）只作定性参考，且**不能把"未跑的部分"当作失败**。
 
 **注意 `Full Inst` 出现 `env > ordered`**（20.6% vs 18.9%）：因为 `hobby_desk`（env 11、ordered 0）、
 `tabletop_arrange`（env 7、ordered 0）、`office_desk`（env 2、ordered 0）存在**反序完成**
@@ -74,7 +79,9 @@ Oracle ordered 48.1%（177/368）、Full ordered 18.5%（68/367）。
 
 - 单 episode 本身只要 ~7 分钟（`avg_episode_time = 407s`），但**专家 demo 极慢且大量失败**：
   7 个接受状态需要 29 个候选，22 次失败 demo 各约 13 分钟 → 5 小时。
-- 先后经历：4 次 1h 超时截断 → 2 次 6h 超时 → 原地续跑（官方 resume）→ **两次都卡死在专家 demo**。
+- 先后经历：4 次 1h 超时截断 → 2 次 6h 超时 → **原地续跑** → 两次都卡死在专家 demo。
+- ⚠️ 原地续跑产生了**记录污染**：`attempt1` 的 `total_episodes=8` 但 `episode_details` 只有 3 条且 seed 重复。
+  这是操作失误（应为每次新 `attempt` 目录），已在 `docs/29` 记录并排除该数据。
 - 卡死证据（`logs/paper_table1/full/MONITOR_STALLED_20261113.txt`）：
 
 ```
@@ -83,8 +90,9 @@ full    log freeze: 09:29:54, 10039 lines, task.log 2026-11-12 23:50:37, 7 eps
 both CPU ~110%, GPU util 0%, killed pids 164816 164817
 ```
 
-判定：`PLANNER_HANG`（CuRobo 规划死循环，与 Phase 3 观察到的同类）。
-已完成的 8 / 7 个 episode 中 `ordered = 0`、`env = 0`，因此**不影响** §2 的 18 任务汇总。
+判定：`PLANNER_HANG` —— **运行故障标签**（进程长时间无评测进展、CPU 打满、GPU 0%）。
+已完成的部分 episode 中 `ordered = 0`、`env = 0`，因此**不影响** §2 的 18 任务汇总；
+但"这 15 次全零"**不能推断**剩余 26 次也会失败。
 
 ---
 
@@ -106,7 +114,7 @@ both CPU ~110%, GPU util 0%, killed pids 164816 164817
 | 项 | 状态 |
 | --- | --- |
 | 18 任务 × 2 轨道 × 20 eps | `COMPLETE` |
-| `office_organize` × 2 轨道 | `PLANNER_HANG`（8/20、7/20） |
+| `office_organize` × 2 轨道 | `PLANNER_HANG`（**无有效样本**；部分 7+7，记录不一致已排除） |
 | 公开代码协议 | `REPRODUCED_AT_PUBLIC_CODE_LEVEL` |
 | 论文精确复现 | `NOT_CLAIMED`（checkpoint revision / seed 规则 / RoboTwin 版本未公开） |
 | `ordered_hse` 轨道 | `NOT_RUN`（缺 predictor bundle） |
