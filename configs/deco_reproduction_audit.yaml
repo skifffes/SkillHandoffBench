@@ -1,0 +1,163 @@
+# Phase B2 · DeCo 复现审计配置快照
+# 生成时间：2026-11-14
+# 性质：只读审计快照；不被任何运行代码读取。
+
+audit:
+  phase: B2
+  method: DeCo  # Task Decomposition and Skill Composition
+  decision_original: BLOCKED_MISSING_CODE
+  decision_port: FEASIBLE_WITH_MAJOR_ADAPTATION
+  executed_experiments: none
+  gpu_training_started: false
+  rollout_started: false
+  vlm_api_called: false
+  large_downloads: none
+
+paper:
+  title: "DeCo: Task Decomposition and Skill Composition for Zero-Shot Generalization in Long-Horizon 3D Manipulation"
+  arxiv: "2505.00527"
+  versions_read: ["v1", "v2"]
+  version_note: "核心数字一致；v2 补充 GPU 型号(8x RTX 4090)；两版表格编号不同；逐句 diff 未做 -> PARTIAL"
+  components:
+    - id: A
+      name: "Physical Interaction-based Task Decomposition and Skill Learning"
+      section: "III-B"
+      key_points: ["p_full / p_half 两种粒度", "keyframe discovery [43]", "原子指令库 L^a", "goal pose = full interaction 末帧", "50 demos/任务"]
+    - id: B
+      name: "VLM-Guided Planning and Skill Scheduling"
+      section: "III-C"
+      key_points: ["GPT-4o", "输入: 指令 + RGB + 原子指令库", "goal-pose 位姿闭环判断技能完成"]
+    - id: C
+      name: "Spatially-Aware Skill Chaining"
+      section: "III-D"
+      key_points: ["当前 goal pose + 预测的下一 start pose + 场景点云", "cost map 改编自 VoxPoser", "生成 collision-free chaining poses", "明确不用常规全局运动规划器"]
+  protocol:
+    benchmark: DeCoBench
+    source_tasks: 4
+    atomic_skills: 10
+    compositional_tasks: 12
+    demos_per_atomic: 50
+    test_demos_per_composition: 20
+    seeds: 3
+    residuals: "20 x 3 的组织方式未说明 -> UNVERIFIED"
+    hardware: "8 x RTX 4090 (v2)"
+    batch: {rvt2: 24, arp: 48, 3dda: 8}
+    cameras: 4
+    resolution: {rvt2: 128, arp: 128, 3dda: 256}
+    goal_pose_frame: robot_base
+    metrics: {atomic: success_rate, compositional: success_rate, ordered_sr_equivalent: false}
+  table_ii: {rvt2_deco: 66.67, 3dda_deco: 21.53, arp_deco: 58.06}
+  ablation: {chaining_poses_num_zero: "性能显著下降 (V-D)"}
+
+code:
+  project_site: "https://deco226.github.io/"
+  code_url: "https://github.com/chenzixuan99/RoboHiMan"
+  fork: true
+  fork_parent: "chenyt31/RoboHiMan"
+  fork_head_sha: d18332b2a78dc5350ffcac8157bd166173e7321f
+  fork_head_date: "2025-12-25"
+  upstream_head_sha: 33f71d30d9a100a83725ff00dfcc27374d5ce810
+  upstream_head_date: "2025-10-16"
+  fork_vs_upstream:
+    ahead_by: 2
+    behind_by: 0
+    files_changed: 1
+    change: "README.md +12/-1: 增加 'This codebase supports the reproduction of DeCo' + 引用修正"
+  upstream_is_other_paper:
+    arxiv: "2510.13149"
+    title: "RoboHiMan: A hierarchical evaluation paradigm for compositional generalization in long-horizon manipulation"
+  repo_stats:
+    entries: 13017
+    python_files: 894
+    ttm_tasks: 245
+    weight_files: 0
+    size_mb_approx: 680
+    vendored: ["RVT + RLBench + PyRep", "3D-Diffuser-Actor", "OpenPi", "OpenPi05", "robot-colosseum", "LLaMA-Factory"]
+  modules:
+    atomic_decomposition:
+      status: PARTIAL_IMPLEMENTATION
+      locations: ["src/utils/data_engine.py:52-105"]
+      note: "只有 keyframe/goal_keyframe 提取；没有按 p_full/p_half 切分原子任务数据集"
+    atomic_training:
+      status: EXTERNAL_DEPENDENCY
+      locations: ["baselines/RVT-Baseline", "baselines/3d-Diffuser-Actor-Baseline", "baselines/OpenPi-Baseline", "baselines/OpenPi05-Baseline"]
+      note: "vendored 原仓库训练脚本；无 DeCoBench 专用配置"
+    vlm_planning:
+      status: MISMATCH
+      paper_model: GPT-4o
+      code_model: "Qwen2.5-VL (LLaMA-Factory 微调)"
+      locations: ["src/high_level/vlm/agent.py:1-40", "src/high_level/vlm/models/qwen_vl_runner.py", "HIGH_LEVEL.md"]
+      prompts: ["src/high_level/prompts/qwen_vl/*.jinja2", "DeCo226.github.io:docs/static/prompts/{full,half}/template.txt"]
+    scheduling:
+      status: PARTIAL_IMPLEMENTATION
+      locations: ["baselines/3d-Diffuser-Actor-Baseline/utils/utils_with_rlbench.py:697-860"]
+      note: "切技能依据夹爪/抓取变化；夹爪张开时 step(home_pose) 复位；无 goal-pose 判断"
+    goal_pose_check:
+      status: PAPER_ONLY
+      note: "代码中无 goal pose 表、无位姿比较"
+    spatial_cost_map:
+      status: PAPER_ONLY
+      evidence: "全仓 0 命中 voxposer/cost_map/chaining"
+    rrt_chaining:
+      status: PAPER_ONLY
+      note: "仅 RLBench Mover(EndEffectorPoseViaPlanning) 执行策略动作，属 GENERIC_MOTION_PLANNER"
+    benchmark_runner:
+      status: MISMATCH
+      note: "有 HiMan-Bench runner (evaluate_policy_himan.py)，无 DeCoBench runner"
+
+resources:
+  checkpoints:
+    rvt2_deco: NOT_LOCATED_IN_PUBLIC_SOURCES
+    dda3_deco: NOT_LOCATED_IN_PUBLIC_SOURCES
+    arp_deco: NOT_LOCATED_IN_PUBLIC_SOURCES
+    third_party_3dda_weights: PUBLIC_VERIFIED  # katefgroup/3d_diffuser_actor（非本方法产物）
+    vlm_gpt4o: ACCESS_RESTRICTED  # API 付费
+    vlm_qwen25vl: PUBLIC_AND_AVAILABLE
+  datasets:
+    decobench_demos: NOT_LOCATED_IN_PUBLIC_SOURCES
+    decobench_splits: NOT_LOCATED_IN_PUBLIC_SOURCES
+    rlbench_task_definitions: PUBLIC_AND_AVAILABLE  # vendored .ttm
+    himan_bench_data: "需自采（collect_dataset_train_*.sh）"
+  environment:
+    simulator: "CoppeliaSim Edu V4.1.0 (Ubuntu 20.04 build)"
+    pyrep_rlbench: "vendored, uv python 3.11"
+    our_host: "CentOS 7 (kernel 3.10) -> 需容器化"
+    gpus: "5 x A40 46GB (driver 550.120)"
+    scratch_free_gb: 154
+
+leakage_audit:
+  deco_atomic_only: true
+  robohiman_L4_contains_compositional: true   # train_compositional_C/CP
+  warning: "用 L4 训练的模型不得标注为零样本原子基线"
+  control_group: "6 Long training（论文 Table III）必须单列"
+
+compatibility_matrix:
+  simulator: {deco: RLBench/CoppeliaSim, robocombine: RoboTwin/SAPIEN, compatible: false}
+  low_level_model: {deco: RVT-2/3DDA/ARP, robocombine: Motus, compatible: false}
+  action_space: {deco: "EEF keyframe + discrete gripper", robocombine: "chunked EEF delta + gripper", compatible: partial}
+  observation: {deco: "4 RGB-D + point cloud", robocombine: "3 RGB + proprio", compatible: partial}
+  goal_pose: {deco: "explicit, from demo keyframe", robocombine: "absent", compatible: false}
+  skill_start_pose: {deco: "predicted for chaining", robocombine: "absent", compatible: false}
+  skill_switch: {deco: "goal-pose closed loop", robocombine: "subtask predicate + HSE cue", compatible: false}
+  physical_chaining: {deco: "VoxPoser cost map", robocombine: "none", compatible: false}
+  success_metric: {deco: "task.success()", robocombine: "sr_ordered + env success", compatible: false}
+  privileged_info: {deco: "point cloud, goal pose", robocombine: "object poses only", compatible: partial}
+
+decisions:
+  F1_original_deco_reproduction: BLOCKED_MISSING_CODE
+  F1_secondary: [BLOCKED_MISSING_DATA, BLOCKED_MISSING_CHECKPOINT]
+  F2_robocombine_port_feasibility: FEASIBLE_WITH_MAJOR_ADAPTATION
+  allowed_now: static_audit_only
+  prerequisites_to_revisit_F1:
+    - "作者提供 chaining 实现（cost map + chaining poses）或算法级伪代码与超参"
+    - "DeCoBench 的 12 任务划分、variation 列表、评测脚本"
+    - "4 源任务 x 50 示范（或官方示范数据）"
+    - "RVT-2/3DDA/ARP 的 DeCoBench 训练权重"
+  next_action: "阻塞 DeCo；转入其他 baseline 审计（等待授权）"
+
+unknowns:
+  - "20 test demos x 3 seeds 的组织方式（seed 控制什么）"
+  - "VLM 调用频率与失败重规划策略"
+  - "chaining poses 的数量、阈值、cost map 超参"
+  - "DeCoBench 12 任务的官方 variation 定义"
+  - "论文 v1 与 v2 在方法描述上的逐句差异"
