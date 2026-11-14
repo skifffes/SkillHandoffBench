@@ -1,0 +1,159 @@
+# Phase B1 · PRTI 复现审计配置快照
+# 生成时间：2026-11-14
+# 性质：只读审计快照，不参与任何运行；不被评测代码读取。
+
+audit:
+  phase: B1
+  method: PRTI  # Pose Robust Task Initialization
+  decision: BLOCKED
+  level_reached: 1          # Static Audit only（Level 2 推理复现未达成）
+  executed_experiments: none
+  gpu_training_started: false
+  rollout_started: false
+
+paper:
+  title: "Exploring the Limits of Combinatorial Generalization in Embodied Manipulation"
+  venue: NeurIPS 2026
+  arxiv: "2610.15425"
+  prti_sections:
+    definition: "§4.2"
+    objective: "Eq. (7)"
+    results: "Table 2"
+    training_details: "App. D"
+    controls: "App. D.1"
+  prti_type: post_training          # 训练期方法，不是推理期状态搬运
+  base_model: pi0.5_Robotwin_atomic_checkpoint
+  data_scale: "~10K episodes / ~2M frames / several hundred atomic prompts"
+  mix_ratio_canonical_to_prti: "1:1"
+  steps: 50000
+  global_batch: 256
+  accelerators: 4
+  optimizer: AdamW
+  schedule: "cosine + warmup"
+  ema: true
+  episodes_per_task_table2: 20
+  table2_ordered_success_pct:
+    base: 2.63
+    random: 4.21
+    reset: 9.47
+    prti: 18.16
+  table2_conv_1_to_2_pct:
+    base: 7.52
+    random: 12.50
+    reset: 29.75
+    prti: 39.88
+  unknown:
+    - "data engine 的具体算法（late segments 界定 / 状态恢复 / 接触重建 / 重采样判据）"
+    - "任务可行子集 S_i 的判定流程"
+    - "alpha 的显式取值"
+    - "两个 atomic data source 的身份"
+    - "learning rate / warmup steps / EMA decay"
+
+official_repo:
+  url: "https://github.com/AutoLab-SAI-SJTU/RoboCombine"
+  revision: df237b22bd5c39d705b103daf2b9a8a168c9d453
+  revision_is_upstream_head: true
+  local_content_changes: none      # 13 个文件仅行尾差异（git diff --numstat = 0/0）
+  public_scope: evaluation_only
+  prti_string_hits: 0              # git grep -niE "prti|pose.?robust" = 0
+  training_entrypoint: null
+  data_engine_entrypoint: null
+  nearest_primitive:
+    files: ["envs/_base_task.py"]
+    symbols:
+      - "terminal_state_init (line 54, 728-778)"
+      - "robot_warmup (line 53, 576-595)"
+      - "_load_terminal_state_bank (609-614)"
+      - "_infer_task_start_gripper_targets (619-620)"
+    default_enabled: false         # task_config/robocombine_eval.yml:36-39
+    reachable_from_cli: false      # script/ 与 handoff_eval/ 中 0 命中
+    missing_dependency: "data/<task>/<task>_v/data/episode*.hdf5（仓库不含 data/）"
+
+resources:
+  motus_robotwin2:
+    status: PUBLIC_AND_AVAILABLE
+    local: true
+    size_gb: 15
+    sha256: "70bc1741b45db5e3eae86510ad3bb1bd1aef04f10b17d8c1ff4dbe099300eb65"
+    role: "B0 评测基座（Table 1 policy）"
+  pi05_base:
+    status: PUBLIC_BUT_NOT_DOWNLOADED
+    hf: "lerobot/pi05_base"
+    role: "π0.5 通用基座（非 RoboTwin 微调）"
+  pi05_robotwin_atomic:
+    status: NOT_PUBLIC
+    role: "PRTI 的必要起点"
+  prti_checkpoint:
+    status: NOT_PUBLIC
+    role: "复现 Table 2 PRTI 列的必要条件"
+  prti_training_data:
+    status: NOT_PUBLIC
+    size: "~10K episodes / ~2M frames"
+  robocombine_dataset:
+    status: PUBLIC_AND_AVAILABLE
+    hf: "AutoLab-SJTU/RoboCombine"
+    episodes: 950            # 19 tasks x 50
+    frames: 285806
+    note: "评测用组合 episode，不是原子训练数据；README 明确不含 checkpoint"
+  robocombine_data_tarball:
+    status: PUBLIC_BUT_NOT_DOWNLOADED
+    size_gb: 13.1
+    note: "optional HDF5 trajectories / scene metadata / seeds / MP4 previews"
+  robocompose_assets:
+    status: PUBLIC_AND_AVAILABLE
+    local: true
+    size_gb: 16
+    path: "third_party/RoboCombine/assets"
+
+environment:
+  host_os: "CentOS Linux 7 (Core)"
+  kernel: "3.10.0-1160.el7.x86_64"
+  cpu_cores: 80
+  ram_gb: 251
+  gpus: "5 x NVIDIA A40 46068 MiB"
+  driver: "550.120"
+  cuda_toolkit: "not installed (nvcc absent)"
+  motus_python: "3.10.21"
+  motus_torch: "2.4.1+cu121"
+  pi05_runtime: absent
+  openpi_training_stack: absent
+  scratch_free_gb: 154
+  scratch_used_pct: 99
+
+b0_reference:
+  valid_episodes: 720
+  total_slots: 760
+  tasks_complete: "18/19"
+  oracle_ordered_pct: 49.2
+  full_ordered_pct: 18.9
+  office_organize: PLANNER_HANG
+  docs: ["docs/25_table1_final.md", "docs/29_count_audit.md"]
+
+blockers:
+  - id: B1-1
+    type: implementation
+    detail: "官方仓库无 PRTI 实现（0 命中；无训练/数据引擎入口）"
+  - id: B1-2
+    type: resource
+    detail: "无 π0.5 RoboTwin atomic checkpoint"
+  - id: B1-3
+    type: resource
+    detail: "无 ~10K 单技能训练数据（公开数据仅 950 条评测 episode）"
+  - id: B1-4
+    type: method
+    detail: "data engine 算法未描述，核心不可复现"
+  - id: B1-5
+    type: method
+    detail: "训练超参不全（lr / warmup / EMA decay / data source 身份）"
+  - id: B1-6
+    type: environment
+    detail: "无 pi05 运行时与 openpi 训练栈"
+  - id: B1-7
+    type: compute
+    detail: "论文 4 卡 x 50K steps；本地 /scratch 仅剩 154 GB"
+
+next_action:
+  decision: PIVOT_TO_DECO
+  prerequisite_if_revisit: "作者提供 PRTI 权重 + data engine 说明 + π0.5 RobotWin atomic ckpt"
+  preregistration: docs/31_prti_experiment_preregistration.md
+  preregistration_status: NOT_READY
